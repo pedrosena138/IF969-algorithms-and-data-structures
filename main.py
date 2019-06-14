@@ -39,7 +39,7 @@ def main():
             print("========================================")
             print("                MISERE                  ")
             print("========================================")
-            #jogos.misere()
+            jogos.misere()
 
         continua_jogar = str()
         while continua_jogar != 'S' and continua_jogar != 'N':
