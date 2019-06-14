@@ -1,6 +1,5 @@
 import os
-import misere
-import notakto
+import jogos
 
 
 def main():
@@ -15,10 +14,10 @@ def main():
 
         if  modo_de_jogo == 1:
             os.system('cls||clear')
-            notakto.jogo()
+            jogos.notakto()
         else:
             os.system('cls||clear')
-            misere.jogo()
+            jogos.misere()
 
         condicao_jogar = input("\nQuer continuar jogando? [s/n]: ").upper()
         while condicao_jogar != 'S' and condicao_jogar != 'N':
