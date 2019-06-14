@@ -21,11 +21,13 @@ def avaliacao(estado):
     
     return pontuacao
 
-def vitoria(estado, )
+def vitoria(estado, jogador):
+    pass
+
 def misere():
     escolha_j = str()  # escolha do jogador
     escolha_c = str()  # escolha do computador
-    primeiro_jogar = str()  # primeiro a jogar (jogador ou computador
+    primeiro_jogar = str()  # primeiro a jogar (jogador ou computador)
 
     # Setando o jogador
     while escolha_j != 'X' and escolha_j != 'O':
