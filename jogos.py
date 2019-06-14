@@ -1,5 +1,27 @@
 import os
 
+tabuleiro = [0,0,0,0,0,0,0,0,0]
+humano = 1
+computador = -1
+
+def avaliacao(estado):
+    """
+    Funcao para avaliar o estado o tabuleiro
+    parametro estado: estado atual do tabuleiro
+    """
+    #retorna +1 se o computador ganhar
+    if vitoria(estado, computador):
+        pontuacao = +1
+    #retorna -1 se o humano ganhar
+    elif vitoria(estado,humano):
+        pontuacao = -1
+    #retorna 0 se for empate
+    else:
+        pontuacao = 0
+    
+    return pontuacao
+
+def vitoria(estado, )
 def misere():
     escolha_j = str()  # escolha do jogador
     escolha_c = str()  # escolha do computador
