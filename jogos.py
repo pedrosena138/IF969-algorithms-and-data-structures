@@ -1,30 +1,58 @@
 import os
 
-tabuleiro = [0,0,0,0,0,0,0,0,0]
-humano = 1
-computador = -1
+posicoes = [0,0,0,0,0,0,0,0,0] #tabuleiro
+escolha_h = int() #escolha do humano
+escolha_c = int() #escolha do computador
+inicia_jogo = bool() #escolha de quem irá começar jogando
 
-def avaliacao(estado):
+def tabuleiro(posicoes, modo_normal):
     """
-    Funcao para avaliar o estado o tabuleiro
-    parametro estado: estado atual do tabuleiro
+    Funcao para imprimir o tabuleiro de jogo
+    param posicoes: condicao atual do tabuleiro
+    param modo_normal: define se o jogo vai ser jogado com 'X e O' ou so 'X'
     """
-    #retorna +1 se o computador ganhar
-    if vitoria(estado, computador):
-        pontuacao = +1
-    #retorna -1 se o humano ganhar
-    elif vitoria(estado,humano):
-        pontuacao = -1
-    #retorna 0 se for empate
+    divisor = '\t-----------------------'
+    #caso exista X e O no jogo
+    if modo_normal:
+        for x in range(len(posicoes)):
+            if x%3 == 0:
+                print("\n" + divisor)
+
+            if posicoes[x] == -1:
+                print(f'\t|  X  |', end='')
+            elif posicoes[x] == 1:
+                print(f'\t|  O  |', end='')
+            else:
+                print(f'\t|     |', end='')
+        print("\n" + divisor)
+    #caso exista so X no jogo
     else:
-        pontuacao = 0
-    
-    return pontuacao
+        for x in range(len(posicoes)):
+            if x%3 == 0:
+                print("\n" + divisor)
+            
+            if posicoes[x] != 0:
+                print(f'\t|  X  |', end='')
+            else:
+                print(f'\t|     |', end='')
+        print("\n" + divisor) 
 
-def vitoria(estado, jogador):
-    pass
+def jogadores(humano, computador, modo_normal):
+    """
+    Funcao para definicao dos jogadores
+    param humano: seta as definicoes do humano
+    param computador: seta as definicoes do computador
+    param modo_normal: define se o jogo vai ser jogado com 'X e O' ou so 'X'
+    """
+
+def notakto():
+    tabuleiro(posicoes, False)
+    print("jogando notakto")
 
 def misere():
+    tabuleiro(posicoes, True)
+    print("jogando misere")
+    """
     escolha_j = str()  # escolha do jogador
     escolha_c = str()  # escolha do computador
     primeiro_jogar = str()  # primeiro a jogar (jogador ou computador)
@@ -45,6 +73,4 @@ def misere():
     while primeiro_jogar != 'S' and primeiro_jogar != 'N':
         os.system('cls||clear')
         primeiro_jogar = input("Quer ser o primeiro a jogar? [s/n]: ").upper()
-
-def notakto():
-    print("jogando notakto")
+    """

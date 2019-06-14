@@ -1,10 +1,14 @@
-board = [0,0,0,0,0,0,0,0,0]
-"""
-print('\n' + str_line)
+posicoes = [0,0,0,0,0,0,0,0,0]
 
-for row in state:
-    for cell in row:
-        symbol = chars[cell]
-        print(f'| {symbol} |', end='')
-    print('\n' + str_line)
-"""
+divisor = '---------------------'
+
+for x in range(len(posicoes)):
+    if x%3 == 0:
+        print("\n" + divisor)
+    if posicoes[x] == -1:
+        print(f'|  X  |', end='')
+    elif posicoes[x] == 1:
+        print(f'|  O  |', end='')
+    else:
+        print(f'|     |', end='')
+print("\n" + divisor)
