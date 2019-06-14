@@ -1,9 +1,7 @@
 import os
-
-posicoes = [0,0,0,0,0,0,0,0,0] #tabuleiro
+import random
 escolha_h = int() #escolha do humano
 escolha_c = int() #escolha do computador
-inicia_jogo = bool() #escolha de quem irá começar jogando
 
 def tabuleiro(posicoes, modo_normal):
     """
@@ -31,27 +29,104 @@ def tabuleiro(posicoes, modo_normal):
             if x%3 == 0:
                 print("\n" + divisor)
             
-            if posicoes[x] != 0:
+            if posicoes[x] == 1:
                 print(f'\t|  X  |', end='')
             else:
                 print(f'\t|     |', end='')
         print("\n" + divisor) 
 
-def jogadores(humano, computador, modo_normal):
+def celula_vazia(posicoes, index):
     """
-    Funcao para definicao dos jogadores
-    param humano: seta as definicoes do humano
-    param computador: seta as definicoes do computador
-    param modo_normal: define se o jogo vai ser jogado com 'X e O' ou so 'X'
+    Funcao que checa se ainda há movimentos válidos
     """
+    if posicoes[index] == 0:
+        return True
+    else:
+        return False
 
-def notakto():
-    tabuleiro(posicoes, False)
-    print("jogando notakto")
+def movimento_valido(posicoes, index):
+    if index >= 0 and index <= 8 and celula_vazia(posicoes, index) : 
+        return True
+    else:
+        return False
 
-def misere():
-    tabuleiro(posicoes, True)
-    print("jogando misere")
+def game_over(posicoes):
+    if 0 in posicoes:
+        return False
+    else:
+        return True
+
+def notakto(modo_normal, posicoes = [0,0,0,0,0,0,0,0,0]):
+    while not(game_over(posicoes)):
+        os.system('cls||clear')
+        print("========================================")
+        print("                NOTAKTO                 ")
+        print("========================================")
+    
+        tabuleiro(posicoes, modo_normal)
+
+        jogada_h = int(input("\nEscolha uma casa [1 a 9]: "))
+        while movimento_valido(posicoes, (jogada_h-1)):
+            try:
+                jogada_h = int(input("\nEscolha uma casa [1 a 9]: "))
+            except (KeyError, ValueError):
+                print('')
+
+        posicoes[jogada_h-1] = 1
+
+        tabuleiro(posicoes, modo_normal)
+
+        jogada_c = random.randint(0,9)
+        while movimento_valido(posicoes, (jogada_c-1)):
+            try:
+                jogada_c = random.randint(0,9)
+            except (KeyError, ValueError):
+                print('')
+
+        posicoes[jogada_c] = -1
+        tabuleiro(posicoes, modo_normal)
+
+        
+def misere(modo_normal, posicoes = [0,0,0,0,0,0,0,0,0]):
+    while game_over(posicoes):
+        os.system('cls||clear')
+        print("========================================")
+        print("                MISERE                  ")
+        print("========================================")
+    
+        tabuleiro(posicoes, modo_normal)
+
+        jogada_h = int(input("\nEscolha uma casa [1 a 9]: "))
+        while movimento_valido(posicoes, (jogada_h-1)):
+            try:
+                jogada_h = int(input("\nEscolha uma casa [1 a 9]: "))
+            except (KeyError, ValueError):
+                print('')
+
+        posicoes[jogada_h-1] = 1
+
+        tabuleiro(posicoes, modo_normal)
+
+        jogada_c = random.randint(0,9)
+        while movimento_valido(posicoes, (jogada_c-1)):
+            try:
+                jogada_c = random.randint(0,9)
+            except (KeyError, ValueError):
+                print('')
+
+        posicoes[jogada_c] = -1
+
+
+
+
+
+
+
+
+
+
+
+
     """
     escolha_j = str()  # escolha do jogador
     escolha_c = str()  # escolha do computador

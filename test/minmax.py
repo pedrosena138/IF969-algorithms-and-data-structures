@@ -16,7 +16,7 @@ License: GNU GENERAL PUBLIC LICENSE (GPL)
 
 HUMAN = -1
 COMP = +1
-posicoes = [
+board = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0],
@@ -26,7 +26,7 @@ posicoes = [
 def evaluate(state):
     """
     Function to heuristic evaluation of state.
-    :param state: the state of the current posicoes
+    :param state: the state of the current board
     :return: +1 if the computer wins; -1 if the human wins; 0 draw
     """
     if wins(state, COMP):
@@ -45,7 +45,7 @@ def wins(state, player):
     * Three rows    [X X X] or [O O O]
     * Three cols    [X X X] or [O O O]
     * Two diagonals [X X X] or [O O O]
-    :param state: the state of the current posicoes
+    :param state: the state of the current board
     :param player: a human or a computer
     :return: True if the player wins
     """
@@ -68,7 +68,7 @@ def wins(state, player):
 def game_over(state):
     """
     This function test if the human or computer wins
-    :param state: the state of the current posicoes
+    :param state: the state of the current board
     :return: True if the human or computer wins
     """
     return wins(state, HUMAN) or wins(state, COMP)
@@ -77,7 +77,7 @@ def game_over(state):
 def empty_cells(state):
     """
     Each empty cell will be added into cells' list
-    :param state: the state of the current posicoes
+    :param state: the state of the current board
     :return: a list of empty cells
     """
     cells = []
@@ -95,9 +95,9 @@ def valid_move(x, y):
     A move is valid if the chosen cell is empty
     :param x: X coordinate
     :param y: Y coordinate
-    :return: True if the posicoes[x][y] is empty
+    :return: True if the board[x][y] is empty
     """
-    if [x, y] in empty_cells(posicoes):
+    if [x, y] in empty_cells(board):
         return True
     else:
         return False
@@ -105,13 +105,13 @@ def valid_move(x, y):
 
 def set_move(x, y, player):
     """
-    Set the move on posicoes, if the coordinates are valid
+    Set the move on board, if the coordinates are valid
     :param x: X coordinate
     :param y: Y coordinate
     :param player: the current player
     """
     if valid_move(x, y):
-        posicoes[x][y] = player
+        board[x][y] = player
         return True
     else:
         return False
@@ -120,7 +120,7 @@ def set_move(x, y, player):
 def minimax(state, depth, player):
     """
     AI function that choice the best move
-    :param state: current state of the posicoes
+    :param state: current state of the board
     :param depth: node index in the tree (0 <= depth <= 9),
     but never nine in this case (see iaturn() function)
     :param player: an human or a computer
@@ -165,8 +165,8 @@ def clean():
 
 def render(state, c_choice, h_choice):
     """
-    Print the posicoes on console
-    :param state: current state of the posicoes
+    Print the board on console
+    :param state: current state of the board
     """
 
     chars = {
@@ -192,19 +192,19 @@ def ai_turn(c_choice, h_choice):
     :param h_choice: human's choice X or O
     :return:
     """
-    depth = len(empty_cells(posicoes))
-    if depth == 0 or game_over(posicoes):
+    depth = len(empty_cells(board))
+    if depth == 0 or game_over(board):
         return
 
     clean()
     print(f'Computer turn [{c_choice}]')
-    render(posicoes, c_choice, h_choice)
+    render(board, c_choice, h_choice)
 
     if depth == 9:
         x = choice([0, 1, 2])
         y = choice([0, 1, 2])
     else:
-        move = minimax(posicoes, depth, COMP)
+        move = minimax(board, depth, COMP)
         x, y = move[0], move[1]
 
     set_move(x, y, COMP)
@@ -218,8 +218,8 @@ def human_turn(c_choice, h_choice):
     :param h_choice: human's choice X or O
     :return:
     """
-    depth = len(empty_cells(posicoes))
-    if depth == 0 or game_over(posicoes):
+    depth = len(empty_cells(board))
+    if depth == 0 or game_over(board):
         return
 
     # Dictionary of valid moves
@@ -232,7 +232,7 @@ def human_turn(c_choice, h_choice):
 
     clean()
     print(f'Human turn [{h_choice}]')
-    render(posicoes, c_choice, h_choice)
+    render(board, c_choice, h_choice)
 
     while move < 1 or move > 9:
         try:
@@ -288,7 +288,7 @@ def main():
             print('Bad choice')
 
     # Main loop of this game
-    while len(empty_cells(posicoes)) > 0 and not game_over(posicoes):
+    while len(empty_cells(board)) > 0 and not game_over(board):
         if first == 'N':
             ai_turn(c_choice, h_choice)
             first = ''
@@ -297,19 +297,19 @@ def main():
         ai_turn(c_choice, h_choice)
 
     # Game over message
-    if wins(posicoes, HUMAN):
+    if wins(board, HUMAN):
         clean()
         print(f'Human turn [{h_choice}]')
-        render(posicoes, c_choice, h_choice)
+        render(board, c_choice, h_choice)
         print('YOU WIN!')
-    elif wins(posicoes, COMP):
+    elif wins(board, COMP):
         clean()
         print(f'Computer turn [{c_choice}]')
-        render(posicoes, c_choice, h_choice)
+        render(board, c_choice, h_choice)
         print('YOU LOSE!')
     else:
         clean()
-        render(posicoes, c_choice, h_choice)
+        render(board, c_choice, h_choice)
         print('DRAW!')
 
     exit()
