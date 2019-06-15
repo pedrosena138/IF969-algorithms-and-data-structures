@@ -5,16 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Django",
+            "name": "Python",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\manage.py",
-            "args": [
-                "runserver",
-                "--noreload",
-                "--nothreading"
-            ],
-            "django": true
-        }
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "integratedTerminal"
+        },
+        
     ]
 }

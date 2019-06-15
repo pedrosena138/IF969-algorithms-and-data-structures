@@ -243,7 +243,7 @@ def human_turn(c_choice, h_choice):
             if not can_move:
                 print('Bad move')
                 move = -1
-        except (EOFError, KeyposicoesInterrupt):
+        except (EOFError, KeyboardInterrupt):
             print('Bye')
             exit()
         except (KeyError, ValueError):
@@ -264,7 +264,7 @@ def main():
         try:
             print('')
             h_choice = input('Choose X or O\nChosen: ').upper()
-        except (EOFError, KeyposicoesInterrupt):
+        except (EOFError, KeyboardInterrupt):
             print('Bye')
             exit()
         except (KeyError, ValueError):
@@ -281,7 +281,7 @@ def main():
     while first != 'Y' and first != 'N':
         try:
             first = input('First to start?[y/n]: ').upper()
-        except (EOFError, KeyposicoesInterrupt):
+        except (EOFError, KeyboardInterrupt):
             print('Bye')
             exit()
         except (KeyError, ValueError):

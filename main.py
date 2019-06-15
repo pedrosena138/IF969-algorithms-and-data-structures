@@ -24,25 +24,25 @@ def main():
         modo_de_jogo = int()
         while modo_de_jogo != 1 and modo_de_jogo != 2:
             try:
+                os.system('cls||clear')
                 modo_de_jogo = int(input("Escolha um modo de jogo: \n1-Notakto \n2-Misere \nSua escolha: "))
-                os.system('cls||clear')
             except (KeyError, ValueError):
-                print('')
                 os.system('cls||clear')
-            
+
         #caso escolha o Notakto
         if  modo_de_jogo == 1:
             jogos.notakto(False)
         #caso escolha o Misere
-        else:   
+        elif modo_de_jogo == 2:   
             jogos.misere(True)
-
-        continua_jogar = str()
+        
+        print('')
+        continua_jogar = str() #param para o usuario escolher se quer continuar a jogar ou nao
         while continua_jogar != 'S' and continua_jogar != 'N':
             try:
                 continua_jogar = input("Quer continuar jogando? [s/n]: ").upper()
             except (KeyError, ValueError):
-                print('')
+                print("Opcao invalida.")
         
         if continua_jogar == 'S':
             os.system('cls||clear')
