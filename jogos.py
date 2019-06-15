@@ -1,9 +1,9 @@
 import os
 import random
 
+#var globais
 H = -1 #Humano
 C = +1 #Computador
-
 
 def estado_vitoria(posicoes, jogador): 
     """
@@ -118,13 +118,25 @@ def setMove(jogador, posicoes, index, ia):
     """
     while not (movimento_valido(jogador-1, posicoes) or fim_jogo(posicoes)):
         try:
+            jogador = random.randint(0,9)
+            """
             if not(ia): 
                 jogador = int(input("Escolha uma casa [1 a 9]: "))
             else:
                 jogador = random.randint(0,9)
+            """
         except (KeyError, ValueError):
             print('Insira um valor válido. ', end='')
     return jogador
+
+def msg_final(posicoes, modo_normal):
+    tabuleiro(posicoes, modo_normal)
+    if estado_vitoria(posicoes, H):
+        print("\nVITORIA!!!")
+    elif estado_vitoria(posicoes, C):
+        print("\nDERROTA :(")
+    else:
+        print("\nEMPATE...")
 
 def notakto(modo_normal):
     posicoes = [0,0,0,0,0,0,0,0,0] #posicoes no tabuleiro
@@ -145,29 +157,31 @@ def notakto(modo_normal):
         
         jogada_c = setMove(C,posicoes,jogada_c,True)
         posicoes[jogada_c-1] = 1
-        
-
+    
     tabuleiro(posicoes, modo_normal)
       
-    """
-        
-        while not(jogada_c in celulas_vazias(posicoes)):
-            try:
-                jogada_c = random.randint(0,9)
-            except (KeyError, ValueError):
-                print('')
-
-        posicoes[jogada_c-1] = 1
-    tabuleiro(posicoes, modo_normal)
-    """
-
 def misere(modo_normal):
-    H = -1 #Humano
-    C = +1 #Computador
     posicoes = [0,0,0,0,0,0,0,0,0] #posicoes no tabuleiro
+    jogada_h = int() #jogada do humano
+    jogada_c = int() #jogada do computador
 
-    while len(celulas_vazias(posicoes)) > 0 and not fim_jogo(posicoes, H, C):
+    while len(celulas_vazias(posicoes)) > 0 and not fim_jogo(posicoes):
         os.system('cls||clear')
         print("========================================")
         print("                MISERE                  ")
         print("========================================")
+
+        tabuleiro(posicoes, modo_normal)
+        print('')
+
+        jogada_h = setMove(H,posicoes,jogada_h,False)
+        posicoes[jogada_h-1] = H
+        
+        jogada_c = setMove(C,posicoes,jogada_c,True)
+        posicoes[jogada_c-1] = C
+    
+    os.system('cls||clear')
+    print("========================================")
+    print("                MISERE                  ")
+    print("========================================")
+    msg_final(posicoes, modo_normal)
