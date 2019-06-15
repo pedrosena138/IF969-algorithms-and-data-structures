@@ -21,8 +21,8 @@ def main():
     condicao_jogar = True #condicao que garante o loop de jogo
     while condicao_jogar:
         #Escolhendo o modo de jogo
-        modo_de_jogo = int()
-        while modo_de_jogo != 1 and modo_de_jogo != 2:
+        modo_de_jogo = -1
+        while modo_de_jogo < 1 or modo_de_jogo > 2:
             try:
                 os.system('cls||clear')
                 modo_de_jogo = int(input("Escolha um modo de jogo: \n1-Notakto \n2-Misere \nSua escolha: "))

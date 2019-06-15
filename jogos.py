@@ -3,7 +3,7 @@ import random
 
 H = -1 #Humano
 C = +1 #Computador
-posicoes = [0,0,0,0,0,0,0,0,0] #posicoes no tabuleiro
+
 
 def estado_vitoria(posicoes, jogador): 
     """
@@ -63,18 +63,18 @@ def movimento_valido(index, posicoes):
     else:
         return False
 
-def set_move(index, jogador):
-    """
+"""
+def set_move(index, jogador, posicoes):
     Funcao que faz a jogada no tabuleiro
     param index: indice no tabuleiro
     param jogador: jogador que esta fazendo a jogada
-    param posicoes: posicoes atuais no tabuleiro
-    """
+    
     if movimento_valido(index, posicoes):
-        posicoes[index] = jogador
+        
         return True
     else:
         return False 
+"""
 
 def tabuleiro(posicoes, modo_normal):
     """
@@ -108,64 +108,66 @@ def tabuleiro(posicoes, modo_normal):
                 print(f'\t|     |', end='')
         print("\n" + divisor) 
 
-def notakto(modo_normal = False):
+def setMove(jogador, posicoes, index, ia):
+    """
+    Funcao que faz a jogada no tabuleiro
+    param index: indice no tabuleiro
+    param jogador: jogador que esta fazendo a jogada
+    param posicoes: posicoes atuais no tabuleiro
+    param index: verifica se e a ia que esta jogando
+    """
+    while not (movimento_valido(jogador-1, posicoes) or fim_jogo(posicoes)):
+        try:
+            if not(ia): 
+                jogador = int(input("Escolha uma casa [1 a 9]: "))
+            else:
+                jogador = random.randint(0,9)
+        except (KeyError, ValueError):
+            print('Insira um valor válido. ', end='')
+    return jogador
+
+def notakto(modo_normal):
+    posicoes = [0,0,0,0,0,0,0,0,0] #posicoes no tabuleiro
+    jogada_h = int() #jogada do humano
+    jogada_c = int() #jogada do computador
+
     while len(celulas_vazias(posicoes)) > 0 and not fim_jogo(posicoes):
         os.system('cls||clear')
         print("========================================")
         print("                NOTAKTO                 ")
         print("========================================")
-    
+
         tabuleiro(posicoes, modo_normal)
-    """
-        jogada_h = int(input("Escolha uma casa [1 a 9]: "))
-        
-        while not(movimento_valido(posicoes, (jogada_h))):
-            try:
-                jogada_h = int(input("Jogada invalida. Escolha uma casa [1 a 9]: "))
-            except (KeyError, ValueError):
-                print('')
+        print('')
+
+        jogada_h = setMove(H,posicoes,jogada_h,False)
         posicoes[jogada_h-1] = 1
+        
+        jogada_c = setMove(C,posicoes,jogada_c,True)
+        posicoes[jogada_c-1] = 1
+        
+
     tabuleiro(posicoes, modo_normal)
-
-        tabuleiro(posicoes, modo_normal)
-
-        jogada_c = random.randint(0,9)
-        while movimento_valido(posicoes, (jogada_c-1)):
+      
+    """
+        
+        while not(jogada_c in celulas_vazias(posicoes)):
             try:
                 jogada_c = random.randint(0,9)
             except (KeyError, ValueError):
                 print('')
 
-        posicoes[jogada_c] = -1
-        tabuleiro(posicoes, modo_normal)
+        posicoes[jogada_c-1] = 1
+    tabuleiro(posicoes, modo_normal)
     """
 
 def misere(modo_normal):
-    while len(celulas_vazias(posicoes)) > 0 and not fim_jogo(posicoes):
+    H = -1 #Humano
+    C = +1 #Computador
+    posicoes = [0,0,0,0,0,0,0,0,0] #posicoes no tabuleiro
+
+    while len(celulas_vazias(posicoes)) > 0 and not fim_jogo(posicoes, H, C):
         os.system('cls||clear')
         print("========================================")
         print("                MISERE                  ")
         print("========================================")
-    
-        tabuleiro(posicoes, modo_normal)
-"""
-        jogada_h = int(input("\nEscolha uma casa [1 a 9]: "))
-        while movimento_valido(posicoes, (jogada_h-1)):
-            try:
-                jogada_h = int(input("\nEscolha uma casa [1 a 9]: "))
-            except (KeyError, ValueError):
-                print('')
-
-        posicoes[jogada_h-1] = 1
-
-        tabuleiro(posicoes, modo_normal)
-
-        jogada_c = random.randint(0,9)
-        while movimento_valido(posicoes, (jogada_c-1)):
-            try:
-                jogada_c = random.randint(0,9)
-            except (KeyError, ValueError):
-                print('')
-
-        posicoes[jogada_c] = -1
-"""
