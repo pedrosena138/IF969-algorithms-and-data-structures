@@ -1,3 +1,6 @@
+"""
+Arquivo que contem as configuracoes dos jogos Notaktoe e Misere
+"""
 import os
 import random
 
@@ -10,6 +13,7 @@ def estado_vitoria(posicoes, jogador):
     Funcao que testa se um determinado jogador venceu a partida
     param posicoes: posicoes atuais no tabuleiro
     param jogador: HUMANO ou COMPUTADOR
+    param modo normal: verifica se o modo de jogo e o Notaktoe ou o Misere
     retorna TRUE se o jogador venceu
     """
     vitoria = [
@@ -76,7 +80,7 @@ def set_move(index, jogador, posicoes):
         return False 
 """
 
-def tabuleiro(posicoes, modo_normal):
+def tabuleiro(posicoes, tabuleiro_normal):
     """
     Funcao para imprimir o tabuleiro de jogo
     param posicoes: condicao atual do tabuleiro
@@ -84,7 +88,7 @@ def tabuleiro(posicoes, modo_normal):
     """
     divisor = '\t-----------------------'
     #caso exista X e O no jogo
-    if modo_normal:
+    if tabuleiro_normal:
         for x in range(len(posicoes)):
             if x%3 == 0:
                 print("\n" + divisor)
@@ -116,29 +120,47 @@ def setMove(jogador, posicoes, index, ia):
     param posicoes: posicoes atuais no tabuleiro
     param index: verifica se e a ia que esta jogando
     """
-    while not (movimento_valido(jogador-1, posicoes) or fim_jogo(posicoes)):
-        try:
-            jogador = random.randint(0,9)
-            """
-            if not(ia): 
+    if not(ia):
+        while not (movimento_valido(jogador-1, posicoes) or fim_jogo(posicoes)):
+            try:
                 jogador = int(input("Escolha uma casa [1 a 9]: "))
-            else:
-                jogador = random.randint(0,9)
-            """
-        except (KeyError, ValueError):
-            print('Insira um valor válido. ', end='')
+            except (KeyError, ValueError):
+                print('Insira um valor válido. ', end='')
+            
+    else:
+        if len(celulas_vazias(posicoes)) > 0:
+            jogador = random.choice(celulas_vazias(posicoes))
+        
     return jogador
 
-def msg_final(posicoes, modo_normal):
-    tabuleiro(posicoes, modo_normal)
-    if estado_vitoria(posicoes, H):
-        print("\nVITORIA!!!")
-    elif estado_vitoria(posicoes, C):
-        print("\nDERROTA :(")
+def msg_final(posicoes, modo_normal, tabuleiro_normal):
+    """
+    Funcao que printa a msg de vitoria, derrota ou empate no jogo
+    param modo_normal: define o modo de jogo
+    param tabuleiro_normal: define se o tabuleiro tem apenas 'X' ou 'X' e 'O'
+    param posicoes: estado atual do tabuleiro
+    """
+    tabuleiro(posicoes, tabuleiro_normal)
+    if modo_normal:
+        if estado_vitoria(posicoes, H):
+            print("\nVITORIA!!!")
+        elif estado_vitoria(posicoes, C):
+            print("\nDERROTA :(")
+        else:
+            print("\nEMPATE...")
     else:
-        print("\nEMPATE...")
+        if estado_vitoria(posicoes, H):
+            print("\nDERROTA :(")
+        elif estado_vitoria(posicoes, C):
+            print("\nVITORIA!!!")
+        else:
+            print("\nEMPATE...")
 
 def notakto(modo_normal):
+    """
+    Funcao com as configuracoes do Notaktoe
+    param modo_normal: define o modo de jogo
+    """
     posicoes = [0,0,0,0,0,0,0,0,0] #posicoes no tabuleiro
     jogada_h = int() #jogada do humano
     jogada_c = int() #jogada do computador
@@ -149,7 +171,7 @@ def notakto(modo_normal):
         print("                NOTAKTO                 ")
         print("========================================")
 
-        tabuleiro(posicoes, modo_normal)
+        tabuleiro(posicoes, False)
         print('')
 
         jogada_h = setMove(H,posicoes,jogada_h,False)
@@ -158,9 +180,17 @@ def notakto(modo_normal):
         jogada_c = setMove(C,posicoes,jogada_c,True)
         posicoes[jogada_c-1] = 1
     
-    tabuleiro(posicoes, modo_normal)
+    os.system('cls||clear')
+    print("========================================")
+    print("                NOTAKTOE                  ")
+    print("========================================")
+    msg_final(posicoes, modo_normal, False)
       
 def misere(modo_normal):
+    """
+    Funcao com as configuracoes do Misere
+    param modo_normal: define o modo de jogo
+    """
     posicoes = [0,0,0,0,0,0,0,0,0] #posicoes no tabuleiro
     jogada_h = int() #jogada do humano
     jogada_c = int() #jogada do computador
@@ -171,17 +201,17 @@ def misere(modo_normal):
         print("                MISERE                  ")
         print("========================================")
 
-        tabuleiro(posicoes, modo_normal)
+        tabuleiro(posicoes, True)
         print('')
 
         jogada_h = setMove(H,posicoes,jogada_h,False)
         posicoes[jogada_h-1] = H
         
         jogada_c = setMove(C,posicoes,jogada_c,True)
-        posicoes[jogada_c-1] = C
+        posicoes[jogada_c] = C
     
     os.system('cls||clear')
     print("========================================")
     print("                MISERE                  ")
     print("========================================")
-    msg_final(posicoes, modo_normal)
+    msg_final(posicoes, modo_normal, True)

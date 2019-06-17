@@ -1,18 +1,9 @@
 """
-Universidade Federal de Pernanbuco - UFPE (www.ufpe.com.br)
-Centro de Informática - CIn (www2.cin.ufpe.br)
-Bacharelado em Sistemas de Informação
-IF969 - Algoritmos e Estrutura de Dados
-
-Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
-Email: pmfsl@cin.ufpe.br
-Data: 2019-06-14
-
-Copyright © 2019 todos os direitos reservados
+Arquivo que inicializa o projeto.
 """
 
 import os
-import jogos
+import jogos #importando arquivo jogos.py
 
 def main():
     """
@@ -31,10 +22,10 @@ def main():
 
         #caso escolha o Notakto
         if  modo_de_jogo == 1:
-            jogos.notakto(False)
+            jogos.notakto(True)
         #caso escolha o Misere
         elif modo_de_jogo == 2:   
-            jogos.misere(True)
+            jogos.misere(False)
         
         print('')
         continua_jogar = str() #param para o usuario escolher se quer continuar a jogar ou nao
