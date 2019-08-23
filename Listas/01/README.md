@@ -1,7 +1,7 @@
 # Lista 01 - Programação Orientada à Objetos
 
 <p>
-Q1.Escreva em Python uma classe Cronometro, que seja capaz de cronometrar o tempo passado no sistema 
+Q1. Escreva em Python uma classe Cronometro, que seja capaz de cronometrar o tempo passado no sistema 
 a partir de dois métodos (iniciar e parar). Para isso você pode importar a biblioteca time e usar o método 
 time.clock() para obter o tempo atual do sistema. A classe Cronometro deve implementar os seguintes métodos:
 </p>
