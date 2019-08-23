@@ -6,10 +6,14 @@ a partir de dois métodos (iniciar e parar). Para isso você pode importar a bib
 time.clock() para obter o tempo atual do sistema. A classe Cronometro deve implementar os seguintes métodos:
 </p>
 
-<p> 
-Construtor - Método construtor padrão de qualquer objeto <br>
+<table> 
+  <ul>
+    <li> Construtor </li>
+    <li>Método construtor padrão de qualquer objeto </li>
+  </ul>
+</table>
 Iniciar - Inicia a contagem do tempo do relógio <br>
 Parar - Para a contagem do tempo do relógio <br>
 Zerar - Zera o contador <br>
 Exibir - Exibe o tempo contado pelo cronômetro 
-</p>
+</table>
