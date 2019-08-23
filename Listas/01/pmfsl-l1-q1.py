@@ -12,39 +12,33 @@ Copyright © 2019 todos os direitos reservados
 
 Descrição: Criar um cronômetro
 """
-from time import clock
+from time import perf_counter
+
 class Cronometro:
     def __init__(self):
         self.__tempo = float()
         self.__contarTempo = None
     
     def Iniciar(self):
-        self.__contarTempo = True
-        while self.__contarTempo:
-            self.__tempo = clock()
-
+        self.__tempo = perf_counter()
+    #Nao funciona
     def Parar(self):
         self.__contarTempo = False
 
+    #Nao funciona 
     def Zerar(self):
-        self.__tempo = 0.0
+        pass
     
     def Exibir(self):
         return self.__tempo
 
-if __name__ == "__main__":
+def main():
     cronometro = Cronometro()
     cronometro.Iniciar()
-    cronometro.Parar()
+    print(cronometro.Exibir())
+    print(cronometro.Exibir())
+    print(cronometro.Exibir())
     print(cronometro.Exibir())
 
-    cronometro.Iniciar()
-    n = input("Digite algo: ")
-    cronometro.Parar()
-    print(cronometro.Exibir())
-
-    cronometro.Zerar()
-    cronometro.Iniciar()
-    cronometro.Parar()
-    print(cronometro.Exibir())
- 
+if __name__ == "__main__":
+    main()
