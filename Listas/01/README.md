@@ -7,10 +7,10 @@ time.clock() para obter o tempo atual do sistema. A classe Cronometro deve imple
 </p>
 
 <table> 
-  <ul>
-    <li> Construtor </li>
-    <li>Método construtor padrão de qualquer objeto </li>
-  </ul>
+  <tr>
+    <td> Construtor </td>
+    <td>Método construtor padrão de qualquer objeto </td>
+  </tr>
 </table>
 Iniciar - Inicia a contagem do tempo do relógio <br>
 Parar - Para a contagem do tempo do relógio <br>
