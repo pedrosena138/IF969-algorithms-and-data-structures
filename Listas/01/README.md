@@ -11,9 +11,20 @@ time.clock() para obter o tempo atual do sistema. A classe Cronometro deve imple
     <td> Construtor </td>
     <td>Método construtor padrão de qualquer objeto </td>
   </tr>
-</table>
-Iniciar - Inicia a contagem do tempo do relógio <br>
-Parar - Para a contagem do tempo do relógio <br>
-Zerar - Zera o contador <br>
-Exibir - Exibe o tempo contado pelo cronômetro 
+  <tr>
+    <td> Iniciar </td>
+    <td> Inicia a contagem do tempo do relógio </td>
+  </tr>
+  <tr>
+    <td> Parar </td>
+    <td> Para a contagem do tempo do relógio </td>
+  </tr>
+  <tr>
+    <td> Zerar </td>
+    <td> Zera o contador </td>
+  </tr>
+  <tr>
+    <td> Exibir </td>
+    <td> Exibe o tempo contado pelo cronômetro </td>
+  </tr>
 </table>
