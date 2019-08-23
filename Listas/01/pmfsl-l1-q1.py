@@ -1,5 +1,5 @@
 """
-Universidade Federal de Pernanbuco - UFPE (www.ufpe.com.br)
+Universidade Federal de Pernanbuco - UFPE (www.ufpe.br)
 Centro de Informática - CIn (www2.cin.ufpe.br)
 Bacharelado em Sistemas de Informação
 IF969 - Algoritmos e Estrutura de Dados
