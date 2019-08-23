@@ -7,27 +7,44 @@ IF969 - Algoritmos e Estrutura de Dados
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
 Data: 2019-08-23
-
+ 
 Copyright © 2019 todos os direitos reservados
 
-Descrição: Escreva em Python uma classe Cronometro, que seja capaz de cronometrar o tempo passado no sistema 
-a partir de dois métodos (iniciar e parar). Para isso você pode importar a biblioteca time e usar o método 
-time.clock() para obter o tempo atual do sistema. A classe Cronometro deve implementar os seguintes métodos:
-
-Construtor - Método construtor padrão de qualquer objeto
-Iniciar - Inicia a contagem do tempo do relógio
-Parar - Para a contagem do tempo do relógio
-Zerar - Zera o contador
-Exibir - Exibe o tempo contado pelo cronômetro
+Descrição: Criar um cronômetro
 """
-import time
+from time import clock
 class Cronometro:
-    #def __init__(self)
-    pass
+    def __init__(self):
+        self.__tempo = float()
+        self.__contarTempo = None
+    
+    def Iniciar(self):
+        self.__contarTempo = True
+        while self.__contarTempo:
+            self.__tempo = clock()
 
-parar_tempo = False
+    def Parar(self):
+        self.__contarTempo = False
 
-tempo = float()
-while not(parar_tempo):
-    tempo += time.clock()
-    print(tempo)
+    def Zerar(self):
+        self.__tempo = 0.0
+    
+    def Exibir(self):
+        return self.__tempo
+
+if __name__ == "__main__":
+    cronometro = Cronometro()
+    cronometro.Iniciar()
+    cronometro.Parar()
+    print(cronometro.Exibir())
+
+    cronometro.Iniciar()
+    n = input("Digite algo: ")
+    cronometro.Parar()
+    print(cronometro.Exibir())
+
+    cronometro.Zerar()
+    cronometro.Iniciar()
+    cronometro.Parar()
+    print(cronometro.Exibir())
+ 
