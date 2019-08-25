@@ -42,3 +42,17 @@
     <td> Representação válida do objeto. Capaz de ser instanciado.</td>
   </tr>
 </table>
+
+<p align='justify'> 
+  Um outro ponto importante da programação orientada a objetos é o encapsulamento de atributos e métodos dos objetos. Em Python, é possível tornar um atributo semi-privado apenas adicionando um underline (_) antes do nome do objeto. Apesar de tornar o atributo semi-privado, ainda é possível acessar o atributo normalmente
+  utilizando o nome da instância, seguido de . e do nome do método com um underline na frente. No entanto, é possível tornar atributos privados com a adição de dois underlines na frente do nome do atributo. Fazendo isso, você torna o atributo privado e inacessível de forma normal, como por exemplo usando o nome do atributo precedido de dois underlines. Em Python, no entanto é possível acessar atributos e métodos privados usando a seguinte expressão:
+
+  <br> nome_da_instancia._nome_do_objeto__nome_do_atributo<br>
+
+  Imagine que o atributo tempo da classe Cronometro é um atributo privado, e imagina que eu tenha criado uma instância de objeto Cronometro com o nome relogio. Acessar o atributo tempo da seguinte
+  forma:
+  <br> relogio._Cronometro__tempo <br> 
+
+  Tendo isso em mente, modifique a sua classe Cronometro para ter todosos atributos privados e crie métodos ‘getters’ para acessar esses
+  atributos.
+</p>
