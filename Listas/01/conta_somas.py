@@ -16,6 +16,7 @@ Licenca: The MIT License (MIT)
 '''
 import sys
 import numpy
+from cronometro import Cronometro
 
 # Lembre-se de importar a sua classe cronometro
 #from Cronometro import Cronometro
