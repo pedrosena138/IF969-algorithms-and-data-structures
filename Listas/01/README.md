@@ -66,6 +66,8 @@
 
 <h3> Objetivos </h3>
 <ul style="list-style-type:none;">
-    <li align='justify'>Introdução à análise experimental do comportamento de algoritmos. Avaliar o desempenho de implementações em ambientes reais. Introdução a análise de complexidade de algoritmos. </li>
+    <li>Introdução à análise experimental do comportamento de algoritmos;</li>
+    <li>Avaliar o desempenho de implementações em ambientes reais;</li>
+    <li>Introdução a análise de complexidade de algoritmos.</li>
 </ul>
 
