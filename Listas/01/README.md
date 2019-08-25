@@ -44,8 +44,7 @@
 </table>
 
 <p align='justify'> 
-  Um outro ponto importante da programação orientada a objetos é o encapsulamento de atributos e métodos dos objetos. Em Python, é possível tornar um atributo semi-privado apenas adicionando um underline (_) antes do nome do objeto. Apesar de tornar o atributo semi-privado, ainda é possível acessar o atributo normalmente
-  utilizando o nome da instância, seguido de . e do nome do método com um underline na frente. No entanto, é possível tornar atributos privados com a adição de dois underlines na frente do nome do atributo. Fazendo isso, você torna o atributo privado e inacessível de forma normal, como por exemplo usando o nome do atributo precedido de dois underlines. Em Python, no entanto é possível acessar atributos e métodos privados usando a seguinte expressão:
+  Q3. Um outro ponto importante da programação orientada a objetos é o encapsulamento de atributos e métodos dos objetos. Em Python, é possível tornar um atributo semi-privado apenas adicionando um underline (_) antes do nome do objeto. Apesar de tornar o atributo semi-privado, ainda é possível acessar o atributo normalmente utilizando o nome da instância, seguido de . e do nome do método com um underline na frente. No entanto, é possível tornar atributos privados com a adição de dois underlines na frente do nome do atributo. Fazendo isso, você torna o atributo privado e inacessível de forma normal, como por exemplo usando o nome do atributo precedido de dois underlines. Em Python, no entanto é possível acessar atributos e métodos privados usando a seguinte expressão:
 
   <br> nome_da_instancia._nome_do_objeto__nome_do_atributo<br>
 
