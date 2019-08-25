@@ -76,3 +76,31 @@ class Cronometro:
 
     def __str__(self):
         return ("%f seg" % self.__Exibir())
+
+def main():
+    cronometro = Cronometro()
+
+    cronometro.Iniciar()
+    print(cronometro)
+    print(cronometro)
+    print(cronometro)
+    print("")
+
+    cronometro.Parar()
+    print(cronometro)
+    print(cronometro)
+    print(cronometro)
+    print("")
+
+    cronometro.Zerar()
+    print(cronometro)
+    print(" ")
+
+    cronometro.Iniciar()
+    print(cronometro)
+    print(cronometro)
+    print(cronometro)
+
+
+if __name__ == "__main__":
+    main()
