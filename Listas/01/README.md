@@ -72,10 +72,14 @@
 </ul>
 
 <h3> O que implementar? </h3>
-<p align='justify'> Deverá ser implementada uma função que conta quantas triplas em um vetor de inteiros somam a zero (número de elementos distintos de um vetor que, quando somados, resultam em zero). Essa implementação deverá ser realizada no protótipo disponibilizado.</p>
+<p align='justify'> 
+  Deverá ser implementada uma função que conta quantas triplas em um vetor de inteiros somam a zero (número de elementos distintos de um vetor que, quando somados, resultam em zero). Essa implementação deverá ser realizada no protótipo disponibilizado.
+</p>
 
 <h3> Experimento </h3>
-<p> Testar e armazenar os resultados da execução do programa implementado.</p>
+<p> Testar e armazenar os resultados da execução do programa implementado. </p>
 
 <h3> Análise dos Resultados </h3>
-<p align='justify'> Após coletar os dados para os diversos experimentos, você deverá plotar os resultados para identificar o comportamento dos algoritmos. Você deverá também encontrar a curva que melhor se ajusta aos pontos usando regressão linear. Essa técnica já está implementada em diversas ferramentas, inclusive no Excel (procure por adicionar linha de tendência). </p>
+<p align='justify'> 
+  Após coletar os dados para os diversos experimentos, você deverá plotar os resultados para identificar o comportamento dos algoritmos. Você deverá também encontrar a curva que melhor se ajusta aos pontos usando regressão linear. Essa técnica já está implementada em diversas ferramentas, inclusive no Excel (procure por adicionar linha de tendência). 
+</p>
