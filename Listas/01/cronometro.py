@@ -71,37 +71,8 @@ class Cronometro:
             
             return self.__getTempoTotal()
     
-    # Questao 02
     def __repr__(self):
         return float("%f " % self.__Exibir())
 
     def __str__(self):
         return ("%f seg" % self.__Exibir())
-
-def main():
-    cronometro = Cronometro()
-
-    cronometro.Iniciar()
-    print(cronometro)
-    print(cronometro)
-    print(cronometro)
-    print("")
-
-    cronometro.Parar()
-    print(cronometro)
-    print(cronometro)
-    print(cronometro)
-    print("")
-
-    cronometro.Zerar()
-    print(cronometro)
-    print(" ")
-
-    cronometro.Iniciar()
-    print(cronometro)
-    print(cronometro)
-    print(cronometro)
-
-
-if __name__ == "__main__":
-    main()
