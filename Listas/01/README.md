@@ -61,6 +61,11 @@
 <br>
 
 <p align='justify'> 
-  <strong>Q4.</strong> Para a questão 4, você deve usar a classe Cronometro implementada
-nas questões 1 e 2 para resolver o problema proposto.
+  <strong>Q4.</strong> Para a questão 4, você deve usar a classe Cronometro implementada nas questões 1 e 2 para resolver o problema proposto.
 </p>
+
+<h3> Objetivos </h3>
+<ul>
+
+</ul>
+
