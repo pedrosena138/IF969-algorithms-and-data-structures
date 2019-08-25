@@ -57,7 +57,7 @@ class Cronometro:
         self.__setTempoInicio(0.0)
         self.__setTempoFim(0.0)
     
-    def __Exibir(self):
+    def __exibir(self):
         if self.__getTempoParado():
             tempoFinal = self.__getTempoFim()
             tempoInicial = self.__getTempoInicio()
@@ -72,10 +72,10 @@ class Cronometro:
             return self.__getTempoTotal()
     
     def __repr__(self):
-        return float("%f " % self.__Exibir())
+        return float("%f " % self.__exibir())
 
     def __str__(self):
-        return ("%f seg" % self.__Exibir())
+        return ("%f seg" % self.__exibir())
 
 def main():
     cronometro = Cronometro()
