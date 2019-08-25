@@ -13,11 +13,13 @@
 <p> Copyright © 2019 todos os direitos reservados </p>
 
 <h3> Algoritmos de Ordenação </h3>
+<h3> Estruturas de Dados </h3>
 
 <h3> Listas </h3>
+
 <ul>
   <li> Lista 01 - Programação Orientada à Objetos </li>
 </ul>
 
-<h3> Estruturas de Dados </h3>
+
 
