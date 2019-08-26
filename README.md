@@ -1,5 +1,5 @@
 # IF969 - Algoritmos e Estruturas de Dados
-<img src='https://images.app.goo.gl/uau2evuBaEJZjnmw8'>
+<img src='https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiQ1ZKOvaHkAhUFK7kGHXk3BsoQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.facebook.com%2FCInUFPEOficial%2Fphotos%2Fprofessores-do-cin-ufpe-s%25C3%25A3o-empossados-no-novo-conselho-de-curadores-da-fadeo-pr%2F1799404360137047%2F&psig=AOvVaw0H5jAwbBBzI0eH04Anl_wH&ust=1566941229148845'>
 <p>
   Universidade Federal de Pernambuco - UFPE (www.ufpe.br) <br>
   Centro de Informática - CIn (<a href="https://www2.cin.ufpe.br/">www2.cin.ufpe.br</a>) <br>
