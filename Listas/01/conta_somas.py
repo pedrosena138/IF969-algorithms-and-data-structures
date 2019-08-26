@@ -36,8 +36,6 @@ def conta_somas(vetor):
    
    return quant_somas
 
-
-
 def main():
     '''
     Contem os comandos em Python referentes `a implementacao do algoritmo
