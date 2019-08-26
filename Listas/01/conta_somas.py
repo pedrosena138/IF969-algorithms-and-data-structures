@@ -46,7 +46,9 @@ def main():
        numpy.random.seed(seed)
        vetor = gera_seq_aleatoria(tam[i])
        cron = Cronometro()
-       total = conta_somas(vetor)
+       cron.Iniciar()
+       conta_somas(vetor)
+       cron.Parar()
        print("Tempo gasto com {0} elementos foi {1} segundos".format(tam[i],cron))
        del vetor
        del cron
