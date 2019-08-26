@@ -83,3 +83,5 @@
 <p align='justify'> 
   Após coletar os dados para os diversos experimentos, você deverá plotar os resultados para identificar o comportamento dos algoritmos. Você deverá também encontrar a curva que melhor se ajusta aos pontos usando regressão linear. Essa técnica já está implementada em diversas ferramentas, inclusive no Excel (procure por adicionar linha de tendência). 
 </p>
+
+<img src='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Listas/01/Tempo%20M%C3%A9dio%20(seg)%20x%20Tamanho%20do%20vetor.png'>
