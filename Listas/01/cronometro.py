@@ -72,7 +72,7 @@ class Cronometro:
             return self.__getTempoTotal()
     
     def __repr__(self):
-        return float("%f " % self.__exibir())
+        return ("%f" % self.__exibir())
 
     def __str__(self):
         return ("%f" % self.__exibir())

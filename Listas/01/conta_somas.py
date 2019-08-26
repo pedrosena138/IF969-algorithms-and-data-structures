@@ -36,12 +36,26 @@ def conta_somas(vetor):
    
    return quant_somas
 
+def salvar_tempos(tempos):
+   '''
+   Recebe uma lista com os tempos dos vetores e armazena em um arquivo .csv
+   '''
+   texto_tempos = str()
+   for i in tempos[:-1]:
+      texto_tempos += str(i) + ","
+   texto_tempos += str(tempos[-1]) + "\n"
+   with open('tempos.csv', 'a') as arq:
+      arq.write(texto_tempos)
+      arq.close()
+   
 def main():
     '''
     Contem os comandos em Python referentes `a implementacao do algoritmo
     '''
     seeds = [11,7,13,19,5189]
     tam = [50,100,250,500,1000]
+    tempos = []
+
     for i,seed in enumerate(seeds):
        numpy.random.seed(seed)
        vetor = gera_seq_aleatoria(tam[i])
@@ -50,9 +64,10 @@ def main():
        conta_somas(vetor)
        cron.Parar()
        print("Tempo gasto com {0} elementos foi {1} segundos".format(tam[i],cron))
+       tempos.append(cron)
        del vetor
        del cron
-
+    salvar_tempos(tempos)
 
 if __name__ == '__main__':
     main()
