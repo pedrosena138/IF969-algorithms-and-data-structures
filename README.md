@@ -10,7 +10,7 @@
   Email: pmfsl@cin.ufpe.br
 </p>
 
-<p> Copyright © 2019 todos os direitos reservados </p>
+<p style='strong'> Copyright © 2019 todos os direitos reservados </p>
 
 <h3> Algoritmos de Ordenação </h3>
 <h3> Estruturas de Dados </h3>
