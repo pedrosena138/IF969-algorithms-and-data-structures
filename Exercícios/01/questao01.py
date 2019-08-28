@@ -15,54 +15,63 @@ imprimeInformacoes().
 """
 
 class Aluno:
-    def __init__(self, nome, cpf, quantNotas):
-        self.__cpf = cpf
-        self.__nome = nome
-        self.__listaNotas = list()
-        self.__quantNotas = quantNotas
-        
-        for i in range(self.__quantNotas):
-            self.__listaNotas.append(None)
+    def __init__(self, nome, cpf):
+        self.cpf = cpf
+        self.nome = nome
+        self.nota1 = self.nota2 = self.nota3 = None
 
     def inicializarNota(self, nota, index):
-        self.__listaNotas[index] = nota
+        if index == 1:
+            self.nota1 = nota
+        elif index == 2:
+            self.nota2 = nota
+        elif index == 3:
+            self.nota3 = nota
     
     def notasPreenchidas(self):
-        for i in self.__listaNotas:
-            if i == None:
-                print("Nota %i não informada" % (self.__listaNotas.index(i)+1))
-                return False
-            else:
-                return True
+        if self.nota1 == None:
+            print("Nota 1 nao inicializada")
+            return False
+        if self.nota2 == None:
+            print("Nota 2 nao inicializada")
+            return False
+        if self.nota3 == None:
+            print("Nota 3 nao inicializada")
+            return False
+        
+        return True
                 
     def verificaSituacaoMedia(self):
-        media = sum(self.__listaNotas)/len(self.__listaNotas)
-        if media >= 7.0:
-            return True
-        elif not(self.notasPreenchidas()) or media < 7.0:
+        if not self.notasPreenchidas:
             return False
+        else:
+            if ((self.nota1+self.nota2+self.nota3)/3) >= 7.0:
+                return True
+            else:
+                return False
     
     def imprimiInformacoes(self):
         if self.notasPreenchidas():
-            print("Nome: {}, CPF: {}" .format(self.__nome, self.__cpf))
-            for i in self.__listaNotas:
-                print("Nota{}: {}" .format((self.__listaNotas.index(i)+1), i))
+            print("Nome: %s, CPF: %s, Nota 1: %f, Nota 2: %f, Nota 3: %f" %
+             (self.nome, self.cpf, self.nota1, self.nota2, self.nota3))
 
 def main():
-    quantNotas = int(input("Quantidade de notas: "))
-    aluno = Aluno("Pedro", "123456789", quantNotas)
+    aluno = Aluno("Pedro", "123456789")
 
-    for i in range(quantNotas):
-        nota = float(input("Nota %i: " % (i+1)))
-        aluno.inicializarNota(nota, i)
-    
-    print("")
+    aluno.inicializarNota(4.6,1)
+    aluno.inicializarNota(8,2)
+
     aluno.imprimiInformacoes()
-
+        
+    aluno.inicializarNota(6.4,3)
     if aluno.verificaSituacaoMedia():
         print("Aluno aprovado!!!")
     else:
         print("Aluno reprovado!!!")
+    print("")
+    aluno.imprimiInformacoes()
+
+    
 
 if __name__ == "__main__":
     main()
