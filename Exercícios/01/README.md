@@ -1,4 +1,4 @@
-# Exercício de Sala 01
+# Exercício de Sala 01 - Programação Orientada à Objetos
 <dl>
     <dt>1. Faça um sistema de notas da sua sala:</dt>
         <dd><strong>a.</strong> Crie uma classe Aluno que possui 3 notas. Ao inicializar a classe, passe como parâmetro o CPF e o nome do         aluno.</dd>
