@@ -29,10 +29,12 @@ def gera_seq_aleatoria(tam):
 # Voce deve implementar essa funcao
 def conta_somas(vetor):
    quant_somas = int()
-   for i in range(2,len(vetor)):
-      soma =  vetor[i-2] + vetor[i-1] + vetor[i]
-      if soma == 0:
-         quant_somas += 1
+   for i in range(len(vetor)-2):
+      for j in range(i+1,len(vetor)-1):
+         for k in range(j+1, len(vetor)):
+            soma =  vetor[i] + vetor[j] + vetor[k]
+            if soma == 0:
+               quant_somas += 1
    
    return quant_somas
 
