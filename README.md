@@ -14,9 +14,9 @@
 
 <h3> Algoritmos de Ordenação </h3>
 <h3> Estruturas de Dados </h3>
+<h3> Exercícios </h3>
 
 <h3> Listas </h3>
-
 <ul>
   <li> <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/01'> Lista 01 - Programação Orientada à Objetos </a> </li>
 </ul>
