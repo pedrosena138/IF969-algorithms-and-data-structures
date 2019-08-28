@@ -22,7 +22,8 @@
         </dd>
     <dt>3. Crie uma classe Programa:</dt>
         <dd>
-            <strong>a.</strong> Atributos: anoCriacao (int), codigo (string), nomeDono(string),emailDono(string), numeroLinhas(inteiro).           </dd>
+            <strong>a.</strong> Atributos: anoCriacao (int), codigo (string), nomeDono(string),       emailDono(string), numeroLinhas(inteiro).           
+        </dd>
         <dd>
             <strong>b.</strong> Metodos: <strong>getX</strong> e <strong>setX</strong> para cada um dos X atributos <strong>calculaNumeroLinhas</strong> (acessa o código do Programa, conta a quantidade de linhas desse código e atualiza o atributo <strong>numeroLinhas</strong>);              <strong>calculaIdadeCodigo(anoAtual)</strong> (acessa o ano de criação do código e verifica a idade do código de acordo com o parâmetro <strong>anoAtual</strong> fornecido como parâmetro). 
         </dd>
