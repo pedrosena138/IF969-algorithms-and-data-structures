@@ -14,9 +14,21 @@
 
 <h3> Algoritmos de Ordenação </h3>
 <h3> Estruturas de Dados </h3>
+<ul>
+  <li> 
+    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/fila.py'> Fila </a> 
+  </li>
+  <li>
+    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/listas.py'> Listas </a>
+  </li>
+  <li> 
+    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/pilha.py'> Pilha <\a>
+  </li> 
+</ul>
 <h3> Exercícios </h3>
 <ul>
-  <li> <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Exerc%C3%ADcios/01'> Exercício 01 - Programação Orientada à Objetos</a></li>
+  <li> 
+    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Exerc%C3%ADcios/01'> Exercício 01 - Programação Orientada à Objetos</a></li>
 </ul>
 
 <h3> Listas </h3>
