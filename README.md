@@ -22,7 +22,7 @@
     <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/listas.py'> Listas </a>
   </li>
   <li> 
-    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/pilha.py'> Pilha <\a>
+    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/pilha.py'> Pilha </a>
   </li> 
 </ul>
 <h3> Exercícios </h3>
