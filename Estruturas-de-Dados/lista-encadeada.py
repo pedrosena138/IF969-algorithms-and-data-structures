@@ -51,54 +51,71 @@ class ListaEncadeada:
         '''
         return self.__comeco is None
     
-    def Pesquisa(self, valor):
+    def Pesquisar(self, valor):
         '''
         Verifica se existe um no com o valor passado como parametro na lista.
         Retorna o retorna True se o no estiver na lista.
         '''
-        no = self.__comeco
-        while not(no.getProximo() is None) and (no.getValor() != valor):
-            no = no.getProximo()
+        if self.Vazia():
+            raise Exception('lista vazia')
+        else:
+            no = self.__comeco
+            while not(no.getProximo() is None) and (no.getValor() != valor):
+                no = no.getProximo()
+            if no.getValor() == valor:
+                return True
+            else:
+                return False
 
-        if no.getValor() == valor:
-            return True
-        else: 
-            return False
 
     def Inserir(self, valor):
         '''
         Insere um item na lista
         '''
-        try:
-            if self.Vazia():
-                novo_no = No()
-                novo_no.setValor(valor)
-                self.__comeco = self.__fim = novo_no
-            else:
-                novo_no = No()
-                novo_no.setValor(valor)
-                self.__fim.setProximo(novo_no)
-                self.__fim = novo_no
-        except ValueError:
-            if self.Pesquisa(valor):
-                print('valor ja existente na lista')
-    
-    def Remover(self,valor):
         if self.Vazia():
-            raise ValueError('lista vazia')
-        elif self.Pesquisa(valor):
-            pass
+            novo_no = No()
+            novo_no.setValor(valor)
+            self.__comeco = self.__fim = novo_no
+        elif self.Pesquisar(valor):
+            raise Exception('valor ja existente na lista', valor)
+        else:
+            novo_no = No()
+            novo_no.setValor(valor)
+            self.__fim.setProximo(novo_no)
+            self.__fim = novo_no
+
+    def Remover(self,valor):
+        if self.Pesquisar(valor):
+            if self.__comeco.getValor() == valor:
+                proximo_no = self.__comeco.getProximo()
+                self.__comeco.setProximo(None)
+                self.__comeco = proximo_no
+                return self.__comeco
+            else:
+                no = self.__comeco
+                while not(no.getProximo() is None) and (no.getProximo().getValor() != valor):
+                    no = no.getProximo()
+                
+                if no.getProximo() ==  self.__fim:
+                     no.setProximo(None)
+                     self.__fim = no
+                     return self.__fim
+                else:
+                    proximo_no = no.getProximo()
+                    no.setProximo(proximo_no.getProximo())
         else:
             raise KeyError('valor nao encontrado')
-    
+        
     def __str__(self):
-        return str(self.__comeco)
+        return str(self.__comeco.getProximo())
 
 def main():
     lista = ListaEncadeada()
-    lista.Inserir(60)
-    lista.Remover(50)
-
+    lista.Inserir(2)
+    lista.Inserir(3)
+    lista.Inserir(4)
+    lista.Remover(3)
+    print(lista)
 
 if __name__ == "__main__":
     main()
