@@ -33,6 +33,9 @@ class No:
     
     def __str__(self):
         return str(self.__valor)
+    
+    def __repr__(self):
+        return self.__valor
 
 class ListaEncadeada:
     '''
@@ -40,6 +43,7 @@ class ListaEncadeada:
     '''
     def __init__(self):
         self.__comeco = None
+        self.__fim = None
     
     def Vazia(self):
         '''
@@ -47,29 +51,54 @@ class ListaEncadeada:
         '''
         return self.__comeco is None
     
+    def Pesquisa(self, valor):
+        '''
+        Verifica se existe um no com o valor passado como parametro na lista.
+        Retorna o retorna True se o no estiver na lista.
+        '''
+        no = self.__comeco
+        while not(no.getProximo() is None) and (no.getValor() != valor):
+            no = no.getProximo()
+
+        if no.getValor() == valor:
+            return True
+        else: 
+            return False
+
     def Inserir(self, valor):
         '''
         Insere um item na lista
         '''
+        try:
+            if self.Vazia():
+                novo_no = No()
+                novo_no.setValor(valor)
+                self.__comeco = self.__fim = novo_no
+            else:
+                novo_no = No()
+                novo_no.setValor(valor)
+                self.__fim.setProximo(novo_no)
+                self.__fim = novo_no
+        except ValueError:
+            if self.Pesquisa(valor):
+                print('valor ja existente na lista')
+    
+    def Remover(self,valor):
         if self.Vazia():
-            self.__comeco = No()
-            self.__comeco.setValor(valor)
+            raise ValueError('lista vazia')
+        elif self.Pesquisa(valor):
+            pass
         else:
-            novo_no = No()
-            novo_no.setValor(valor)
-            novo_no.setProximo(self.__comeco)
-            self.__comeco = novo_no
+            raise KeyError('valor nao encontrado')
     
     def __str__(self):
         return str(self.__comeco)
 
 def main():
     lista = ListaEncadeada()
-    lista.Inserir(78)
-    lista.Inserir(45)
-    lista.Inserir(98)
-    print(lista.Vazia())
-    print(lista)
+    lista.Inserir(60)
+    lista.Remover(50)
+
 
 if __name__ == "__main__":
     main()
