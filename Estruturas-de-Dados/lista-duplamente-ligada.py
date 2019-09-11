@@ -8,5 +8,5 @@ Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
 Data:
 Copyright © 2019 todos os direitos reservados
-Descricao: Implementacao de uma estrutura de dados tipo Lista Duplamente Encadeada.
+Descricao: Implementacao de uma estrutura de dados tipo Lista Duplamente Ligada.
 '''
