@@ -165,10 +165,3 @@ class Fila:
     def __repr__(self):
         return ('Fila(%s)' % self.__str__())
 
-fila = Fila()
-fila.Enqueue(78)
-fila.Enqueue(89)
-fila.Enqueue(23)
-fila.Dequeue()
-
-print(fila)
