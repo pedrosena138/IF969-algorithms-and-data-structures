@@ -8,7 +8,7 @@ Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
 Data:
 Copyright © 2019 todos os direitos reservados
-Descricao: Implementacao de uma estrutura de dados tipo Lista Encadeada.
+Descricao: Implementacao de uma estrutura de dados tipo Lista Ligada.
 '''
 
 class No:
