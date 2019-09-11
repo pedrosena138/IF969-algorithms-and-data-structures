@@ -43,6 +43,7 @@ class Fila:
     '''
     def __init__(self):
         self.__comeco = None
+        self.__fim = None
     
     def Vazia(self):
         '''
@@ -72,9 +73,12 @@ class Fila:
         Insere um item na fila
         '''
         novo_no = No(valor)
-        novo_no.setProximo(self.__comeco)
-        self.__comeco = novo_no
-    
+        if self.Vazia():
+            self.__comeco = self.__fim = novo_no
+        else:
+           self.__fim.setProximo(novo_no)
+           self.__fim = novo_no
+
     def Dequeue(self):
         '''
         Remove o primeiro item adicionado na fila
@@ -103,7 +107,7 @@ class Fila:
     
     def __iter__(self):
         '''
-        Iterador da fila
+        Iterador da lista
         '''
         self.__index = int()
         return self
@@ -152,7 +156,7 @@ class Fila:
             saida += '['
 
             for no in self:
-                if no.getProximo() is None:
+                if no == self.__fim:
                     saida += str(no) + ']'
                 else:
                     saida += str(no) + ', '
@@ -161,3 +165,10 @@ class Fila:
     def __repr__(self):
         return ('Fila(%s)' % self.__str__())
 
+fila = Fila()
+fila.Enqueue(78)
+fila.Enqueue(89)
+fila.Enqueue(23)
+fila.Dequeue()
+
+print(fila)
