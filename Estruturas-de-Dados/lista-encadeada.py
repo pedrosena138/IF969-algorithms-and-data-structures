@@ -15,8 +15,8 @@ class No:
     '''
     Implementacao do no da lista
     '''
-    def __init__(self):
-        self.__valor = None
+    def __init__(self, valor=None):
+        self.__valor = valor
         self.__proximo = None
     
     #Get e Set de valor
@@ -43,7 +43,6 @@ class ListaEncadeada:
     '''
     def __init__(self):
         self.__comeco = None
-        self.__fim = None
     
     def Vazia(self):
         '''
@@ -57,64 +56,128 @@ class ListaEncadeada:
         Retorna o retorna True se o no estiver na lista.
         '''
         if self.Vazia():
-            raise Exception('lista vazia')
+            return False
         else:
             no = self.__comeco
-            while not(no.getProximo() is None) and (no.getValor() != valor):
-                no = no.getProximo()
-            if no.getValor() == valor:
-                return True
-            else:
-                return False
-
-
+            no_achado = False
+            while not(no is None) and not(no_achado):
+                if no.getValor() == valor:
+                    no_achado = True
+                else:
+                    no = no.getProximo()
+            return no_achado
+        
     def Inserir(self, valor):
         '''
         Insere um item na lista
         '''
-        if self.Vazia():
-            novo_no = No()
-            novo_no.setValor(valor)
-            self.__comeco = self.__fim = novo_no
-        elif self.Pesquisar(valor):
-            raise Exception('valor ja existente na lista', valor)
-        else:
-            novo_no = No()
-            novo_no.setValor(valor)
-            self.__fim.setProximo(novo_no)
-            self.__fim = novo_no
-
+        novo_no = No(valor)
+        novo_no.setProximo(self.__comeco)
+        self.__comeco = novo_no
+    
     def Remover(self,valor):
-        if self.Pesquisar(valor):
-            if self.__comeco.getValor() == valor:
-                proximo_no = self.__comeco.getProximo()
-                self.__comeco.setProximo(None)
-                self.__comeco = proximo_no
-                return self.__comeco
-            else:
-                no = self.__comeco
-                while not(no.getProximo() is None) and (no.getProximo().getValor() != valor):
-                    no = no.getProximo()
-                
-                if no.getProximo() ==  self.__fim:
-                     no.setProximo(None)
-                     self.__fim = no
-                     return self.__fim
-                else:
-                    proximo_no = no.getProximo()
-                    no.setProximo(proximo_no.getProximo())
+        if self.Vazia() or not(self.Pesquisar(valor)):
+            raise ValueError('lista_encadeada.Remover(x): x nao esta na lista')
         else:
-            raise KeyError('valor nao encontrado')
+            no_atual = self.__comeco
+            no_anterior = None
+            no_achado = False
+
+            while not(no_achado):
+                if no_atual.getValor() == valor:
+                    no_achado = True
+                else:
+                    no_anterior = no_atual
+                    no_atual = no_atual.getProximo()
+            
+            if no_anterior is None:
+                self.__comeco = no_atual.getProximo()
+            else:
+                no_anterior.setProximo(no_atual.getProximo())
+    
+    def Atualizar(self, indice, valor):
+        '''
+        Atualiza o valor de um no
+        '''
+        no = self.__getitem__(indice)
+        no.setValor(valor)
+
+    def __len__(self):
+        '''
+        Retorna a quantidade de itens na lista
+        '''
+        if self.Vazia():
+            return 0
+        else:
+            cont = int()
+            no = self.__comeco
+
+            while not(no is None):
+                cont += 1
+                no = no.getProximo()
+            return cont
+    
+    def __iter__(self):
+        '''
+        Iterador da lista
+        '''
+        self.__index = int()
+        return self
+    
+    def __next__(self):
+        '''
+        Retorna o no correspondente ao iterador
+        '''
+        if self.__index < self.__len__():
+            no = self.__getitem__(self.__index)
+            self.__index += 1
+            return no
+        else:
+            raise StopIteration
         
+    def __getitem__(self, chave):
+        '''
+        Retorna o valor do no que contem a chave passada como parametro
+        '''
+        indice = self.__len__()-1
+        if (chave > indice) or (self.Vazia()):
+            raise IndexError('indice fora do alcance')
+        else:
+            no = self.__comeco
+            cont = 0
+            while cont < chave:
+                no = no.getProximo()
+                cont += 1
+            return no
+
     def __str__(self):
-        return str(self.__comeco.getProximo())
+        '''
+        Retorna uma representacao em forma de string do objeto
+        '''
+        if self.Vazia():
+            return '[]'
+        else:
+            saida = str()
+            saida += '['
+
+            for no in self:
+                if no.getProximo() is None:
+                    saida += str(no) + ']'
+                else:
+                    saida += str(no) + ', '
+            return saida
 
 def main():
     lista = ListaEncadeada()
-    lista.Inserir(2)
+    lista.Inserir(8)
     lista.Inserir(3)
     lista.Inserir(4)
-    lista.Remover(3)
+    lista.Inserir(10)
+    lista.Inserir(9)
+
+    lista.Remover(4)
+    lista.Atualizar(3, 89)
+
     print(lista)
 
 if __name__ == "__main__":
