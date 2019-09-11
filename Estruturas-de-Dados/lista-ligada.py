@@ -43,6 +43,7 @@ class ListaLigada:
     '''
     def __init__(self):
         self.__comeco = None
+        self.__fim = None
     
     def Vazia(self):
         '''
@@ -72,8 +73,11 @@ class ListaLigada:
         Insere um item na lista
         '''
         novo_no = No(valor)
-        novo_no.setProximo(self.__comeco)
-        self.__comeco = novo_no
+        if self.Vazia():
+            self.__comeco = self.__fim = novo_no
+        else:
+           self.__fim.setProximo(novo_no)
+           self.__fim = novo_no
     
     def Remover(self,valor):
         if self.Vazia() or not(self.Pesquisar(valor)):
@@ -91,10 +95,15 @@ class ListaLigada:
                     no_atual = no_atual.getProximo()
             
             if no_anterior is None:
-                self.__comeco = no_atual.getProximo()
+                proximo_no = no_atual.getProximo()
+                self.__comeco.setProximo(None)
+                self.__comeco = proximo_no
+            elif no_atual.getProximo() is None:
+                no_anterior.setProximo(None)
+                self.__fim = no_anterior
             else:
                 no_anterior.setProximo(no_atual.getProximo())
-    
+                
     def __len__(self):
         '''
         Retorna a quantidade de itens na lista
@@ -161,11 +170,21 @@ class ListaLigada:
             saida += '['
 
             for no in self:
-                if no.getProximo() is None:
+                if no == self.__fim:
                     saida += str(no) + ']'
                 else:
                     saida += str(no) + ', '
             return saida
-    
+
     def __repr__(self):
         return ('ListaLigada(%s)' % self.__str__())
+
+lista = ListaLigada()
+lista.Inserir(30)
+lista.Inserir(6)
+lista.Inserir(10)
+lista.Inserir(8)
+
+lista.Remover(8)
+
+print(lista)
