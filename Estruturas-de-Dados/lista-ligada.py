@@ -169,20 +169,3 @@ class ListaLigada:
     
     def __repr__(self):
         return ('ListaLigada(%s)' % self.__str__())
-
-def main():
-    lista = ListaLigada()
-    lista.Inserir(8)
-    lista.Inserir(3)
-    lista.Inserir(4)
-    lista.Inserir(10)
-    lista.Inserir(9)
-    print(lista)
-    print('')
-    print(lista.Pesquisar(9))
-    lista.Remover(4)
-    lista[3] = 89
-    print(lista)
-  
-if __name__ == "__main__":
-    main()
