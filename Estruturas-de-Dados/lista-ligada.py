@@ -39,7 +39,7 @@ class No:
 
 class ListaLigada:
     '''
-    Implementacao de uma lista encadeada
+    Implementacao de uma lista ligada
     '''
     def __init__(self):
         self.__comeco = None
@@ -77,7 +77,7 @@ class ListaLigada:
     
     def Remover(self,valor):
         if self.Vazia() or not(self.Pesquisar(valor)):
-            raise ValueError('lista_encadeada.Remover(x): x nao esta na lista')
+            raise ValueError('Lista-Ligada.Remover(x): x nao esta na lista')
         else:
             no_atual = self.__comeco
             no_anterior = None
@@ -166,6 +166,9 @@ class ListaLigada:
                 else:
                     saida += str(no) + ', '
             return saida
+    
+    def __repr__(self):
+        return ('ListaLigada(%s)' % self.__str__())
 
 def main():
     lista = ListaLigada()
@@ -174,11 +177,12 @@ def main():
     lista.Inserir(4)
     lista.Inserir(10)
     lista.Inserir(9)
-
+    print(lista)
+    print('')
+    print(lista.Pesquisar(9))
     lista.Remover(4)
     lista[3] = 89
-
     print(lista)
-
+  
 if __name__ == "__main__":
     main()
