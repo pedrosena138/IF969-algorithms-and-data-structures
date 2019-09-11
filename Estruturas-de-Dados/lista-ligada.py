@@ -178,13 +178,3 @@ class ListaLigada:
 
     def __repr__(self):
         return ('ListaLigada(%s)' % self.__str__())
-
-lista = ListaLigada()
-lista.Inserir(30)
-lista.Inserir(6)
-lista.Inserir(10)
-lista.Inserir(8)
-
-lista.Remover(8)
-
-print(lista)
