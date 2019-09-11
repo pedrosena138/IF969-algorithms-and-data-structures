@@ -80,7 +80,7 @@ class Pilha:
         Remove o ultimo item adicionado na pilha
         '''
         if self.Vazia():
-            raise ValueError('Pilha.Pop(): lista vazia')
+            raise ValueError('Pilha.Pop(): pilha vazia')
         else:
             proximo_no = self.__comeco.getProximo()
             self.__comeco.setProximo(None)
@@ -88,7 +88,7 @@ class Pilha:
     
     def __len__(self):
         '''
-        Retorna a quantidade de itens na fila
+        Retorna a quantidade de itens na pilha
         '''
         if self.Vazia():
             return 0
@@ -103,7 +103,7 @@ class Pilha:
     
     def __iter__(self):
         '''
-        Iterador da fila
+        Iterador da pilha
         '''
         self.__index = int()
         return self
@@ -159,4 +159,4 @@ class Pilha:
             return saida
     
     def __repr__(self):
-        return ('ListaLigada(%s)' % self.__str__())
+        return ('Pilha(%s)' % self.__str__())
