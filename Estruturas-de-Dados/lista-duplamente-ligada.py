@@ -6,7 +6,7 @@ IF969 - Algoritmos e Estrutura de Dados
 Professor: Hansenclever Bassani 
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
-Data:
+Data: 2019-09-12
 Copyright © 2019 todos os direitos reservados
 Descricao: Implementacao de uma estrutura de dados tipo Lista Duplamente Ligada.
 '''
