@@ -190,11 +190,3 @@ class ListaDupla:
 
     def __repr__(self):
         return ('ListaLigada(%s)' % self.__str__())
-    
-
-lista = ListaDupla()
-lista.Inserir(8)
-lista.Inserir(10)
-lista.Inserir(5)
-lista.Remover(5)
-print(lista)
