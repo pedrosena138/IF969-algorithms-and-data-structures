@@ -189,4 +189,4 @@ class ListaDupla:
             return saida
 
     def __repr__(self):
-        return ('ListaLigada(%s)' % self.__str__())
+        return ('ListaDuplaLigada(%s)' % self.__str__())
