@@ -52,4 +52,6 @@
         Tendo isso em mente, modifique a sua classe Cronometro para ter todos os atributos privados e crie métodos ‘getters’ para acessar esses atributos.
     </li>
     <br>
+    <li>Para a questão 4, você deve usar a classe Cronometro implementada nas questões 1 e 2 para resolver o problema proposto. Deverá ser implementada uma função que conta quantas triplas em um vetor de inteiros somam a zero (número de elementos distintos de um vetor que, quando somados, resultam em zero). Essa implementação deverá ser realizada no protótipo disponibilizado.
+    </li>
 </ol>
