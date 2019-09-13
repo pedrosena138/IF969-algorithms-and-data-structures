@@ -16,7 +16,7 @@
   <dt><h3> Algoritmos de Ordenação </h3></dt>
   <dt><h3> Estruturas de Dados </h3></dt>
     <dd> 
-      <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/fila.py'> Fila </a> 
+      <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/fila.py'> Fila </a> 
     </dd>
     <dd>
       Listas 
@@ -26,15 +26,11 @@
       </ul>
     </dd>
     <dd> 
-      <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/pilha.py'> Pilha </a>
+      <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/pilha.py'> Pilha </a>
     </dd>
-
-def __init__(self):
-  pass
-
   <dt><h3> Exercícios </h3></dt>
   <dd> 
-    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Exerc%C3%ADcios/01'> Exercício 01 - Programação Orientada à Objetos</a>
+    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Exercicios/01'> Exercício 01 - Programação Orientada à Objetos</a>
   </dd>
 
   <dt><h3> Listas </h3></dt>
