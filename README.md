@@ -18,7 +18,7 @@
     <dd> 
       <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/fila.py'> Fila </a> 
     </dd>
-  <dt> <dd> Listas </dd></dt>
+  <dd><dt>  Listas </dt></dd>
       <dd>
         <ul>
           <li> <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/lista-duplamente-ligada.py'> Lista Duplamente Ligada</a> </li>
