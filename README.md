@@ -18,30 +18,29 @@
     <dd> 
       <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/fila.py'> Fila </a> 
     </dd>
-  <dd>
-    Listas 
-    <ul>
-      <li> <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/lista-duplamente-ligada.py'> Lista Duplamente Ligada</a> </li>
-      <li> <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/lista-ligada.py'> Lista Ligada</a></li>
-    </ul>
-  </dd>
-      <dd>
-        
-      </dd>
+    <dd>
+      Listas 
+      <ul>
+        <li> <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/lista-duplamente-ligada.py'> Lista Duplamente Ligada</a> </li>
+        <li> <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/lista-ligada.py'> Lista Ligada</a></li>
+      </ul>
+    </dd>
     <dd> 
       <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas%20de%20Dados/pilha.py'> Pilha </a>
-    </dd> 
-  </dl>
+    </dd>
+
+def __init__(self):
+  pass
+
   <dt><h3> Exercícios </h3></dt>
-  <ul>
-    <li> 
-      <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Exerc%C3%ADcios/01'> Exercício 01 - Programação Orientada à Objetos</a></li>
-  </ul>
+  <dd> 
+    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Exerc%C3%ADcios/01'> Exercício 01 - Programação Orientada à Objetos</a>
+  </dd>
 
   <dt><h3> Listas </h3></dt>
-  <ul>
-    <li> <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/01'> Lista 01 - Programação Orientada à Objetos</a></li>
-  </ul>
+  <dd>
+    <a href='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/01'> Lista 01 - Programação Orientada à Objetos</a></li>
+  </dd>
 </dl>
 
 
