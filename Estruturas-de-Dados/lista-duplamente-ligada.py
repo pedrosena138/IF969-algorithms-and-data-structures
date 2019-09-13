@@ -1,4 +1,4 @@
-"""
+'''
 Universidade Federal de Pernambuco - UFPE (www.ufpe.br)
 Centro de Informática - CIn (www2.cin.ufpe.br) 
 Bacharelado em Sistemas de Informação 
@@ -6,10 +6,10 @@ IF969 - Algoritmos e Estrutura de Dados
 Professor: Hansenclever Bassani 
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
-Data: 2019-09-12 
+Data: 2019-09-12
 Copyright © 2019 todos os direitos reservados
-Descricao: Implementacao de uma estrutura de dados tipo Pilha.
-"""
+Descricao: Implementacao de uma estrutura de dados tipo Lista Duplamente Ligada.
+'''
 
 class No:
     '''
@@ -18,6 +18,7 @@ class No:
     def __init__(self, valor=None):
         self.__valor = valor
         self.__proximo = None
+        self.__anterior = None
     
     #Get e Set de valor
     def getValor(self):
@@ -31,29 +32,36 @@ class No:
     def setProximo(self, novo_proximo):
         self.__proximo = novo_proximo
     
+    #Get e Set de anterior
+    def getAnterior(self):
+        return self.__anterior
+    def setAnterior(self, novo_anterior):
+        self.__anterior = novo_anterior
+    
     def __str__(self):
         return str(self.__valor)
     
     def __repr__(self):
         return self.__valor
 
-class Pilha:
+class ListaDupla:
     '''
-    Implementacao de uma pilha
+    Implementacao da lista duplamente ligada
     '''
     def __init__(self):
         self.__comeco = None
+        self.__fim = None
     
     def Vazia(self):
         '''
-        Retorna True se a pilha estiver vazia
+        Retorna True se a lista estiver vazia
         '''
         return self.__comeco is None
     
     def Pesquisar(self, valor):
         '''
-        Verifica se existe um no com o valor passado como parametro na pilha.
-        Retorna o retorna True se o no estiver na pilha.
+        Verifica se existe um no com o valor passado como parametro na lista.
+        Retorna o retorna True se o no estiver na lista.
         '''
         if self.Vazia():
             return False
@@ -66,59 +74,48 @@ class Pilha:
                 else:
                     no = no.getProximo()
             return no_achado
-        
-    def Push(self, valor):
+    
+    def Inserir(self, valor):
         '''
-        Insere um item na pilha
+        Insere um item na lista
         '''
         novo_no = No(valor)
-        novo_no.setProximo(self.__comeco)
-        self.__comeco = novo_no
-    
-    def Pop(self):
-        '''
-        Remove o ultimo item adicionado na pilha
-        '''
         if self.Vazia():
-            raise ValueError('Pilha.Pop(): pilha vazia')
+            self.__comeco = self.__fim = novo_no
         else:
-            proximo_no = self.__comeco.getProximo()
-            self.__comeco.setProximo(None)
-            self.__comeco = proximo_no
+           self.__fim.setProximo(novo_no)
+           novo_no.setAnterior(self.__fim)
+           self.__fim = novo_no
     
-    def __len__(self):
-        '''
-        Retorna a quantidade de itens na pilha
-        '''
-        if self.Vazia():
-            return 0
+    def Remover(self,valor):
+        if self.Vazia() or not(self.Pesquisar(valor)):
+            raise ValueError('Lista-Dupla-Ligada.Remover(x): x nao esta na lista')
         else:
-            cont = int()
-            no = self.__comeco
+            no_atual = self.__comeco
+            no_achado = False
 
-            while not(no is None):
-                cont += 1
-                no = no.getProximo()
-            return cont
+            while not(no_achado):
+                if no_atual.getValor() == valor:
+                    no_achado = True
+                else:
+                    no_atual = no_atual.getProximo()
+            
+            no_anterior = no_atual.getAnterior()
+            no_proximo = no_atual.getProximo()
+            if no_atual == self.__comeco:
+                no_atual.setProximo(None)
+                no_proximo.setAnterior(None)
+                self.__comeco = no_proximo
+            elif no_atual == self.__fim:
+                no_atual.setAnterior(None)
+                no_anterior.setProximo(None)
+                self.__fim = no_anterior
+            else:
+                no_atual.setProximo(None)
+                no_atual.setAnterior(None)
+                no_proximo.setAnterior(no_anterior)
+                no_anterior.setProximo(no_proximo)
     
-    def __iter__(self):
-        '''
-        Iterador da pilha
-        '''
-        self.__index = int()
-        return self
-    
-    def __next__(self):
-        '''
-        Retorna o no correspondente ao iterador
-        '''
-        if self.__index < self.__len__():
-            no = self.__getitem__(self.__index)
-            self.__index += 1
-            return no
-        else:
-            raise StopIteration
-        
     def __getitem__(self, chave):
         '''
         Retorna o valor do no que contem a chave passada como parametro
@@ -133,6 +130,39 @@ class Pilha:
                 no = no.getProximo()
                 cont += 1
             return no
+    
+    def __iter__(self):
+        '''
+        Iterador da lista
+        '''
+        self.__index = int()
+        return self
+    
+    def __next__(self):
+        '''
+        Retorna o no correspondente ao iterador
+        '''
+        if self.__index < self.__len__():
+            no = self.__getitem__(self.__index)
+            self.__index += 1
+            return no
+        else:
+            raise StopIteration
+    
+    def __len__(self):
+        '''
+        Retorna a quantidade de itens na lista
+        '''
+        if self.Vazia():
+            return 0
+        else:
+            cont = int()
+            no = self.__comeco
+
+            while not(no is None):
+                cont += 1
+                no = no.getProximo()
+            return cont
     
     def __setitem__(self, indice, valor):
         '''
@@ -152,11 +182,11 @@ class Pilha:
             saida += '['
 
             for no in self:
-                if no.getProximo() is None:
+                if no == self.__fim:
                     saida += str(no) + ']'
                 else:
                     saida += str(no) + ', '
             return saida
-    
+
     def __repr__(self):
-        return ('Pilha(%s)' % self.__str__())
+        return ('ListaLigada(%s)' % self.__str__())

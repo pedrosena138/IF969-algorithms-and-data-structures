@@ -1,4 +1,4 @@
-"""
+'''
 Universidade Federal de Pernambuco - UFPE (www.ufpe.br)
 Centro de Informática - CIn (www2.cin.ufpe.br) 
 Bacharelado em Sistemas de Informação 
@@ -8,8 +8,8 @@ Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
 Data: 2019-09-12 
 Copyright © 2019 todos os direitos reservados
-Descricao: Implementacao de uma estrutura de dados tipo Pilha.
-"""
+Descricao: Implementacao de uma estrutura de dados tipo Lista Ligada.
+'''
 
 class No:
     '''
@@ -37,23 +37,24 @@ class No:
     def __repr__(self):
         return self.__valor
 
-class Pilha:
+class ListaLigada:
     '''
-    Implementacao de uma pilha
+    Implementacao de uma lista ligada
     '''
     def __init__(self):
         self.__comeco = None
+        self.__fim = None
     
     def Vazia(self):
         '''
-        Retorna True se a pilha estiver vazia
+        Retorna True se a lista estiver vazia
         '''
         return self.__comeco is None
     
     def Pesquisar(self, valor):
         '''
-        Verifica se existe um no com o valor passado como parametro na pilha.
-        Retorna o retorna True se o no estiver na pilha.
+        Verifica se existe um no com o valor passado como parametro na lista.
+        Retorna o retorna True se o no estiver na lista.
         '''
         if self.Vazia():
             return False
@@ -67,28 +68,45 @@ class Pilha:
                     no = no.getProximo()
             return no_achado
         
-    def Push(self, valor):
+    def Inserir(self, valor):
         '''
-        Insere um item na pilha
+        Insere um item na lista
         '''
         novo_no = No(valor)
-        novo_no.setProximo(self.__comeco)
-        self.__comeco = novo_no
-    
-    def Pop(self):
-        '''
-        Remove o ultimo item adicionado na pilha
-        '''
         if self.Vazia():
-            raise ValueError('Pilha.Pop(): pilha vazia')
+            self.__comeco = self.__fim = novo_no
         else:
-            proximo_no = self.__comeco.getProximo()
-            self.__comeco.setProximo(None)
-            self.__comeco = proximo_no
+           self.__fim.setProximo(novo_no)
+           self.__fim = novo_no
     
+    def Remover(self,valor):
+        if self.Vazia() or not(self.Pesquisar(valor)):
+            raise ValueError('Lista-Ligada.Remover(x): x nao esta na lista')
+        else:
+            no_atual = self.__comeco
+            no_anterior = None
+            no_achado = False
+
+            while not(no_achado):
+                if no_atual.getValor() == valor:
+                    no_achado = True
+                else:
+                    no_anterior = no_atual
+                    no_atual = no_atual.getProximo()
+            
+            if no_anterior is None:
+                proximo_no = no_atual.getProximo()
+                self.__comeco.setProximo(None)
+                self.__comeco = proximo_no
+            elif no_atual.getProximo() is None:
+                no_anterior.setProximo(None)
+                self.__fim = no_anterior
+            else:
+                no_anterior.setProximo(no_atual.getProximo())
+                
     def __len__(self):
         '''
-        Retorna a quantidade de itens na pilha
+        Retorna a quantidade de itens na lista
         '''
         if self.Vazia():
             return 0
@@ -103,7 +121,7 @@ class Pilha:
     
     def __iter__(self):
         '''
-        Iterador da pilha
+        Iterador da lista
         '''
         self.__index = int()
         return self
@@ -152,11 +170,11 @@ class Pilha:
             saida += '['
 
             for no in self:
-                if no.getProximo() is None:
+                if no == self.__fim:
                     saida += str(no) + ']'
                 else:
                     saida += str(no) + ', '
             return saida
-    
+
     def __repr__(self):
-        return ('Pilha(%s)' % self.__str__())
+        return ('ListaLigada(%s)' % self.__str__())
