@@ -38,7 +38,5 @@ def main():
     print('\nA Fila tem {} elemento(s)' .format(len(fila)))
     print(fila)
     
-
-
 if __name__ == "__main__":
     main()
