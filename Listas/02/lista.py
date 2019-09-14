@@ -234,7 +234,7 @@ class ListaDupla:
 '''
 def main():
     lista = ListaDupla('algoritmos')
-    print(lista1)
+    print(lista)
     
     lista.Anexar(1)
     print(lista)
@@ -246,7 +246,7 @@ def main():
     lista[0] = 'A'
     print(lista)
     
-    print("\nRemover o {} da Lista 1" .format(lista.Selecionar(1)))
+    print("\nRemover o {} da Lista." .format(lista.Selecionar(1)))
     print(lista)
 
     lista2 = ListaDupla('lista')
