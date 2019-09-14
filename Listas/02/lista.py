@@ -231,6 +231,7 @@ class ListaDupla:
     def __repr__(self):
         return ('ListaDuplaLigada(%s)' % self.__str__())
 
+'''
 def main():
     lista1 = ListaDupla('algoritmos')
     lista2 = ListaDupla('lista')
@@ -264,3 +265,4 @@ def main():
     
 if __name__ == "__main__":
     main()
+''''
