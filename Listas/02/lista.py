@@ -251,7 +251,7 @@ def main():
 
     lista2 = ListaDupla('lista')
     lista.Concatenar(lista2)
-    print('\nA Lista 1 tem {} elemento(s)' .format(len(lista)))
+    print('\nA Lista tem {} elemento(s)' .format(len(lista)))
     print(lista)
 
     
