@@ -6,7 +6,7 @@ IF969 - Algoritmos e Estrutura de Dados
 Professor: Hansenclever Bassani 
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
-Data: 2019-09-12
+Data: 2019-09-14
 Copyright © 2019 todos os direitos reservados
 Descricao: Implementacao de uma estrutura de dados tipo Fila.
 """
@@ -83,9 +83,7 @@ class Fila:
         '''
         Remove o primeiro item adicionado na fila
         '''
-        if self.Vazia():
-            raise ValueError('Fila.Dequeue(): fila vazia')
-        else:
+        if not(self.Vazia()):
             proximo_no = self.__comeco.getProximo()
             self.__comeco.setProximo(None)
             self.__comeco = proximo_no
