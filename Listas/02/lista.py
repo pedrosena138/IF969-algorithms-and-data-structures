@@ -233,35 +233,27 @@ class ListaDupla:
 
 '''
 def main():
-    lista1 = ListaDupla('algoritmos')
-    lista2 = ListaDupla('lista')
-    print('Lista 1:',lista1)
-    print('Lista 2:',lista2)
+    lista = ListaDupla('algoritmos')
+    print(lista1)
     
-    lista1.Anexar(1)
-    lista2.Inserir(1,'O')
-    print('\nLista 1:',lista1)
-    print('Lista 2:',lista2)
+    lista.Anexar(1)
+    print(lista)
+    lista.Inserir(1,'O')
+    print(lista)
     
-    print("\nIndice do 'g' na Lista 1:",lista1.Indice('g'))
-    print("Indice do 'O' na Lista 2:",lista2.Indice('O'))
+    print("\nIndice do 'g' na Lista 1:",lista.Indice('g'))
     
-    lista1[0] = 'A'
-    lista2[0] = 'L'
-    print('\nLista 1:',lista1)
-    print('Lista 2:',lista2)
+    lista[0] = 'A'
+    print(lista)
     
-    print("\nRemover o {} da Lista 1" .format(lista1.Selecionar(1)))
-    print("Remover o {} da Lista 2" .format(lista2.Selecionar('O')))
-    print('\nLista 1:',lista1)
-    print('Lista 2:',lista2)
-    
-    print('\nA Lista 1 tem {} elemento(s)' .format(len(lista1)))
-    print('A Lista 2 tem {} elemento(s)' .format(len(lista2)))
+    print("\nRemover o {} da Lista 1" .format(lista.Selecionar(1)))
+    print(lista)
 
-    lista1.Concatenar(lista2)
-    print('\nLista 1:',lista1)
-    print('Lista 2:',lista2)
+    lista2 = ListaDupla('lista')
+    lista.Concatenar(lista2)
+    print('\nA Lista 1 tem {} elemento(s)' .format(len(lista)))
+    print(lista)
+
     
 if __name__ == "__main__":
     main()
