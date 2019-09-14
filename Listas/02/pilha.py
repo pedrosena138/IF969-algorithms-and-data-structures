@@ -27,6 +27,9 @@ def main():
     pilha.Push('O')
     print(pilha)
 
+    pilha[3] = 'U'
+    print(pilha)
+
     pilha.Pop()
     print(pilha)
 
