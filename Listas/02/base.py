@@ -65,7 +65,7 @@ class ListaDupla:
     
     def Indice(self, item):
         '''
-        Proucura um iem na lista e retorna seu indice ou um erro caso o itme nao esteja na lista
+        Proucura um item na lista e retorna seu indice ou um erro caso o item nao esteja na lista
         '''
         if self.Vazia():
             raise ValueError('Lista-Dupla-Ligada.Indice(x): x nao esta na lista')
