@@ -11,9 +11,12 @@ Email: pmfsl@cin.ufpe.br
 
 *__Copyright © 2019 todos os direitos reservados__*
 
+
 ## Algoritmos de Ordenação  
+>Algoritmos que ordenam uma sequecia da dados completa ou parcialmente
 
 ## Estruturas de Dados
+>Objetos que armazenam dados de forma eficiente
 - [Fila](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/fila.py)
 - __Lista__
   - [Lista Duplamente Ligada](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/lista-duplamente-ligada.py)
@@ -21,9 +24,11 @@ Email: pmfsl@cin.ufpe.br
  - [Pilha](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/pilha.py)
  
 ## Exercícios
+>Exercicios de sala
 1. [Programação Orientada à Objetos](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Exercicios/01)
 
 ## Listas
+>Listas de monitoria
 1. [Programação Orientada à Objetos](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/01)
 2. [Fila, Lista e Pilha](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/02)
     
