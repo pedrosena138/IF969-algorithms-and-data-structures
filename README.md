@@ -1,16 +1,15 @@
 # IF969 - Algoritmos e Estruturas de Dados
-![](https://www.google.com.br/url?sa=i&source=images&cd=&ved=2ahUKEwjY69_9-9XkAhVCK7kGHQprD5EQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.facebook.com%2FCInUFPEOficial%2Fphotos%2Fa.118589318218568%2F1799404360137047%2F%3Ftype%3D3&psig=AOvVaw3bJtZW6NkpPEJ50ymuob4r&ust=1568744813043198)
-<p>
-  Universidade Federal de Pernambuco - UFPE (www.ufpe.br) <br>
-  Centro de Informática - CIn (<a href="https://www2.cin.ufpe.br/">www2.cin.ufpe.br</a>) <br>
-  Bacharelado em Sistemas de Informação <br>
-  IF969 - Algoritmos e Estrutura de Dados <br>
-  Professor: Hansenclever Bassani <br>
-  Autor: Pedro Manoel Farias Sena de Lima (pmfsl) <br>
-  Email: pmfsl@cin.ufpe.br
-</p>
+>GitHub com listas, exercícios, estruturas de dados e algoritmos de ordenação da cadeira IF969- Algoritmos e Estruturas de Dados da UFPE
 
-<p><strong>Copyright © 2019 todos os direitos reservados</strong></p>
+Universidade Federal de Pernambuco-UFPE (www.ufpe.br)
+Centro de Informática - CIn [(www2.cin.ufpe.br)](www2.cin.ufpe.br)
+Bacharelado em Sistemas de Informação 
+IF969 - Algoritmos e Estrutura de Dados 
+Professor: Hansenclever Bassani
+Autor: Pedro Manoel Farias Sena de Lima (pmfsl) 
+Email: pmfsl@cin.ufpe.br
+
+*__Copyright © 2019 todos os direitos reservados__*
 
 <dl>
   <dt><h3> Algoritmos de Ordenação </h3></dt>
