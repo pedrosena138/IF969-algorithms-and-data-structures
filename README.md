@@ -1,6 +1,8 @@
 # IF969 - Algoritmos e Estruturas de Dados
 >GitHub com listas, exercícios, estruturas de dados e algoritmos de ordenação da cadeira IF969- Algoritmos e Estruturas de Dados da UFPE
 
+![](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/logo.png)
+
 [Universidade Federal de Pernambuco-UFPE](www.ufpe.b)  
 [Centro de Informática - CIn](www2.cin.ufpe.br)  
 Bacharelado em Sistemas de Informação  
@@ -13,7 +15,7 @@ Email: pmfsl@cin.ufpe.br
 
 
 ## Algoritmos de Ordenação  
->Algoritmos que ordenam, completa ou parcialmente, uma sequêcia da dados completa ou parcialmente
+>Algoritmos que ordenam, completa ou parcialmente, uma sequêcia da dados.
 
 ## Estruturas de Dados
 >Objetos que armazenam dados de forma eficiente
