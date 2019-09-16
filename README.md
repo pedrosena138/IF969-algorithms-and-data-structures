@@ -1,12 +1,18 @@
 # IF969 - Algoritmos e Estruturas de Dados
 >GitHub com listas, exercícios, estruturas de dados e algoritmos de ordenação da cadeira IF969- Algoritmos e Estruturas de Dados da UFPE
 
-Universidade Federal de Pernambuco-UFPE (www.ufpe.br)
-Centro de Informática - CIn [(www2.cin.ufpe.br)](www2.cin.ufpe.br)
+[Universidade Federal de Pernambuco-UFPE](www.ufpe.br)
+
+[Centro de Informática - CIn](www2.cin.ufpe.br)
+
 Bacharelado em Sistemas de Informação 
+
 IF969 - Algoritmos e Estrutura de Dados 
+
 Professor: Hansenclever Bassani
+
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl) 
+
 Email: pmfsl@cin.ufpe.br
 
 *__Copyright © 2019 todos os direitos reservados__*
