@@ -13,7 +13,7 @@ Email: pmfsl@cin.ufpe.br
 
 
 ## Algoritmos de Ordenação  
->Algoritmos que ordenam uma sequecia da dados completa ou parcialmente
+>Algoritmos que ordenam, completa ou parcialmente, uma sequêcia da dados completa ou parcialmente
 
 ## Estruturas de Dados
 >Objetos que armazenam dados de forma eficiente
