@@ -1,5 +1,5 @@
 # IF969 - Algoritmos e Estruturas de Dados
-<img src='https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/logo.png'>
+![](https://www.google.com.br/url?sa=i&source=images&cd=&ved=2ahUKEwjY69_9-9XkAhVCK7kGHQprD5EQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.facebook.com%2FCInUFPEOficial%2Fphotos%2Fa.118589318218568%2F1799404360137047%2F%3Ftype%3D3&psig=AOvVaw3bJtZW6NkpPEJ50ymuob4r&ust=1568744813043198)
 <p>
   Universidade Federal de Pernambuco - UFPE (www.ufpe.br) <br>
   Centro de Informática - CIn (<a href="https://www2.cin.ufpe.br/">www2.cin.ufpe.br</a>) <br>
