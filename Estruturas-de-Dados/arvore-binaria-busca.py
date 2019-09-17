@@ -67,15 +67,7 @@ class ArvoreBinaria():
             novo_no = No(item)
             self.__raiz = novo_no
         else:
-            no = self.__raiz
-            if item > no.getItem():
-                pass
-            elif item < no.getItem():
-            while not(no.getFilhoDireita() is None) and not(no.getFilhoEsquerda() is None):
-                if item > no.getItem():
-                    no = no.getFilhoDireita()
-                elif item < no.getItem():
-                    no = no.getFilhoEsquerda()
+            raise NotImplementedError()
 
 def main():
     arvore = ArvoreBinaria()
