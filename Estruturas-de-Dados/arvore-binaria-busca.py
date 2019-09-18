@@ -90,11 +90,23 @@ class ArvoreBinaria():
                 else:
                     raise ValueError('No já existente na arvore')
     
+    def preOrdem(self, no):
+        if not(no is None):
+            print(no.getItem(),end=" ")
+            self.emOrdem(no.getFilhoEsquerda())
+            self.emOrdem(no.getFilhoDireita())
+    
     def emOrdem(self, no):
         if not(no is None):
             self.emOrdem(no.getFilhoEsquerda())
             print(no.getItem(),end=" ")
             self.emOrdem(no.getFilhoDireita())
+    
+    def posOrdem(self, no):
+        if not(no is None):
+            self.emOrdem(no.getFilhoEsquerda())
+            self.emOrdem(no.getFilhoDireita())
+            print(no.getItem(),end=" ")
 
 def main():
     arvore = ArvoreBinaria()
