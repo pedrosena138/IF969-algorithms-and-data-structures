@@ -17,7 +17,7 @@ class No():
         self.__item = item
         self.__filhoDireita = None
         self.__filhoEsquerda = None
-        self.__anterior = None
+        self.__pai = None
     
     #Get e Set de valor
     def getItem(self):
@@ -36,12 +36,12 @@ class No():
         return self.__filhoEsquerda
     def setFilhoEsquerda(self, novo_filho):
         self.__filhoEsquerda = novo_filho
-    
-    #Get e Set do no anterior
-    def getAnterior(self):
-        return self.__anterior
-    def setAnterior(self, no_anterior):
-        self.__anterior = no_anterior
+
+    #Get e Set do no pai
+    def getPai(self):
+        return self.__pai
+    def setPai(self, no_pai):
+        self.__pai = no_pai
 
     def __str__(self):
         return str(self.__item)
@@ -56,6 +56,9 @@ class ArvoreBinaria():
         '''
         self.__raiz = None
     
+    def getRaiz(self):
+        return self.__raiz
+
     def Vazia(self):
         '''
         Retorna True se a arvore for vazia
@@ -63,15 +66,44 @@ class ArvoreBinaria():
         return self.__raiz is None
     
     def Inserir(self, item):
+        novo_no = No(item)
         if self.Vazia():
-            novo_no = No(item)
             self.__raiz = novo_no
         else:
-            raise NotImplementedError()
+            no_atual = self.__raiz
+            while True:
+                no_pai = no_atual
+                if item < no_atual.getItem():
+                    #inserir a esquerda
+                    no_atual = no_atual.getFilhoEsquerda()
+                    if no_atual is None:
+                        no_pai.setFilhoDireita(novo_no)
+                        novo_no.setPai(no_pai)
+                        return
+                elif item > no_atual.getItem():
+                    #inserir na direita
+                    no_atual = no_atual.getFilhoDireita()
+                    if no_atual is None:
+                        no_pai.setFilhoDireita(novo_no)
+                        novo_no.setPai(no_pai)
+                        return
+                else:
+                    raise ValueError('No já existente na arvore')
+    
+    def emOrdem(self, no):
+        if not(no is None):
+            self.emOrdem(no.getFilhoEsquerda())
+            print(no.getItem(),end=" ")
+            self.emOrdem(no.getFilhoDireita())
 
 def main():
     arvore = ArvoreBinaria()
     arvore.Inserir(8)
-    print(arvore.Vazia())
+    arvore.Inserir(3)
+    arvore.Inserir(10)
+
+    raiz = arvore.getRaiz()
+    arvore.emOrdem(raiz)
+
 if __name__ == "__main__":
     main()
