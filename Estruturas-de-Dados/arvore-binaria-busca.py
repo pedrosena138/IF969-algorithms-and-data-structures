@@ -90,6 +90,19 @@ class ArvoreBinaria():
                 else:
                     raise ValueError('No já existente na arvore')
     
+    def Pesquisar(self,item):
+        if self.Vazia():
+            return False
+        no_atual = self.__raiz
+        while no_atual.getItem() != item:
+            if item < no_atual.getItem():
+                no_atual = no_atual.getFilhoEsquerda()
+            else:
+                no_atual = no_atual.getFilhoDireita()
+            if no_atual is None:
+                return False
+        return no_atual
+
     def preOrdem(self, no):
         if not(no is None):
             print(no.getItem(),end=" ")
@@ -113,9 +126,7 @@ def main():
     arvore.Inserir(8)
     arvore.Inserir(3)
     arvore.Inserir(10)
-
-    raiz = arvore.getRaiz()
-    arvore.emOrdem(raiz)
+    print(arvore.Pesquisar(6))
 
 if __name__ == "__main__":
     main()
