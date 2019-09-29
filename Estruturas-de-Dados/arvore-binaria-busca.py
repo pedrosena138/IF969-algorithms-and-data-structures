@@ -55,6 +55,20 @@ class ArvoreBinaria():
         '''
         return self.__raiz is None
     
+    def Pesquisar(self, item):
+        if self.Vazia():
+            return False
+        else:
+            no = self.__raiz
+            if item > no.getItem():
+                filho_direita = no.getFilhoDireita()
+                return filho_direita.Pesquisar(item)
+            elif item < self.__raiz.getItem():
+                filho_esquerda = no.getFilhoEsquerda()
+                return filho_esquerda.Pesquisar(item)
+            else:
+                return no.getItem()
+
     def Inserir(self, item):
         novo_no = No(item)
         if self.Vazia():
@@ -62,10 +76,13 @@ class ArvoreBinaria():
             self.__raiz.setFilhoDireita(ArvoreBinaria())
             self.__raiz.setFilhoEsquerda(ArvoreBinaria())
         else:
-            if item > self.__raiz.getItem():
-                self.__raiz.getFilhoDireita().Inserir(item)
+            no = self.__raiz
+            if item > no.getItem():
+                filho_direita = no.getFilhoDireita()
+                filho_direita.Inserir(item)
             elif item < self.__raiz.getItem():
-                self.__raiz.getFilhoEsquerda().Inserir(item)
+                filho_esquerda = no.getFilhoEsquerda()
+                filho_esquerda.Inserir(item)
             else:
                 raise ValueError('Valor já existente na arvore')
     
@@ -79,6 +96,7 @@ def main():
     arvore.Inserir(8)
     arvore.Inserir(4)
     arvore.Inserir(6)
+    print(arvore.Pesquisar(7))
     print(arvore)
 
 if __name__ == "__main__":
