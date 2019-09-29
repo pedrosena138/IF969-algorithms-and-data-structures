@@ -15,8 +15,8 @@ class No():
     '''
     def __init__(self, item=None):
         self.__item = item
-        self.__filhoDireita = None
-        self.__filhoEsquerda = None
+        self.__filho_direita = None
+        self.__filho_esquerda = None
     
     #Get e Set de valor
     def getItem(self):
@@ -26,15 +26,15 @@ class No():
     
     #Get e Set do filho da direita
     def getFilhoDireita(self):
-        return self.__filhoDireita
+        return self.__filho_direita
     def setFilhoDireita(self, novo_filho):
-        self.__filhoDireita = novo_filho
+        self.__filho_direita = novo_filho
     
     #Get e Set do filho da esquerda
     def getFilhoEsquerda(self):
-        return self.__filhoEsquerda
+        return self.__filho_esquerda
     def setFilhoEsquerda(self, novo_filho):
-        self.__filhoEsquerda = novo_filho
+        self.__filho_esquerda = novo_filho
 
     def __str__(self):
         return str(self.__item)
@@ -42,43 +42,57 @@ class No():
         no = self.__item
         return 'No(%s)' % str(no)
 
-class ArvoreBinaria():
+class ArvoreAVL():
     def __init__(self):
         '''
         Metodo construtor da arvore
         '''
         self.__raiz = None
-
-    def Vazia(self):
+        self.__altura = -1
+        self.__balanco = 0
+    
+    def Altura(self):
         '''
-        Retorna True se a arvore for vazia
+        Metodo que retorna o tamanho da arvore
         '''
-        return self.__raiz is None
+        if self.__raiz is not None:
+            return self.__altura
+        else:
+            return 0
+    
+    def Folha(self):
+        '''
+        Metodo que retorna True se o no for uma folha
+        '''
+        return (self.__altura == 0)
     
     def Inserir(self, item):
+        '''
+        Insere um no na arvore
+        '''
         novo_no = No(item)
-        if self.Vazia():
+        arvore = self.__raiz
+
+        if arvore is None:
             self.__raiz = novo_no
-            self.__raiz.setFilhoDireita(ArvoreBinaria())
-            self.__raiz.setFilhoEsquerda(ArvoreBinaria())
+            self.__raiz.setFilhoEsquerda(ArvoreAVL())
+            self.__raiz.setFilhoDireita(ArvoreAVL())
+        elif item < arvore.getItem():
+            arvore_esquerda = self.__raiz.getFilhoEsquerda()
+            arvore_esquerda.Inserir(item)
+        elif item > arvore.getItem():
+            arvore_direita = self.__raiz.getFilhoDireita()
+            arvore_direita.Inserir(item)
         else:
-            if item > self.__raiz.getItem():
-                self.__raiz.getFilhoDireita().Inserir(item)
-            elif item < self.__raiz.getItem():
-                self.__raiz.getFilhoEsquerda().Inserir(item)
-            else:
-                raise ValueError('Valor já existente na arvore')
-    
+            raise ValueError('No já existente na arvore')
+
     def __str__(self):
-        return str(self.__raiz.getFilhoDireita().__raiz)
-            
+        return str(self.__raiz)
+
 def main():
-    arvore = ArvoreBinaria()
-    arvore.Inserir(5)
-    arvore.Inserir(3)
+    arvore = ArvoreAVL()
     arvore.Inserir(8)
     arvore.Inserir(4)
-    arvore.Inserir(6)
     print(arvore)
 
 if __name__ == "__main__":
