@@ -40,7 +40,7 @@ class No():
         return str(self.__item)
     def __repr__(self):
         no = self.__item
-        return 'No(%s)' % str(no)
+        return str(no)
 
 class ArvoreBinaria():
     def __init__(self):
@@ -56,6 +56,10 @@ class ArvoreBinaria():
         return self.__raiz is None
     
     def Pesquisar(self, item):
+        '''
+        Pesquisa um item na arvore.
+        Retorna o item se ele estiver na arvore ou False se nao estiver.
+        '''
         if self.Vazia():
             return False
         else:
@@ -70,6 +74,9 @@ class ArvoreBinaria():
                 return no.getItem()
 
     def Inserir(self, item):
+        '''
+        Insere um novo no na arvore
+        '''
         novo_no = No(item)
         if self.Vazia():
             self.__raiz = novo_no
@@ -86,18 +93,109 @@ class ArvoreBinaria():
             else:
                 raise ValueError('Valor já existente na arvore')
     
-    def __str__(self):
-        return str(self.__raiz.getFilhoDireita().__raiz)
+    def Antecessor(self, raiz):
+        '''
+        Encontra filho mais a direita da sub-arvore da esquerda
+        '''
+        raiz = raiz.getFilhoEsquerda().__raiz
+        if raiz is  not None:
+            while raiz.getFilhoDireita() is not None:
+                if raiz.getFilhoDireita().__raiz is None:
+                    return raiz
+                else:
+                    raiz = raiz.getFilhoDireita().__raiz
+        return raiz
             
-def main():
-    arvore = ArvoreBinaria()
-    arvore.Inserir(5)
-    arvore.Inserir(3)
-    arvore.Inserir(8)
-    arvore.Inserir(4)
-    arvore.Inserir(6)
-    print(arvore.Pesquisar(7))
-    print(arvore)
+    def Sucessor(self,raiz):
+        '''
+        Encontra o filho mais a esquerda da sub-arvore da direita
+        '''
+        raiz = raiz.getFilhoDireita().__raiz
+        if raiz is not None:
+            while raiz.getFilhoEsquerda() is not None:
+                if raiz.getFilhoEsquerda().__raiz is None:
+                    return raiz
+                else:
+                    raiz = raiz.getFilhoEsquerda().__raiz
+        return raiz
+    
+    def Remover(self, item):
+        if not(self.Vazia()):
+            if self.__raiz.getItem() == item:
+                # caso a arvore nao tenha filhos
+                if self.__raiz.getFilhoEsquerda().__raiz is None and self.__raiz.getFilhoDireita().__raiz is None:
+                    self.__raiz = None
+                #caso a arvore nao tenha filho a esquerda
+                elif self.__raiz.getFilhoEsquerda().__raiz is None:
+                    self.__raiz = self.__raiz.getFilhoDireita().__raiz
+                #caso a arvore nao tenha filho a direita
+                elif self.__raiz.getFilhoDireita().__raiz is None:
+                    self.__raiz = self.__raiz.getFilhoEsquerda().__raiz
+                #pior caso: possui ambos os filhos. Tem que encontrar o sucessor.
+                else:
+                    substituto = self.Sucessor(self.__raiz)
+                    if substituto is not None:
+                        self.__raiz.setItem(substituto)
+                        self.__raiz.getFilhoDireita().Remover(substituto)
+                return 
+            elif item < self.__raiz.getItem():
+                self.__raiz.getFilhoEsquerda().Remover(item)
+            elif item > self.__raiz.getItem():
+                self.__raiz.getFilhoDireita().Remover(item)
+        else:
+            return
 
-if __name__ == "__main__":
-    main()
+    def preOrdem(self):
+        if self.Vazia():
+            return []
+        else:
+            lista_saida = list()
+            lista_saida.append(self.__raiz)
+
+            esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
+            for no in esquerda:
+                lista_saida.append(no)
+
+            direita = self.__raiz.getFilhoDireita().emOrdem()
+            for no in direita:
+                lista_saida.append(no)
+
+            return lista_saida
+    
+    def emOrdem(self):
+        if self.Vazia():
+            return []
+        else:
+            lista_saida = list()
+            esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
+            for no in esquerda:
+                lista_saida.append(no)
+            
+            lista_saida.append(self.__raiz)
+
+            direita = self.__raiz.getFilhoDireita().emOrdem()
+            for no in direita:
+                lista_saida.append(no)
+
+            return lista_saida
+    
+    def posOrdem(self):
+        if self.Vazia():
+            return []
+        else:
+            lista_saida = list()
+           
+            esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
+            for no in esquerda:
+                lista_saida.append(no)
+
+            direita = self.__raiz.getFilhoDireita().emOrdem()
+            for no in direita:
+                lista_saida.append(no)
+            
+            lista_saida.append(self.__raiz)
+
+            return lista_saida
+
+    def __str__(self):
+        return str(self.emOrdem())
