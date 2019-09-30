@@ -4,7 +4,7 @@ Centro de Informática - CIn (www2.cin.ufpe.br)
 Bacharelado em Sistemas de Informação  
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
-Data: 2019-09-12
+Data: 2019-09-30
 Copyright © 2019 todos os direitos reservados
 Descricao: Implementacao de uma estrutura de dados tipo Arvore Binaria de Busca.
 """
