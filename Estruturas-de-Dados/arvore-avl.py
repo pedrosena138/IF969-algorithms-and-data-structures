@@ -305,7 +305,7 @@ class ArvoreAVL():
             
             lista_saida.append(self.__raiz)
 
-            return lista_saida
+            return lista_said
     
     def Minimo(self):
         '''
@@ -324,7 +324,7 @@ class ArvoreAVL():
         while no.getFilhoDireita().__raiz is not None:
             no = no.getFilhoDireita().__raiz
         return no
-        
+
     def Imprimir(self, level=0, pref=''):
         self.__setAltura()
         self.__setBalanceamento()
