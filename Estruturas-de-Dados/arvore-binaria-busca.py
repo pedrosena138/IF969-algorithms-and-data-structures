@@ -121,7 +121,7 @@ class ArvoreBinaria():
             else:
                 raise ValueError('Valor já existente na arvore')
     
-    def Antecessor(self, raiz):
+    def __antecessor(self, raiz):
         '''
         Encontra filho mais a direita da sub-arvore da esquerda
         '''
@@ -134,7 +134,7 @@ class ArvoreBinaria():
                     raiz = raiz.getFilhoDireita().__raiz
         return raiz
             
-    def Sucessor(self,raiz):
+    def __sucessor(self,raiz):
         '''
         Encontra o filho mais a esquerda da sub-arvore da direita
         '''
@@ -161,7 +161,7 @@ class ArvoreBinaria():
                     self.__raiz = self.__raiz.getFilhoEsquerda().__raiz
                 #pior caso: possui ambos os filhos. Tem que encontrar o sucessor.
                 else:
-                    substituto = self.Sucessor(self.__raiz)
+                    substituto = self.__sucessor(self.__raiz)
                     if substituto is not None:
                         self.__raiz.setItem(substituto)
                         self.__raiz.getFilhoDireita().Remover(substituto)
