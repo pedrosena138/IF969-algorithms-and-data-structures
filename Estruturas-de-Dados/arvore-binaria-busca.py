@@ -48,7 +48,35 @@ class ArvoreBinaria():
         Metodo construtor da arvore
         '''
         self.__raiz = None
-
+        self.__altura = -1
+    
+    def __getAltura(self):
+        '''
+        Se a arvore for vaiza, sua alturae 0.
+        Se nao, retorna sua altura
+        '''
+        if self.Vazia():
+            return 0
+        else:
+            return self.__raiz.__altura
+    
+    def __setAltura(self, recursao=True):
+        '''
+        Atualiza a altura da arvore
+        '''
+        if not(self.Vazia()):
+            filho_esquerda = self.__raiz.getFilhoEsquerda()
+            filho_direita = self.__raiz.getFilhoDireita()
+            if recursao:
+                if filho_esquerda is not None:
+                    filho_esquerda.__setAltura()
+                if filho_direita is not None:
+                    filho_direita.__setAltura()
+            self.__altura = max(filho_direita.__altura,
+                                filho_esquerda.__altura) + 1
+        else:
+            self.__altura = -1
+    
     def Vazia(self):
         '''
         Retorna True se a arvore for vazia
@@ -196,6 +224,15 @@ class ArvoreBinaria():
             lista_saida.append(self.__raiz)
 
             return lista_saida
+    
+    def Imprimir(self, level=0, pref=''):
+        self.__setAltura()
+        if not(self.Vazia()):
+            print (' ' * level * 2, pref, self.__raiz.getItem(), "[" + str(self.__altura) + "]")
+            if self.__raiz.getFilhoEsquerda() is not None:
+                self.__raiz.getFilhoEsquerda().Imprimir(level+1, '<')
+            if self.__raiz.getFilhoEsquerda() is not None:
+                self.__raiz.getFilhoDireita().Imprimir(level+1, '>')
 
     def __str__(self):
         return str(self.emOrdem())
