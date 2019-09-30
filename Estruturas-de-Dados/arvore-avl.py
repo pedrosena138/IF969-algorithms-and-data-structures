@@ -305,7 +305,7 @@ class ArvoreAVL():
             
             lista_saida.append(self.__raiz)
 
-            return lista_said
+            return lista_saida
     
     def Minimo(self):
         '''
