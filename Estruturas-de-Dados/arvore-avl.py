@@ -4,10 +4,11 @@ Centro de Informática - CIn (www2.cin.ufpe.br)
 Bacharelado em Sistemas de Informação  
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
-Data: 2019-09-12
+Data: 2019-09-29v 
 Copyright © 2019 todos os direitos reservados
-Descricao: Implementacao de uma estrutura de dados tipo Arvore Binaria de Busca.
+Descricao: Implementacao de uma estrutura de dados tipo Arvore AVL.
 """
+
 
 class No():
     '''
@@ -15,8 +16,8 @@ class No():
     '''
     def __init__(self, item=None):
         self.__item = item
-        self.__filho_direita = None
-        self.__filho_esquerda = None
+        self.__filhoDireita = None
+        self.__filhoEsquerda = None
     
     #Get e Set de valor
     def getItem(self):
@@ -26,21 +27,21 @@ class No():
     
     #Get e Set do filho da direita
     def getFilhoDireita(self):
-        return self.__filho_direita
+        return self.__filhoDireita
     def setFilhoDireita(self, novo_filho):
-        self.__filho_direita = novo_filho
+        self.__filhoDireita = novo_filho
     
     #Get e Set do filho da esquerda
     def getFilhoEsquerda(self):
-        return self.__filho_esquerda
+        return self.__filhoEsquerda
     def setFilhoEsquerda(self, novo_filho):
-        self.__filho_esquerda = novo_filho
+        self.__filhoEsquerda = novo_filho
 
     def __str__(self):
         return str(self.__item)
     def __repr__(self):
         no = self.__item
-        return 'No(%s)' % str(no)
+        return str(no)
 
 class ArvoreAVL():
     def __init__(self):
@@ -50,44 +51,158 @@ class ArvoreAVL():
         self.__raiz = None
         self.__altura = -1
         self.__balanco = 0
+
+    def Vazia(self):
+        '''
+        Retorna True se a arvore for vazia
+        '''
+        return self.__raiz is None
     
-    def Altura(self):
+    
+    def Pesquisar(self, item):
         '''
-        Metodo que retorna o tamanho da arvore
+        Pesquisa um item na arvore.
+        Retorna o item se ele estiver na arvore ou False se nao estiver.
         '''
-        if self.__raiz is not None:
-            return self.__altura
+        if self.Vazia():
+            return False
         else:
-            return 0
-    
-    def Folha(self):
-        '''
-        Metodo que retorna True se o no for uma folha
-        '''
-        return (self.__altura == 0)
-    
+            no = self.__raiz
+            if item > no.getItem():
+                filho_direita = no.getFilhoDireita()
+                return filho_direita.Pesquisar(item)
+            elif item < self.__raiz.getItem():
+                filho_esquerda = no.getFilhoEsquerda()
+                return filho_esquerda.Pesquisar(item)
+            else:
+                return no.getItem()
+
     def Inserir(self, item):
         '''
-        Insere um no na arvore
+        Insere um novo no na arvore
         '''
         novo_no = No(item)
-        arvore = self.__raiz
-
-        if arvore is None:
+        if self.Vazia():
             self.__raiz = novo_no
-            self.__raiz.setFilhoEsquerda(ArvoreAVL())
             self.__raiz.setFilhoDireita(ArvoreAVL())
-        elif item < arvore.getItem():
-            arvore_esquerda = self.__raiz.getFilhoEsquerda()
-            arvore_esquerda.Inserir(item)
-        elif item > arvore.getItem():
-            arvore_direita = self.__raiz.getFilhoDireita()
-            arvore_direita.Inserir(item)
+            self.__raiz.setFilhoEsquerda(ArvoreAVL())
         else:
-            raise ValueError('No já existente na arvore')
+            no = self.__raiz
+            if item > no.getItem():
+                filho_direita = no.getFilhoDireita()
+                filho_direita.Inserir(item)
+            elif item < self.__raiz.getItem():
+                filho_esquerda = no.getFilhoEsquerda()
+                filho_esquerda.Inserir(item)
+            else:
+                raise ValueError('Valor já existente na arvore')
+    
+    def Antecessor(self, raiz):
+        '''
+        Encontra filho mais a direita da sub-arvore da esquerda
+        '''
+        raiz = raiz.getFilhoEsquerda().__raiz
+        if raiz is  not None:
+            while raiz.getFilhoDireita() is not None:
+                if raiz.getFilhoDireita().__raiz is None:
+                    return raiz
+                else:
+                    raiz = raiz.getFilhoDireita().__raiz
+        return raiz
+            
+    def Sucessor(self,raiz):
+        '''
+        Encontra o filho mais a esquerda da sub-arvore da direita
+        '''
+        raiz = raiz.getFilhoDireita().__raiz
+        if raiz is not None:
+            while raiz.getFilhoEsquerda() is not None:
+                if raiz.getFilhoEsquerda().__raiz is None:
+                    return raiz
+                else:
+                    raiz = raiz.getFilhoEsquerda().__raiz
+        return raiz
+    
+    def Remover(self, item):
+        if not(self.Vazia()):
+            if self.__raiz.getItem() == item:
+                # caso a arvore nao tenha filhos
+                if self.__raiz.getFilhoEsquerda().__raiz is None and self.__raiz.getFilhoDireita().__raiz is None:
+                    self.__raiz = None
+                #caso a arvore nao tenha filho a esquerda
+                elif self.__raiz.getFilhoEsquerda().__raiz is None:
+                    self.__raiz = self.__raiz.getFilhoDireita().__raiz
+                #caso a arvore nao tenha filho a direita
+                elif self.__raiz.getFilhoDireita().__raiz is None:
+                    self.__raiz = self.__raiz.getFilhoEsquerda().__raiz
+                #pior caso: possui ambos os filhos. Tem que encontrar o sucessor.
+                else:
+                    substituto = self.Sucessor(self.__raiz)
+                    if substituto is not None:
+                        self.__raiz.setItem(substituto)
+                        self.__raiz.getFilhoDireita().Remover(substituto)
+                return 
+            elif item < self.__raiz.getItem():
+                self.__raiz.getFilhoEsquerda().Remover(item)
+            elif item > self.__raiz.getItem():
+                self.__raiz.getFilhoDireita().Remover(item)
+        else:
+            return
+
+    def preOrdem(self):
+        if self.Vazia():
+            return []
+        else:
+            lista_saida = list()
+            lista_saida.append(self.__raiz)
+
+            esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
+            for no in esquerda:
+                lista_saida.append(no)
+
+            direita = self.__raiz.getFilhoDireita().emOrdem()
+            for no in direita:
+                lista_saida.append(no)
+
+            return lista_saida
+    
+    def emOrdem(self):
+        if self.Vazia():
+            return []
+        else:
+            lista_saida = list()
+            esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
+            for no in esquerda:
+                lista_saida.append(no)
+            
+            lista_saida.append(self.__raiz)
+
+            direita = self.__raiz.getFilhoDireita().emOrdem()
+            for no in direita:
+                lista_saida.append(no)
+
+            return lista_saida
+    
+    def posOrdem(self):
+        if self.Vazia():
+            return []
+        else:
+            lista_saida = list()
+           
+            esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
+            for no in esquerda:
+                lista_saida.append(no)
+
+            direita = self.__raiz.getFilhoDireita().emOrdem()
+            for no in direita:
+                lista_saida.append(no)
+            
+            lista_saida.append(self.__raiz)
+
+            return lista_saida
 
     def __str__(self):
-        return str(self.__raiz)
+        return str(self.emOrdem())
 
 def main():
     arvore = ArvoreAVL()
