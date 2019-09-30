@@ -224,7 +224,8 @@ class ArvoreBinaria():
             lista_saida.append(self.__raiz)
 
             return lista_saida
-     def Minimo(self):
+     
+    def Minimo(self):
         '''
         Retorna o menor valor da arvore, que e o valor mais a esquerda
         '''
@@ -241,7 +242,7 @@ class ArvoreBinaria():
         while no.getFilhoDireita().__raiz is not None:
             no = no.getFilhoDireita().__raiz
         return no
-        
+
     def Imprimir(self, level=0, pref=''):
         self.__setAltura()
         if not(self.Vazia()):
