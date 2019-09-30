@@ -84,12 +84,6 @@ class ArvoreAVL():
         else:
             self.__altura = -1
     
-    def __folha(self):
-        '''
-        O no e ma folha caso sua altura seja 0
-        '''
-        return (self.__getAltura == 0)
-    
     def __rotacaoEsquerda(self):
         '''
         Rotaciona uma sub-arvore para a esquerda, pivotando na raiz
@@ -205,7 +199,7 @@ class ArvoreAVL():
                 filho_esquerda.Inserir(item)
             else:
                 raise ValueError('Valor já existente na arvore')
-            self.__balancear()
+        self.__balancear()
     
     def Antecessor(self, raiz):
         '''
@@ -318,21 +312,11 @@ class ArvoreAVL():
         self.__setBalanceamento()
 
         if not(self.Vazia()):
-            print(' ' * level * 2, pref, self.__raiz.getItem(), "[" + str(self.__altura) + ":" + str(self.__balanco)+"]", 
-                  'L' if self.__folha() else ' ')
+            print(' ' * level * 2, pref, self.__raiz.getItem(), "[" + str(self.__altura) + ":" + str(self.__balanco)+"]")
             if self.__raiz.getFilhoEsquerda() is not None:
                 self.__raiz.getFilhoEsquerda().Imprimir(level+1, '<')
             if self.__raiz.getFilhoEsquerda() is not None:
                 self.__raiz.getFilhoDireita().Imprimir(level+1, '>')
-        
-def main():
-    arvore = ArvoreAVL()
-
-    for i in [8, 5, 4, 10, 1]:
-        arvore.Inserir(i)
     
-    #arvore.Remover(2)
-    arvore.Imprimir()
-
-if __name__ == "__main__":
-    main()
+    def __str__(self):
+        return str(self.emOrdem())
