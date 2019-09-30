@@ -79,7 +79,8 @@ class ArvoreAVL():
                     filho_esquerda.__setAltura()
                 if filho_direita is not None:
                     filho_direita.__setAltura()
-            self.__altura = max(filho_direita.__altura, filho_esquerda.__altura) + 1
+            self.__altura = max(filho_direita.__altura,
+                                filho_esquerda.__altura) + 1
         else:
             self.__altura = -1
     
@@ -87,31 +88,31 @@ class ArvoreAVL():
         '''
         O no e ma folha caso sua altura seja 0
         '''
-        return self.__getAltura == 0
+        return (self.__getAltura == 0)
     
     def __rotacaoEsquerda(self):
         '''
         Rotaciona uma sub-arvore para a esquerda, pivotando na raiz
         '''
         raiz = self.__raiz
-        raiz_direita = self.__raiz.getFilhoDireita()
-        raiz_direita_esquerda = raiz_direita.getFilhoEsquerda()
+        raiz_direita = self.__raiz.getFilhoDireita().__raiz
+        raiz_direita_esquerda = raiz_direita.getFilhoEsquerda().__raiz
 
         self.__raiz = raiz_direita
-        raiz_direita.setFilhoEsquerda(raiz)
-        raiz.setFilhoDireita(raiz_direita_esquerda)
+        raiz_direita.getFilhoEsquerda().__raiz = raiz
+        raiz.getFilhoDireita().__raiz = raiz_direita_esquerda
 
     def __rotacaoDireita(self):
         '''
-        Rotacioan uma sub-arvore para a direita, pivotando na raiz
+        Rotaciona uma sub-arvore para a direita, pivotando na raiz
         '''
         raiz = self.__raiz
-        raiz_esquerda = self.__raiz.getFilhoEsquerda()
-        raiz_esquerda_direita = raiz_esquerda.getFilhoDireita()
+        raiz_esquerda = self.__raiz.getFilhoEsquerda().__raiz
+        raiz_esquerda_direita = raiz_esquerda.getFilhoDireita().__raiz
 
         self.__raiz = raiz_esquerda
-        raiz_esquerda.setFilhoDireita(raiz)
-        raiz.setFilhoEsquerda(raiz_esquerda_direita)
+        raiz_esquerda.getFilhoDireita().__raiz = raiz
+        raiz.getFilhoEsquerda().__raiz = raiz_esquerda_direita
 
     def __balancear(self):
         '''
@@ -136,8 +137,8 @@ class ArvoreAVL():
                     self.__setBalanceamento()
                 self.__rotacaoEsquerda()
             
-                self.__setAltura()
-                self.__setBalanceamento()
+            self.__setAltura()
+            self.__setBalanceamento()
 
     def __setBalanceamento(self, recursao=True):
         if not(self.Vazia()):
@@ -312,15 +313,26 @@ class ArvoreAVL():
 
             return lista_saida
 
-    def __str__(self):
-        return str(self.emOrdem())
+    def Imprimir(self, level=0, pref=''):
+        self.__setAltura()
+        self.__setBalanceamento()
 
+        if not(self.Vazia()):
+            print(' ' * level * 2, pref, self.__raiz.getItem(), "[" + str(self.__altura) + ":" + str(self.__balanco)+"]", 
+                  'L' if self.__folha() else ' ')
+            if self.__raiz.getFilhoEsquerda() is not None:
+                self.__raiz.getFilhoEsquerda().Imprimir(level+1, '<')
+            if self.__raiz.getFilhoEsquerda() is not None:
+                self.__raiz.getFilhoDireita().Imprimir(level+1, '>')
+        
 def main():
     arvore = ArvoreAVL()
-    arvore.Inserir(8)
-    arvore.Inserir(4)
-    arvore.Inserir(3)
-    print(arvore)
+
+    for i in [8, 5, 4, 10, 1]:
+        arvore.Inserir(i)
+    
+    #arvore.Remover(2)
+    arvore.Imprimir()
 
 if __name__ == "__main__":
     main()
