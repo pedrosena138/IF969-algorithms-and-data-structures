@@ -394,7 +394,6 @@ def main():
     print('---------------------------------------')
     print("Arvore:", arvore)
     print(" ")
-
     
     for i in range(randrange(1, 5)):
         chave = randint(ord('A'), ord('Z'))
@@ -406,7 +405,6 @@ def main():
         else:
             i -= 1
         del arvore[chave]
-   
     print("Arvore:", arvore)
     print(" ")
 
