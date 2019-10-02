@@ -4,7 +4,7 @@ Centro de Informática - CIn (www2.cin.ufpe.br)
 Bacharelado em Sistemas de Informação  
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
-Data: 2019-09-30
+Data: 2019-10-01
 Copyright © 2019 todos os direitos reservados
 Descricao: Implementacao de uma Arvore Binaria de Busca.
 """
@@ -19,9 +19,11 @@ class No():
         self.__filhoDireita = None
         self.__filhoEsquerda = None
     
-    #Get de chave
+    #Get e Set de chave
     def getChave(self):
         return self.__chave
+    def setChave(self, nova_chave):
+        self.__chave = nova_chave
 
     #Get e Set de valor
     def getValor(self):
@@ -87,7 +89,6 @@ class ArvoreBinariaBusca():
         Metodo construtor da arvore
         '''
         self.__raiz = None
-        self.__altura = -1
     
     def __vazia(self):
         '''
@@ -179,7 +180,8 @@ class ArvoreBinariaBusca():
                 else:
                     substituto = self.__sucessor(self.__raiz)
                     if substituto is not None:
-                        self.__raiz.setItem(substituto)
+                        self.__raiz.setChave(substituto.getChave())
+                        self.__raiz.setValor(substituto.getValor())
                         self.__raiz.getFilhoDireita().__remover(substituto)
                 return 
             elif chave < self.__raiz.getChave():
@@ -188,6 +190,54 @@ class ArvoreBinariaBusca():
                 self.__raiz.getFilhoDireita().__remover(chave)
         else:
             return
+    
+    #implementar
+    def reiniciar(self):
+        raise NotImplementedError()
+
+    def chaves(self):
+        '''
+        Retorna uma lista com todas as chaves na arvore
+        '''
+        if self.__vazia():
+            return []
+        else:
+            lista_saida = list()
+            lista_saida.append(self.__raiz.getChave())
+
+            esquerda = self.__raiz.getFilhoEsquerda().chaves()
+            for chave in esquerda:
+                lista_saida.append(chave)
+            
+            direita = self.__raiz.getFilhoDireita().chaves()
+            for chave in direita:
+                lista_saida.append(chave)
+
+            return lista_saida
+        
+    def valores(self):
+        '''
+        Retorna uma lista com todos os valores da arvore
+        '''
+        '''
+        Retorna uma lista com todas as chaves na arvore
+        '''
+        if self.__vazia():
+            return []
+        else:
+            lista_saida = list()
+            lista_saida.append(self.__raiz.getValor())
+
+            esquerda = self.__raiz.getFilhoEsquerda().valores()
+            for chave in esquerda:
+                lista_saida.append(chave)
+            
+            direita = self.__raiz.getFilhoDireita().valores()
+            for chave in direita:
+                lista_saida.append(chave)
+
+            return lista_saida
+
     def preOrdem(self):
         '''
         Encaminhamento em pre ordem: raiz, filho da esquerda, filho da direita
@@ -196,15 +246,15 @@ class ArvoreBinariaBusca():
             return []
         else:
             lista_saida = list()
-            lista_saida.append(self.__raiz)
+            lista_saida.append((self.__raiz.getChave(), self.__raiz.getValor(), ))
 
-            esquerda = self.__raiz.getFilhoEsquerda().preOrdem()
-            for no in esquerda:
-                lista_saida.append(no)
-
-            direita = self.__raiz.getFilhoDireita().preOrdem()
-            for no in direita:
-                lista_saida.append(no)
+            esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
+            for chave, valor in esquerda:
+                lista_saida.append((chave, valor, ))
+            
+            direita = self.__raiz.getFilhoDireita().emOrdem()
+            for chave, valor in direita:
+                lista_saida.append((chave, valor, ))
 
             return lista_saida
     
@@ -217,14 +267,14 @@ class ArvoreBinariaBusca():
         else:
             lista_saida = list()
             esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
-            for no in esquerda:
-                lista_saida.append(no)
+            for chave, valor in esquerda:
+                lista_saida.append((chave, valor, ))
             
-            lista_saida.append(self.__raiz.getValor())
+            lista_saida.append((self.__raiz.getChave(), self.__raiz.getValor(), ))
 
             direita = self.__raiz.getFilhoDireita().emOrdem()
-            for no in direita:
-                lista_saida.append(no)
+            for chave, valor in direita:
+                lista_saida.append((chave, valor, ))
 
             return lista_saida
     
@@ -236,16 +286,15 @@ class ArvoreBinariaBusca():
             return []
         else:
             lista_saida = list()
-           
-            esquerda = self.__raiz.getFilhoEsquerda().posOrdem()
-            for no in esquerda:
-                lista_saida.append(no)
-
-            direita = self.__raiz.getFilhoDireita().posOrdem()
-            for no in direita:
-                lista_saida.append(no)
+            esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
+            for chave, valor in esquerda:
+                lista_saida.append((chave, valor, ))
             
-            lista_saida.append(self.__raiz)
+            direita = self.__raiz.getFilhoDireita().emOrdem()
+            for chave, valor in direita:
+                lista_saida.append((chave, valor, ))
+            
+            lista_saida.append((self.__raiz.getChave(), self.__raiz.getValor(), ))
 
             return lista_saida
     
@@ -276,10 +325,17 @@ class ArvoreBinariaBusca():
         else:
             self.__inserir(chave, valor)
 
-    def __del__(self, chave):
+    def __delitem__(self, chave):
         '''
         Remove um no da arvore com a chave passada como parametro
         '''
+        self.__remover(chave)
+    
+    def __contains__(self, chave):
+        if self.__procurar(chave):
+            return True
+        else:
+            return False
 
     def __iter__(self):
         '''
@@ -293,7 +349,7 @@ class ArvoreBinariaBusca():
         Retorna o no correspondente ao iterador
         '''
         if self.__index < len(self.preOrdem()):
-            no = self.preOrdem()[self.__index]
+            no = self.preOrdem()[self.__index][0]
             self.__index += 1
             return no
         else:
@@ -303,16 +359,30 @@ class ArvoreBinariaBusca():
         '''
         Representacao em str da arvore
         '''
-        return str(self.emOrdem())
+        dic_saida = dict()
+
+        for chave, valor in self.emOrdem():
+            dic_saida[chave] = valor
+
+        return str(dic_saida)
     
-    def __repr(self):
+    def __repr__(self):
         '''
         Representacao que pode ser instanciada da arvore
         '''
-        return str(self.preOrdem())
+        dic_saida = dict()
 
+        for chave, valor in self.preOrdem():
+            dic_saida[chave] = valor
 
-arvore = ArvoreBinariaBusca()
-arvore['a'] = 2
-arvore['b'] = 1
-print(arvore)
+        return str(dic_saida)
+
+def main():
+    arvore = ArvoreBinariaBusca()
+    arvore['d'] = 10
+    arvore['a'] = 8
+    arvore['e'] = 9
+    print(arvore.reiniciar())
+
+if __name__ == "__main__":
+    main()
