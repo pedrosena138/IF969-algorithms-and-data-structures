@@ -9,6 +9,8 @@ Copyright © 2019 todos os direitos reservados
 Descricao: Implementacao de uma Arvore Binaria de Busca.
 """
 
+from random import randint, randrange
+
 class No():
     '''
     Implementacao do no da arvore
@@ -84,12 +86,14 @@ class No():
             return self.__valor != no.getValor()
 
 class ArvoreBinariaBusca():
+    #Metodo construtor
     def __init__(self):
         '''
         Metodo construtor da arvore
         '''
         self.__raiz = None
     
+    #Metodos privados
     def __vazia(self):
         '''
         Retorna True se a arvore for vazia
@@ -190,11 +194,8 @@ class ArvoreBinariaBusca():
                 self.__raiz.getFilhoDireita().__remover(chave)
         else:
             return
-    
-    #implementar
-    def reiniciar(self):
-        raise NotImplementedError()
-
+    #--------------------------
+    #Metodos publicos
     def chaves(self):
         '''
         Retorna uma lista com todas as chaves na arvore
@@ -297,7 +298,8 @@ class ArvoreBinariaBusca():
             lista_saida.append((self.__raiz.getChave(), self.__raiz.getValor(), ))
 
             return lista_saida
-    
+    #--------------------
+    #Metodos magicos
     def __bool__(self):
         '''
         Converte a arvore em valor booleano
@@ -376,13 +378,37 @@ class ArvoreBinariaBusca():
             dic_saida[chave] = valor
 
         return str(dic_saida)
+    #-------------------
 
 def main():
     arvore = ArvoreBinariaBusca()
-    arvore['d'] = 10
-    arvore['a'] = 8
-    arvore['e'] = 9
-    print(arvore.reiniciar())
+    print('---------------------------------------')
+    for i in range(randrange(5, 20)):
+        chave = randint(ord('A'), ord('Z'))
+        chave = chr(chave)
+        if chave not in arvore:
+            print("Inserindo... arvore[{0}] = {1}" .format(chave, i))
+        else:
+            print("Atualizando... arvore[{0}] de {1} para {2}" .format(chave, arvore[chave], i ))
+        arvore[chave] = i
+    print('---------------------------------------')
+    print("Arvore:", arvore)
+    print(" ")
+
+    
+    for i in range(randrange(1, 5)):
+        chave = randint(ord('A'), ord('Z'))
+        chave = chr(chave)
+        if chave in arvore:
+            print('---------------------------------------')
+            print("Removendo... arvore[{0}]" .format(chave))
+            print('---------------------------------------')
+        else:
+            i -= 1
+        del arvore[chave]
+   
+    print("Arvore:", arvore)
+    print(" ")
 
 if __name__ == "__main__":
     main()
