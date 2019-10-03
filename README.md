@@ -19,14 +19,15 @@ Email: pmfsl@cin.ufpe.br
 
 ## [Estruturas de Dados](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Estruturas-de-Dados)
 >Objetos que armazenam dados de forma eficiente
-- __Árvores Binárias__
+- **Árvores Binárias**
   - Árvore AVL
   - Árvore Binária de Busca
-- Fila
-- __Lista__
-  - Lista Duplamente Ligada
-  - Lista Ligada
-- Pilha
+- **Estruturas Elementares**
+  - Fila
+  - Lista
+    - Lista Duplamente Ligada
+    - Lista Ligada
+  - Pilha
  
 ## Exercícios
 >Exercicios de sala
