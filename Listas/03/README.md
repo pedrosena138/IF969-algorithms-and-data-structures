@@ -15,7 +15,7 @@ método ```__delitem__```. Esse método é responśavel pelo comportamento da es
 - Implemente os métodos ```girar_esquerda``` e ```girar_direita```;
 - Por fim faça a sobrescreva os métodos de inserção e remoção para que sua AVL se mantenha balanceada.
 
-A classe ```No``` deve ter a seguinte implementação:
+A classe ```No()``` deve ter a seguinte implementação:
 - A classe nó deve guardar um par chave-valor, sendo assim indexada pela chave. Embora normalmente qualquer objeto possa ser usado para indexar um nó, na nossa implementação de árvore binária considere que as chaves serão sempre do tipo string.
 - Implemente os métodos comparativos:
 
