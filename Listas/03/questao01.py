@@ -45,7 +45,7 @@ class No():
     def setFilhoEsquerda(self, novo_filho):
         self.__filhoEsquerda = novo_filho
     
-    def getTipo(self, no):
+    def __getTipo(self, no):
         '''
         Verifica se o tipo do objeto e o mesmo
         '''
@@ -55,35 +55,35 @@ class No():
             raise TypeError('Tipos diferentes de objetos')
 
     def __str__(self):
-        return str(self.__valor)
+        return str(self.__chave)
     def __repr__(self):
-        no = self.__valor
+        no = self.__chave
         return str(no)
     
     #Metodos comparativos
     def __lt__(self, no):
-        if self.getTipo(no):
-            return self.__valor < no.getValor()
+        if self.__getTipo(no):
+            return self.__chave < no.getChave()
 
     def __gt__(self, no):
-        if self.getTipo(no):
-            return self.__valor > no.getValor()
+        if self.__getTipo(no):
+            return self.__chave > no.getChave()
     
     def __le__(self, no):
-        if self.getTipo(no):
-            return self.__valor <= no.getValor()
+        if self.__getTipo(no):
+            return self.__chave <= no.getChave()
     
     def __ge__(self, no):
-        if self.getTipo(no):
-            return self.__valor >= no.getValor()
+        if self.__getTipo(no):
+            return self.__chave >= no.getChave()
     
     def __eq__(self, no):
-        if self.getTipo(no):
-            return self.__valor == no.getValor()
+        if self.__getTipo(no):
+            return self.__chave == no.getChave()
     
     def __ne__(self, no):
-        if self.getTipo(no):
-            return self.__valor != no.getValor()
+        if self.__getTipo(no):
+            return self.__chave != no.getChave()
 
 class ArvoreBinariaBusca():
     #Metodo construtor
@@ -136,8 +136,6 @@ class ArvoreBinariaBusca():
             elif chave < no.getChave():
                 filho_esquerda = no.getFilhoEsquerda()
                 filho_esquerda.__inserir(chave, item)
-            else:
-                raise ValueError('Valor já existente na arvore')
     
     def __antecessor(self, raiz):
         '''
@@ -165,7 +163,7 @@ class ArvoreBinariaBusca():
                     raiz = raiz.getFilhoEsquerda().__raiz
         return raiz
 
-    def __remover(self, chave):
+    def remover(self, chave):
         '''
         Remove um no na arvore e insere seu sucessor imediato
         '''
@@ -186,14 +184,14 @@ class ArvoreBinariaBusca():
                     if substituto is not None:
                         self.__raiz.setChave(substituto.getChave())
                         self.__raiz.setValor(substituto.getValor())
-                        self.__raiz.getFilhoDireita().__remover(substituto)
+                        self.__raiz.getFilhoDireita().remover(substituto.getChave())
                 return 
             elif chave < self.__raiz.getChave():
-                self.__raiz.getFilhoEsquerda().__remover(chave)
+                self.__raiz.getFilhoEsquerda().remover(chave)
             elif chave > self.__raiz.getChave():
-                self.__raiz.getFilhoDireita().__remover(chave)
+                self.__raiz.getFilhoDireita().remover(chave)
         else:
-            return
+            raise IndexError('Arvore-Binaria-Busca.remover(X): x nao esta na arvore')
     #--------------------------
     #Metodos publicos
     def chaves(self):
@@ -314,14 +312,14 @@ class ArvoreBinariaBusca():
         Retorna o valor contido na chave passada como parametro
         '''
         no =  self.__procurar(chave)
-        return no
+        return no.getValor()
     
     def __setitem__(self, chave, valor):
         '''
         Atualiza o valor de um no se ele estiver na arvore.
         Se nao o insere
         '''
-        no = self.__getitem__(chave)
+        no = self.__procurar(chave)
         if  no:
             no.setValor(valor)
         else:
@@ -331,7 +329,7 @@ class ArvoreBinariaBusca():
         '''
         Remove um no da arvore com a chave passada como parametro
         '''
-        self.__remover(chave)
+        self.remover(chave)
     
     def __contains__(self, chave):
         if self.__procurar(chave):
@@ -386,27 +384,22 @@ def main():
     for i in range(randrange(5, 20)):
         chave = randint(ord('A'), ord('Z'))
         chave = chr(chave)
-        if chave not in arvore:
+        if chave not in arvore.chaves():
             print("Inserindo... arvore[{0}] = {1}" .format(chave, i))
         else:
             print("Atualizando... arvore[{0}] de {1} para {2}" .format(chave, arvore[chave], i ))
         arvore[chave] = i
-    print('---------------------------------------')
-    print("Arvore:", arvore)
-    print(" ")
+        print("Arvore:", arvore)
+        print('---------------------------------------')
     
-    for i in range(randrange(1, 5)):
+    for i in range(randrange(1, 10)):
         chave = randint(ord('A'), ord('Z'))
         chave = chr(chave)
-        if chave in arvore:
-            print('---------------------------------------')
+        if chave in arvore.chaves():
             print("Removendo... arvore[{0}]" .format(chave))
+            del arvore[chave]
+            print("Arvore:", arvore)
             print('---------------------------------------')
-        else:
-            i -= 1
-        del arvore[chave]
-    print("Arvore:", arvore)
-    print(" ")
 
 if __name__ == "__main__":
     main()
