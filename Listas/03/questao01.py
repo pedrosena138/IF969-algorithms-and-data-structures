@@ -4,7 +4,7 @@ Centro de Informática - CIn (www2.cin.ufpe.br)
 Bacharelado em Sistemas de Informação  
 Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
-Data: 2019-10-01
+Data: 2019-10-02
 Copyright © 2019 todos os direitos reservados
 Descricao: Implementacao de uma Arvore Binaria de Busca.
 """
@@ -119,11 +119,11 @@ class ArvoreBinariaBusca():
             else:
                 return False
     
-    def __inserir(self, chave, item):
+    def __inserir(self, chave, valor):
         '''
         Insere um novo no na arvore
         '''
-        novo_no = No(chave, item)
+        novo_no = No(chave, valor)
         if self.__vazia():
             self.__raiz = novo_no
             novo_no.setFilhoDireita(ArvoreBinariaBusca())
@@ -132,10 +132,10 @@ class ArvoreBinariaBusca():
             no = self.__raiz
             if chave > no.getChave():
                 filho_direita = no.getFilhoDireita()
-                filho_direita.__inserir(chave, item)
+                filho_direita.__inserir(chave, valor)
             elif chave < no.getChave():
                 filho_esquerda = no.getFilhoEsquerda()
-                filho_esquerda.__inserir(chave, item)
+                filho_esquerda.__inserir(chave, valor)
     
     def __antecessor(self, raiz):
         '''
@@ -163,7 +163,7 @@ class ArvoreBinariaBusca():
                     raiz = raiz.getFilhoEsquerda().__raiz
         return raiz
 
-    def remover(self, chave):
+    def __remover(self, chave):
         '''
         Remove um no na arvore e insere seu sucessor imediato
         '''
@@ -184,14 +184,14 @@ class ArvoreBinariaBusca():
                     if substituto is not None:
                         self.__raiz.setChave(substituto.getChave())
                         self.__raiz.setValor(substituto.getValor())
-                        self.__raiz.getFilhoDireita().remover(substituto.getChave())
+                        self.__raiz.getFilhoDireita().__remover(substituto.getChave())
                 return 
             elif chave < self.__raiz.getChave():
-                self.__raiz.getFilhoEsquerda().remover(chave)
+                self.__raiz.getFilhoEsquerda().__remover(chave)
             elif chave > self.__raiz.getChave():
-                self.__raiz.getFilhoDireita().remover(chave)
+                self.__raiz.getFilhoDireita().__remover(chave)
         else:
-            raise IndexError('Arvore-Binaria-Busca.remover(X): x nao esta na arvore')
+            raise IndexError('Arvore-Binaria-Busca.__remover(X): x nao esta na arvore')
     #--------------------------
     #Metodos publicos
     def chaves(self):
@@ -218,9 +218,6 @@ class ArvoreBinariaBusca():
         '''
         Retorna uma lista com todos os valores da arvore
         '''
-        '''
-        Retorna uma lista com todas as chaves na arvore
-        '''
         if self.__vazia():
             return []
         else:
@@ -242,7 +239,7 @@ class ArvoreBinariaBusca():
         Encaminhamento em pre ordem: raiz, filho da esquerda, filho da direita
         '''
         if self.__vazia():
-            return []
+            return {}
         else:
             lista_saida = list()
             lista_saida.append((self.__raiz.getChave(), self.__raiz.getValor(), ))
@@ -262,7 +259,7 @@ class ArvoreBinariaBusca():
         Encaminhamento em ordem: filho da esquerda, raiz, filho da direita
         '''
         if self.__vazia():
-            return []
+            return {}
         else:
             lista_saida = list()
             esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
@@ -282,7 +279,7 @@ class ArvoreBinariaBusca():
         Encaminhamento em pos ordem: filho da esquerda, filho da direita, raiz
         '''
         if self.__vazia():
-            return []
+            return {}
         else:
             lista_saida = list()
             esquerda = self.__raiz.getFilhoEsquerda().emOrdem()
@@ -329,9 +326,12 @@ class ArvoreBinariaBusca():
         '''
         Remove um no da arvore com a chave passada como parametro
         '''
-        self.remover(chave)
+        self.__remover(chave)
     
     def __contains__(self, chave):
+        '''
+        Checa se um item esta na arvore
+        '''
         if self.__procurar(chave):
             return True
         else:
