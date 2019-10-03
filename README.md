@@ -19,7 +19,7 @@ Email: pmfsl@cin.ufpe.br
 
 ## Estruturas de Dados
 >Objetos que armazenam dados de forma eficiente
-- __Árvores__
+- __Árvores Binárias__
   - [Árvore AVL](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/arvore-avl.py)
   - [Árvore Binária de Busca](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/arvore-binaria-busca.py)
 - [Fila](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/fila.py)
