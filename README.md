@@ -17,16 +17,16 @@ Email: pmfsl@cin.ufpe.br
 ## Algoritmos de Ordenação  
 >Algoritmos que ordenam, completa ou parcialmente, uma sequêcia da dados.
 
-## Estruturas de Dados
+## [Estruturas de Dados](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Estruturas-de-Dados)
 >Objetos que armazenam dados de forma eficiente
 - __Árvores Binárias__
-  - [Árvore AVL](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/arvore-avl.py)
-  - [Árvore Binária de Busca](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/arvore-binaria-busca.py)
-- [Fila](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/fila.py)
+  - Árvore AVL
+  - Árvore Binária de Busca
+- Fila
 - __Lista__
-  - [Lista Duplamente Ligada](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/lista-duplamente-ligada.py)
-  - [Lista Ligada](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/lista-ligada.py)
- - [Pilha](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/pilha.py)
+  - Lista Duplamente Ligada
+  - Lista Ligada
+- Pilha
  
 ## Exercícios
 >Exercicios de sala
