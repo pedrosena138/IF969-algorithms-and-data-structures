@@ -88,7 +88,7 @@ Pos-Ordem(x):
     print x.chave
 ```
 
-### [Árvores Binárias de Busca](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/Arvores/arvore-binaria-busca.py)
+### [Árvores Binárias de Busca](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/Arvores-Binarias/arvore-binaria-busca.py)
 > Na árvore binária para busca, as chaves possuem uma organização estrutural.
 
 - Seja **x** um nó em uma árvore de busca binária. Se **y** é um nó na subárvore esquerda de **x**, então **y.chave < x.chave**;
@@ -96,7 +96,7 @@ Pos-Ordem(x):
 
  Se os nós estão espalhados uniformemente, a consulta é rápida para grande quantidade de dados, divide-se o espaço de busca restante em dois em cada passo da busca: O(log2 n).
  
-### [Árvores AVL](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/Arvores/arvore-avl.py)
+### [Árvores AVL](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/Arvores-Binarias/arvore-avl.py)
 > A árvore binária pode degenerar para uma estrutura próxima a uma lista ligada, e o tempo de acesso deixa de ser logarítmico.
 
 ![](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/img/ex1-arvore.PNG)
