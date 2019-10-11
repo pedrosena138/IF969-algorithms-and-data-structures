@@ -16,21 +16,23 @@ def selectionsort(vetor):
     Checa todo o vetor primeiro para pegar o menor elemento, depois realiza a troca
     '''
     tam = len(vetor)
-    for i in range(0,tam-1):
+    for i in range(0,tam):
+        min = i
         for j in range(i+1,tam):
-            if vetor[i] > vetor[j]:
-                aux = vetor[i]
-                vetor[i] = vetor[j]
-                vetor[j] = aux
+            if vetor[min] > vetor[j]:
+                min = j
+        aux = vetor[i]
+        vetor[i] = vetor[min]
+        vetor[min] = aux
 
 lista = list()
 for i in range(randint(3,13)):
-    elm = randint(0,15)
+    elm = randint(0,50)
     while elm in lista:
-        elm = randint(0,15)
+        elm = randint(0,50)
     lista.append(elm)
 print(lista)
 
-bubblesort(lista)
+selectionsort(lista)
 print(lista)
 
