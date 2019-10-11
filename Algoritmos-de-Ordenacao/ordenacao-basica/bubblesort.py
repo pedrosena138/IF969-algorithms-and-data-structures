@@ -15,7 +15,7 @@ def bubblesort(vetor):
     Troca o elemento consecutivamente de lugar caso ele seja maior que o próximo
     '''
     tam = len(vetor)
-    for i in range(0,tam-1)   :
+    for i in range(0,tam-1):
         for j in range(i+1,tam):
             if vetor[i] > vetor[j]:
                 aux = vetor[i]

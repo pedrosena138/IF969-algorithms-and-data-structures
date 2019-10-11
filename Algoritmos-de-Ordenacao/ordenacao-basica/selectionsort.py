@@ -11,12 +11,12 @@ Descricao: Implementacao do algoritmo de ordenacao Bubblesort.
 """
 from random import randint
 
-def bubblesort(vetor):
+def selectionsort(vetor):
     '''
-    Troca o elemento consecutivamente de lugar caso ele seja maior que o próximo
+    Checa todo o vetor primeiro para pegar o menor elemento, depois realiza a troca
     '''
     tam = len(vetor)
-    for i in range(0,tam-1)   :
+    for i in range(0,tam-1):
         for j in range(i+1,tam):
             if vetor[i] > vetor[j]:
                 aux = vetor[i]
