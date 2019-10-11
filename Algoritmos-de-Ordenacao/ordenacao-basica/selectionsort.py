@@ -7,9 +7,18 @@ Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
 Email: pmfsl@cin.ufpe.br
 Data: 2019-10-11
 Copyright © 2019 todos os direitos reservados
-Descricao: Implementacao do algoritmo de ordenacao Bubblesort.
+Descricao: Implementacao do algoritmo de ordenacao Selectionsort.
 """
 from random import randint
+import numpy as np 
+
+def trocar(vetor, i, j):
+    '''
+    Troca as posicoes do vetor
+    '''
+    aux = vetor[i]
+    vetor[i] = vetor[j]
+    vetor[j] = aux
 
 def selectionsort(vetor):
     '''
@@ -21,18 +30,20 @@ def selectionsort(vetor):
         for j in range(i+1,tam):
             if vetor[min] > vetor[j]:
                 min = j
-        aux = vetor[i]
-        vetor[i] = vetor[min]
-        vetor[min] = aux
+        trocar(vetor, i, min)
 
-lista = list()
-for i in range(randint(3,13)):
-    elm = randint(0,50)
-    while elm in lista:
+def main():
+    vetor = np.empty(randint(3,10), int)
+    for i in range(len(vetor)):
         elm = randint(0,50)
-    lista.append(elm)
-print(lista)
+        while elm in vetor:
+            elm = randint(0,50)
+        vetor[i] = elm
 
-selectionsort(lista)
-print(lista)
+    print(vetor)
+    selectionsort(vetor)
+    print(vetor)
+
+if __name__ == "__main__":
+    main()
 
