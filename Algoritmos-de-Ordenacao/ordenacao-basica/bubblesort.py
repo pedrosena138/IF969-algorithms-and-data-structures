@@ -9,7 +9,6 @@ Data: 2019-10-11
 Copyright © 2019 todos os direitos reservados
 Descricao: Implementacao do algoritmo de ordenacao Bubblesort.
 """
-from random import randint
 
 def bubblesort(vetor):
     '''
