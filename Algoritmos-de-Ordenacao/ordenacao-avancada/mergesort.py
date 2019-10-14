@@ -13,6 +13,10 @@ from random import randint
 import numpy as np 
 
 def merge(vetor, esquerda, meio, direita):
+    '''
+    Intercala sub-vetores vetor[esquerda, meio] e vetor[meio+1, direita] 
+    para construir o vetor ordenado vetor[esquerda, direita]
+    '''
     i = esquerda
     j = meio + 1
     for k in range(esquerda, direita+1):
@@ -32,6 +36,10 @@ def merge(vetor, esquerda, meio, direita):
 
 #Mergesort Top-Down
 def TD_mergesort(vetor, esquerda, direita):
+    '''
+    Separa o vetor em sub-vetores, ordena os sub-vetores e 
+    depois junta os sub-vetores para formar o vetor ordenado
+    '''
     if esquerda >= direita:
         return
     meio = (esquerda + direita)//2
@@ -41,6 +49,11 @@ def TD_mergesort(vetor, esquerda, direita):
 
 #Mergesort Bottom-Up
 def BU_mergesort(vetor):
+    '''
+    Intercala vetores pequenos adjacentes
+    Aplica recursivamente o algoritmo para os vetores intercalados
+    Interrompe quando o vetor inteiro tiver sido intercalado
+    '''
     tam = len(vetor)
     global aux
     aux = list(vetor)
@@ -52,6 +65,11 @@ def BU_mergesort(vetor):
     del aux
 
 def mergesort(vetor):
+    '''
+    Metodo principal do mergesort
+    '''
+    # BU_mergesort(vetor)
+    # Para utilizar o mergesort Bottom-Up, comente as linhas abaixo
     tam = len(vetor)
     global aux
     aux = list(vetor)
