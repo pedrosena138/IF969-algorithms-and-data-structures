@@ -14,8 +14,16 @@ Email: pmfsl@cin.ufpe.br
 *__Copyright © 2019 todos os direitos reservados__*
 
 
-## Algoritmos de Ordenação  
+## [Algoritmos de Ordenação](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Algoritmos-de-Ordenacao) 
 >Algoritmos que ordenam, completa ou parcialmente, uma sequêcia da dados.
+- **Ordenação Básica**
+  - Bubblesort
+  - Insertionsort
+  - Selectionsort
+  - Shellsort
+- **Ordenação Avançada**
+  - Mergesort
+  - Quicksort
 
 ## [Estruturas de Dados](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Estruturas-de-Dados)
 >Objetos que armazenam dados de forma eficiente
