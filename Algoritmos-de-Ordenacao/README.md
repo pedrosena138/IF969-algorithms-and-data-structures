@@ -35,6 +35,31 @@ algoritmos.
 ![](https://upload.wikimedia.org/wikipedia/commons/0/06/Bubble-sort.gif)
 
 ### [Selectionsort](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Algoritmos-de-Ordenacao/ordenacao-basica/selectionsort.py)
+- C(N) = O(N²)
+- M(N) = O(N)
+- Outro algoritmo exaustivo como [bubblesort](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Algoritmos-de-Ordenacao/README.md#bubblesort);
+- Encontrar menor elemento do vetor;
+- Trocá-lo com o primeiro elemento;
+- Desconsiderar menor elemento;
+- Repetir processo para os demais;
+- Simples de implementar;
+- Poucas trocas (útil para casos em que os itens são grandes);
+- Não estável;
+- Custo independe se vetor está (parcialmente) ordenado.
 ![](https://thumbs.gfycat.com/SnappyMasculineAmericancicada-size_restricted.gif)
+
+### [Insertionsort](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Algoritmos-de-Ordenacao/ordenacao-basica/insertionsort.py)
+- Melhor caso - Elemento encontra-se na posição correta, 1 única comparação:
+  - C(N) = O(N)
+  - M(N) = O(N)
+- Pior caso:
+  - C(N) = O(N²)
+  - M(N) = O(N²)
+- Dividir vetor entre ordenados (à esquerda) e a ordenar (à direita);
+- Inserir primeiro elemento da direita na subsequência ordenada da esquerda;
+- Repetir processo até que todos tenham sido avaliados;
+- Processo similar a ordenar cartas na mão.
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/9c/Insertion-sort-example.gif)
 
 ## Ordenação Avançada
