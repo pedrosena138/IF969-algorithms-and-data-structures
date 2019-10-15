@@ -101,9 +101,11 @@ sequência;
 ### [Quicksort](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Algoritmos-de-Ordenacao/ordenacao-avancada/quicksort.py)
 - Melhor caso:
   - C(N) = O(N.lg(N))
+  - M(N) = O(N)
 - Pior caso:
   - C(N) = O(N²)
-- A ideia é similar ao [mergesort](), contudo não requer espaço adicional de armazenamento além da pilha de execução;
+  - M(N) = O(N²)
+- A ideia é similar ao [mergesort](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Algoritmos-de-Ordenacao/README.md#mergesort), contudo não requer espaço adicional de armazenamento além da pilha de execução;
 - Também é um algoritmo dividir e conquistar. O vetor é particionado em dois subvetores conforme um elemento qualquer chamado *pivô*:
   - Esquerda contém os elementos menores que o pivô
   - Direita contém os elementos maiores que o pivô
