@@ -1,0 +1,19 @@
+'''
+Universidade Federal de Pernambuco - UFPE (www.ufpe.br)
+Centro de Informática - CIn (www2.cin.ufpe.br) 
+Bacharelado em Sistemas de Informação 
+IF969 - Algoritmos e Estrutura de Dados 
+Professor: Hansenclever Bassani 
+Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
+Email: pmfsl@cin.ufpe.br
+Data: 2019-09-12
+Copyright © 2019 todos os direitos reservados
+Descricao: Implementacao de uma estrutura de dados tipo Grafo.
+'''
+
+class Grafo():
+    def __init__(self, direcionado=False, ponderado=False):
+        self.__dicVertices = dict()
+        self.__direcionado = direcionado
+        self.__ponderado = ponderado
+
