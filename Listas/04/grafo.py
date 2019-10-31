@@ -1,11 +1,23 @@
 #-*- coding: utf-8 -*-
+"""
+Universidade Federal de Pernambuco - UFPE (www.ufpe.br)
+Centro de Informática - CIn (www2.cin.ufpe.br) 
+Bacharelado em Sistemas de Informação  
+Autor: Pedro Manoel Farias Sena de Lima (pmfsl)
+Email: pmfsl@cin.ufpe.br
+Data: 2019-10-30
+
+Copyright © 2019 todos os direitos reservados
+
+Descricao: Implementacao de um Grafo.
+"""
 class Grafo:
     def __init__(self, arestas, direcionado=False, ponderado=False):
         self.__arestas = arestas
         self.__grafo = dict()
         self.__direcionado = direcionado
         self.__ponderado = ponderado
-        self.__matriz = False
+        self.__matriz = True
         self.__iniciar()
 
     def __iniciar(self):
@@ -197,7 +209,7 @@ class Grafo:
     
     def __getitem__(self, vertice):
         '''
-        Retorna, em forma de tupla, todas as arestas que se conecta ao vértice passado como parâmetro, se existir peso, retorna com o peso
+        Retorna, em forma de tupla, todas as arestas que se conecta ao vertice passado como parâmetro, se existir peso, retorna com o peso
         '''
         try:
             lista_arestas = list()
@@ -216,13 +228,24 @@ class Grafo:
         Impressao do grafo
         '''
         if self.__matriz:
-            pass
+            saida = '  '
+            for vertice in self.getVertices():
+                saida += '  ' + str(vertice)
+            saida += '\n'
+            for v in self.getVertices():
+                saida += str(v) + '  '
+                lista_adj = list()
+                for u in self.getVertices():
+                    if u in self.adjacentes(v):
+                        lista_adj.append(1)
+                    else:
+                        lista_adj.append(0)
+                saida += str(lista_adj) + '\n'
         else:
             saida = str()
             for vertice1, vertice2 in self.__grafo.items():
                 saida += str(vertice1) + ": " + str(vertice2) + "\n"
-            
-            return saida
+        return saida
     
     def __repr__(self):
         '''
@@ -234,7 +257,6 @@ def main():
     arestas = ((0,1),(1,2))
     grafo = Grafo(arestas)
     print(grafo)
-    grafo.remover_vertice(2)
-    print(grafo)
+    
 if __name__ == "__main__":
     main()
