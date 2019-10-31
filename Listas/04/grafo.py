@@ -17,7 +17,7 @@ class Grafo:
         self.__grafo = dict()
         self.__direcionado = direcionado
         self.__ponderado = ponderado
-        self.__matriz = False
+        self.__matriz = True
         self.__iniciar()
 
     def __iniciar(self):
@@ -26,10 +26,20 @@ class Grafo:
         '''
         for arestas in self.__arestas:
             if self.__ponderado:
-                if self.__direcionado:
-                    pass
-                else:
-                    pass
+                try:
+                    if self.__direcionado:
+                        pass
+                    else:
+                        if not(arestas[0] in self.__grafo):
+                            self.__grafo[arestas[0]] = [(arestas[1],arestas[2],)]
+                        else:
+                            self.__grafo[arestas[0]].append((arestas[1],arestas[2],))
+                        if not(arestas[1] in self.__grafo):
+                            self.__grafo[arestas[1]] = [(arestas[0],arestas[2],)]
+                        else:
+                            self.__grafo[arestas[1]].append((arestas[0],arestas[2],))
+                except:
+                    raise ValueError("Aresta sem peso")
             else:
                 if self.__direcionado:
                     if not(arestas[0] in self.__grafo):
@@ -48,15 +58,25 @@ class Grafo:
                     else:
                         self.__grafo[arestas[1]].append(arestas[0])
 
-    def inserir_aresta(self, vertice1, vertice2):
+    def inserir_aresta(self, vertice1, vertice2,peso=0):
         '''
         Insere uma aresta no grafo
         '''
         if self.__ponderado:
-            if self.__direcionado:
-                pass
+            if (vertice1 in self.getVertices()) and (vertice2 in self.getVertices()):
+                if peso == 0:
+                    raise ValueError("Aresta sem peso")
+                else:
+                    if self.__direcionado:
+                        self.__grafo[vertice1].append((vertice2,peso))
+                        self.__grafo[vertice1].sort()
+                    else:
+                        self.__grafo[vertice1].append((vertice2,peso))
+                        self.__grafo[vertice2].append((vertice1,peso))
+                        self.__grafo[vertice1].sort()
+                        self.__grafo[vertice2].sort()
             else:
-                pass
+                raise IndexError("Vertice nao encontrado")
         else:
             if (vertice1 in self.getVertices()) and (vertice2 in self.getVertices()):
                 if self.__direcionado:
@@ -85,20 +105,26 @@ class Grafo:
         else:
             raise IndexError("Vertice ja existente")
     
-    def remover_aresta(self,vertice1,vertice2):
+    def remover_aresta(self,vertice1,vertice2,peso=0):
         '''
         Remove uma aresta do grafo
         '''
-        try:
+        if (vertice1 in self.getVertices()) and (vertice2 in self.getVertices()):
             if self.__ponderado:
-                pass
-            else:
-                if self.__direcionado:
-                    self.__grafo[vertice1].remove(vertice2)
+                if peso == 0:
+                    raise ValueError("Aresta sem peso")
                 else:
-                    self.__grafo[vertice1].remove(vertice2)
+                    if (vertice2,peso) in self.__grafo[vertice1]:
+                        self.__grafo[vertice1].remove((vertice2,peso))
+                        if not(self.__direcionado):
+                            self.__grafo[vertice2].remove((vertice1,peso))
+                    else:
+                        raise ValueError("Aresta nao encontrada")
+            else:
+                self.__grafo[vertice1].remove(vertice2)
+                if not(self.__direcionado):
                     self.__grafo[vertice2].remove(vertice1)
-        except:
+        else:
             raise IndexError('Aresta nao encontrada')
     
     def remover_vertice(self, vertice):
@@ -107,12 +133,14 @@ class Grafo:
         '''
         try:
             self.__grafo.pop(vertice)
-            if self.__ponderado:
-                pass
-            else:
-                for v in self.__grafo:
+            for v in self.__grafo:
+                if self.__ponderado:
+                    for adjacente in self.__grafo[v]:
+                        if adjacente[0] == vertice:
+                            self.__grafo[v].remove(adjacente)
+                else:
                     if vertice in self.__grafo[v]:
-                        self.__grafo[v].remove(vertice)
+                        self.__grafo[v].remove(vertice)         
         except:
             raise IndexError('Vertice nao encontrado')
             
@@ -120,20 +148,24 @@ class Grafo:
         '''
         Retorna os vertices do grafo
         '''
-        return list(self.__grafo.keys())
+        lista_vertices = list(self.__grafo.keys())
+        lista_vertices.sort()
+        return lista_vertices
     
     def getArestas(self):
         '''
         Retorna as arestas do grafo
         '''
         lista_arestas = list()
-        if self.__ponderado:
-          pass
-        else:
-            for vertice1 in self.getVertices():
-                for vertice2 in self.__grafo[vertice1]:
-                    if not((vertice1, vertice2,)  in lista_arestas):
-                        lista_arestas.append((vertice1, vertice2,))
+        for vertice in self.getVertices():
+            for adjacente in self.__grafo[vertice]:
+                if self.__ponderado:
+                    if not((vertice, adjacente[0], adjacente[1])  in lista_arestas):
+                        lista_arestas.append((vertice, adjacente[0], adjacente[1]))
+                else:
+                    if not((vertice, adjacente)  in lista_arestas):
+                        lista_arestas.append((vertice, adjacente))
+        lista_arestas.sort()
         return lista_arestas
 
     def ligados(self, vertice1, vertice2):
@@ -142,7 +174,11 @@ class Grafo:
         '''
         try:
             if self.__ponderado:
-                pass
+                encontrado = False
+                for vertice in self.__grafo[vertice1]:
+                    if vertice2 == vertice[0]:
+                        encontrado = True
+                return encontrado
             else:
                 if vertice2 in self.__grafo[vertice1]:
                     return True
@@ -157,7 +193,12 @@ class Grafo:
         '''
         try:
             if self.__ponderado:
-                pass
+                lista_adj = list()
+                for adjacente in self.__grafo[vertice]:
+                    if not(adjacente[0] in lista_adj):
+                        lista_adj.append(adjacente[0])
+                lista_adj.sort()
+                return lista_adj
             else:
                 return list(self.__grafo[vertice])
         except:
@@ -217,12 +258,13 @@ class Grafo:
         '''
         try:
             lista_arestas = list()
-            if self.__ponderado:
-                pass
-            else:
-                for v in self.__grafo[vertice]:
+            for v in self.__grafo[vertice]:
+                if self.__ponderado:
+                    aresta = (vertice, v[0], v[1])
+                else:
                     aresta = (vertice, v)
-                    lista_arestas.append(aresta)
+                lista_arestas.append(aresta)
+            lista_arestas.sort()
             return tuple(lista_arestas)
         except:
             raise IndexError('Vertice nao encontrado')
@@ -231,6 +273,7 @@ class Grafo:
         '''
         Impressao do grafo
         '''
+        saida = str()
         if self.__matriz:
             saida = '  '
             for vertice in self.getVertices():
@@ -239,16 +282,27 @@ class Grafo:
             for v in self.getVertices():
                 saida += str(v) + '  '
                 lista_adj = list()
+                if self.__ponderado:  arestas = self.__getitem__(v)
                 for u in self.getVertices():
-                    if u in self.adjacentes(v):
-                        lista_adj.append(1)
+                    if self.__ponderado:
+                        valor = int()
+                        ocorrencia = int()
+                        for i in range(len(arestas)):
+                            if u == arestas[i][1]:
+                                valor += arestas[i][2]
+                                ocorrencia += 1
+                        if ocorrencia > 1: #caso haja arestas para o mesmo destino, o grafo ira contabilizar a divisao exata dos pesos pela quantidade de ocorrencias
+                            valor //= ocorrencia
+                        lista_adj.append(valor)
                     else:
-                        lista_adj.append(0)
+                        if u in self.adjacentes(v):
+                            lista_adj.append(1)
+                        else:
+                            lista_adj.append(0)
                 saida += str(lista_adj) + '\n'
         else:
-            saida = str()
-            for vertice1, vertice2 in self.__grafo.items():
-                saida += str(vertice1) + ": " + str(vertice2) + "\n"
+            for vertice, adjacentes in self.__grafo.items():
+                saida += str(vertice) + ": " + str(adjacentes) + "\n"
         return saida
     
     def __repr__(self):
@@ -257,7 +311,7 @@ class Grafo:
         '''
         return str(self.__grafo)
 
-def teste1():
+def grafo1():
     arestas = ((0,1),(1,2), (2,3), (3,1))
     grafo = Grafo(arestas)
     print(grafo)
@@ -277,13 +331,18 @@ def teste1():
     grafo.imprimir_matriz()
     print(grafo)
 
-def teste2():
+def grafo2():
     arestas = ((0,1), (0,2), (1,2), (2,3))
     grafo = Grafo(arestas, True)
     print(grafo)
-    
+
+def grafo3():
+    arestas = ((0,1,4),(1,2,7), (2,3,2), (3,1,2))
+    grafo = Grafo(arestas, False, True)
+    print(grafo)
+
 def main():
-    teste2()
+    grafo3()
     
 if __name__ == "__main__":
     main()
