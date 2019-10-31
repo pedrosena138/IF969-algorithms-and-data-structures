@@ -17,7 +17,7 @@ class Grafo:
         self.__grafo = dict()
         self.__direcionado = direcionado
         self.__ponderado = ponderado
-        self.__matriz = True
+        self.__matriz = False
         self.__iniciar()
 
     def __iniciar(self):
@@ -27,36 +27,29 @@ class Grafo:
         for arestas in self.__arestas:
             if self.__ponderado:
                 try:
-                    if self.__direcionado:
-                        pass
+                    if not(arestas[0] in self.__grafo):
+                        self.__grafo[arestas[0]] = [(arestas[1],arestas[2],)]
                     else:
-                        if not(arestas[0] in self.__grafo):
-                            self.__grafo[arestas[0]] = [(arestas[1],arestas[2],)]
-                        else:
-                            self.__grafo[arestas[0]].append((arestas[1],arestas[2],))
-                        if not(arestas[1] in self.__grafo):
-                            self.__grafo[arestas[1]] = [(arestas[0],arestas[2],)]
-                        else:
-                            self.__grafo[arestas[1]].append((arestas[0],arestas[2],))
+                        self.__grafo[arestas[0]].append((arestas[1],arestas[2],))
+                    if not(arestas[1] in self.__grafo):
+                        self.__grafo[arestas[1]] = list()
+                    self.__grafo[arestas[0]].sort()
+                    if not(self.__direcionado):
+                        self.__grafo[arestas[1]].append((arestas[0],arestas[2],))
+                        self.__grafo[arestas[1]].sort()
                 except:
                     raise ValueError("Aresta sem peso")
             else:
-                if self.__direcionado:
-                    if not(arestas[0] in self.__grafo):
-                        self.__grafo[arestas[0]] = [arestas[1]]
-                    else:
-                        self.__grafo[arestas[0]].append(arestas[1])
-                    if not(arestas[1] in self.__grafo):
-                        self.__grafo[arestas[1]] = list()
+                if not(arestas[0] in self.__grafo):
+                    self.__grafo[arestas[0]] = [arestas[1]]
                 else:
-                    if not(arestas[0] in self.__grafo):
-                        self.__grafo[arestas[0]] = [arestas[1]]
-                    else:
-                        self.__grafo[arestas[0]].append(arestas[1])
-                    if not(arestas[1] in self.__grafo):
-                        self.__grafo[arestas[1]] = [arestas[0]]
-                    else:
-                        self.__grafo[arestas[1]].append(arestas[0])
+                    self.__grafo[arestas[0]].append(arestas[1])
+                if not(arestas[1] in self.__grafo):
+                    self.__grafo[arestas[1]] = list()
+                self.__grafo[arestas[0]].sort()
+                if not(self.__direcionado):
+                    self.__grafo[arestas[1]].append(arestas[0])
+                    self.__grafo[arestas[1]].sort()
 
     def inserir_aresta(self, vertice1, vertice2,peso=0):
         '''
@@ -341,8 +334,19 @@ def grafo3():
     grafo = Grafo(arestas, False, True)
     print(grafo)
 
+def grafo4():
+    arestas = ((0,1,4),(1,2,7), (2,3,2), (3,1,2))
+    grafo = Grafo(arestas, True, True)
+    print(grafo)
+    print(grafo.getVertices())
+    print(grafo.getArestas())
+    print(grafo.ligados(2,4))
+    print(grafo.adjacentes(0))
+    print(grafo.grau_saida(0))
+    grafo.imprimir_matriz()
+    print(grafo[3])
 def main():
-    grafo3()
+    grafo4()
     
 if __name__ == "__main__":
     main()
