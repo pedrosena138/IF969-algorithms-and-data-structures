@@ -250,7 +250,28 @@ class Grafo:
             self.__matriz = False
         else:
             raise ValueError('O grafo já é uma lista de adjacencia')
-    
+
+    def __dfs(self, vertice, visitados):
+        visitados.add(vertice)
+        for adjacente in self.__grafo[vertice]:
+            if adjacente not in visitados:
+                self.__dfs(adjacente, visitados)
+
+    def busca_em_profundidade(self, vertice):
+        visitados = set()
+        self.__dfs(vertice, visitados)
+        return visitados
+
+    def busca_em_largura(self, vertice):
+        visitados = set()
+        fila = [vertice]
+        while fila:
+            vertice = fila.pop(0)
+            if vertice not in visitados:
+                visitados.add(vertice)
+                fila.extend(list(set(self.__grafo[vertice]) - visitados))
+        return visitados
+        
     def __getitem__(self, vertice):
         '''
         Retorna, em forma de tupla, todas as arestas que se conecta ao vertice passado como parâmetro, se existir peso, retorna com o peso
@@ -309,148 +330,3 @@ class Grafo:
         Representação da classe grafo
         '''
         return str(self.__grafo)
-
-def grafo1():
-    '''
-    Grafo nao-direcionado nao-ponderado
-    '''
-    arestas = ((0,1),(1,2), (2,3), (3,1))
-    grafo = Grafo(arestas)
-    print(grafo)
-    
-    print("Os vertices (0) e (1) sao ligados?", grafo.ligados(0,1))
-    print("Vertices adjacentes ao vertice (1):", grafo.adjacentes(1))
-    print("Grau de entrada do vertice (2):", grafo.grau_entrada(2))
-    print("Grau de saida do vertice (3):",grafo.grau_saida(3))
-
-    print("Insercao do vertice (4)")
-    grafo.inserir_vertice(4)
-    print(grafo)
-    
-    print("Insercao da aresta (4,0)")
-    grafo.inserir_aresta(4,0)
-    print(grafo)
-
-    print("Remoção da aresta (1,3)")
-    grafo.remover_aresta(1,3)
-    print(grafo)
-
-    print("Remoção do vertice (2)")
-    grafo.remover_vertice(2)
-    print(grafo)
-
-    print("Matriz de Adjacencia")
-    grafo.imprimir_matriz()
-    print(grafo)
-
-def grafo2():
-    '''
-    Grafo direcionado nao-ponderado
-    '''
-    arestas = ((0,1),(1,2), (2,3), (3,1))
-    grafo = Grafo(arestas, True)
-    print(grafo)
-    
-    print("Os vertices (0) e (1) sao ligados?", grafo.ligados(0,1))
-    print("Vertices adjacentes ao vertice (1):", grafo.adjacentes(1))
-    print("Grau de entrada do vertice (2):", grafo.grau_entrada(2))
-    print("Grau de saida do vertice (3):",grafo.grau_saida(3))
-
-    print("Insercao do vertice (4)")
-    grafo.inserir_vertice(4)
-    print(grafo)
-    
-    print("Insercao da aresta (4,0)")
-    grafo.inserir_aresta(4,0)
-    print(grafo)
-
-    print("Remoção da aresta (0,1)")
-    grafo.remover_aresta(0,1)
-    print(grafo)
-
-    print("Remoção do vertice (2)")
-    grafo.remover_vertice(2)
-    print(grafo)
-
-    print("Matriz de Adjacencia")
-    grafo.imprimir_matriz()
-    print(grafo)
-
-def grafo3():
-    '''
-    Grafo nao-direcionado ponderado
-    '''
-    arestas = ((0,1,4),(1,2,7), (2,3,2), (3,1,2))
-    grafo = Grafo(arestas, False, True)
-    print(grafo)
-    
-    print("Os vertices (0) e (1) sao ligados?", grafo.ligados(0,1))
-    print("Vertices adjacentes ao vertice (1):", grafo.adjacentes(1))
-    print("Grau de entrada do vertice (2):", grafo.grau_entrada(2))
-    print("Grau de saida do vertice (3):",grafo.grau_saida(3))
-
-    print("Insercao do vertice (4)")
-    grafo.inserir_vertice(4)
-    print(grafo)
-    
-    print("Insercao da aresta (4,0,7)")
-    grafo.inserir_aresta(4,0,7)
-    print(grafo)
-
-    print("Remoção da aresta (1,3,2)")
-    grafo.remover_aresta(1,3,2)
-    print(grafo)
-
-    print("Remoção do vertice (2)")
-    grafo.remover_vertice(2)
-    print(grafo)
-
-    print("Matriz de Adjacencia")
-    grafo.imprimir_matriz()
-    print(grafo)
-
-def grafo4():
-    '''
-    Grafo direcionado ponderado
-    '''
-    arestas = ((0,1,4),(1,2,7), (2,3,2), (3,1,2))
-    grafo = Grafo(arestas, True, True)
-    print(grafo)
-    
-    print("Os vertices (0) e (1) sao ligados?", grafo.ligados(0,1))
-    print("Vertices adjacentes ao vertice (1):", grafo.adjacentes(1))
-    print("Grau de entrada do vertice (2):", grafo.grau_entrada(2))
-    print("Grau de saida do vertice (3):",grafo.grau_saida(3))
-
-    print("Insercao do vertice (4)")
-    grafo.inserir_vertice(4)
-    print(grafo)
-    
-    print("Insercao da aresta (4,0,7)")
-    grafo.inserir_aresta(4,0,7)
-    print(grafo)
-
-    print("Remoção da aresta (3,1,2)")
-    grafo.remover_aresta(3,1,2)
-    print(grafo)
-
-    print("Remoção do vertice (2)")
-    grafo.remover_vertice(2)
-    print(grafo)
-
-    print("Matriz de Adjacencia")
-    grafo.imprimir_matriz()
-    print(grafo)
-
-def main():
-    '''
-    Funcao principal do codigo.
-    Hint: Para vizualizar os outros grafos basta tirar o #
-    '''
-    grafo1() #Grafo nao-direcionado nao-ponderado
-    #grafo2() #Grafo direcionado nao-ponderado
-    #grafo3() #Grafo nao-direcionado ponderado
-    #grafo4() #Grafo direcionado ponderado
-    
-if __name__ == "__main__":
-    main()
