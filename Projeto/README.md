@@ -106,5 +106,4 @@ especificado pelo usuário, ou que tenham ou não sido eleitos no pleito;
 - [ ] **5. Média dos bens:** Funções que mostram a média do total de bens dos candidatos por cargo, UF, partido, ocupação, ou ano de
 nascimento;
 - [ ] **6. Remover da Lista:** Função que remove da lista todos os candidatos que satisfaçam um critério.
-   > Exemplo: remover todos os candidatos com a candidatura indeferida, ou que não tenham
-sido eleitos.
+   > Exemplo: remover todos os candidatos com a candidatura indeferida, ou que não tenham sido eleitos.
