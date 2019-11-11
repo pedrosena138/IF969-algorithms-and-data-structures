@@ -65,7 +65,6 @@ Resumo dos bens:
 segundo a descrição detalhada do bem. Dois bens são iguais se possuírem o mesmo valor e a mesma descrição detalhada.
 
 ### Output
-**Saída**
 ```
 Código -- Descrição do tipo -- Valor (formatado em R$) Descrição: Descrição detalhada
 ```
@@ -74,7 +73,7 @@ Código -- Descrição do tipo -- Valor (formatado em R$) Descrição: Descriç�
 TextWrap)
 
 ## Classe Lista()
-> Uma [lista duplamente encadeada](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/Estruturas-Elementares/lista-duplamente-ligada.py) que armazena objetos.
+> Uma [lista duplamente encadeada](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Estruturas-de-Dados#listas) que armazena objetos.
 
 ### Métodos
 - [ ] **Inserir**: insere um elemento de forma ordenada
