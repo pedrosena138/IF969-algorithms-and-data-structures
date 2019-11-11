@@ -108,4 +108,3 @@ nascimento;
 - [ ] **6. Remover da Lista:** Função que remove da lista todos os candidatos que satisfaçam um critério.
    > Exemplo: remover todos os candidatos com a candidatura indeferida, ou que não tenham
 sido eleitos.
-
