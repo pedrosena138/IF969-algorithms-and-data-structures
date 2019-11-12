@@ -30,6 +30,15 @@ class No:
     def setAnterior(self, novo_anterior):
         self.__anterior = novo_anterior
     
+    def __getTipo(self, no):
+        '''
+        Verifica se o tipo do objeto e o mesmo
+        '''
+        if type(self) == type(no):
+            return True
+        else:
+            raise TypeError('Tipos diferentes de objetos')
+    
     def __str__(self):
         return str(self.__valor)
     
