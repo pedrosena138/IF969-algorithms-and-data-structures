@@ -35,6 +35,31 @@ class No:
     
     def __repr__(self):
         return self.__valor
+    
+    #Metodos comparativos
+    def __lt__(self, no):
+        if self.__getTipo(no):
+            return self.__valor < no.getValor()
+
+    def __gt__(self, no):
+        if self.__getTipo(no):
+            return self.__valor > no.getValor()
+    
+    def __le__(self, no):
+        if self.__getTipo(no):
+            return self.__valor <= no.getValor()
+    
+    def __ge__(self, no):
+        if self.__getTipo(no):
+            return self.__valor >= no.getValor()
+    
+    def __eq__(self, no):
+        if self.__getTipo(no):
+            return self.__valor == no.getValor()
+    
+    def __ne__(self, no):
+        if self.__getTipo(no):
+            return self.__valor != no.getValor()
 
 class ListaDupla:
     '''
