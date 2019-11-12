@@ -81,7 +81,7 @@ class ListaDupla:
     
     def Remover(self,valor):
         if self.Vazia() or not(self.Pesquisar(valor)):
-            raise ValueError('Lista-Dupla-Ligada.Remover(x): x nao esta na lista')
+            raise ValueError('Lista.Remover(x): x nao esta na lista')
         else:
             no_atual = self.__comeco
             no_achado = False
@@ -94,19 +94,22 @@ class ListaDupla:
             
             no_anterior = no_atual.getAnterior()
             no_proximo = no_atual.getProximo()
-            if no_atual == self.__comeco:
-                no_atual.setProximo(None)
-                no_proximo.setAnterior(None)
-                self.__comeco = no_proximo
-            elif no_atual == self.__fim:
-                no_atual.setAnterior(None)
-                no_anterior.setProximo(None)
-                self.__fim = no_anterior
+            if self.__len__() == 1:
+                self.__comeco = None
             else:
-                no_atual.setProximo(None)
-                no_atual.setAnterior(None)
-                no_proximo.setAnterior(no_anterior)
-                no_anterior.setProximo(no_proximo)
+                if no_atual == self.__comeco:
+                    no_atual.setProximo(None)
+                    no_proximo.setAnterior(None)
+                    self.__comeco = no_proximo
+                elif no_atual == self.__fim:
+                    no_atual.setAnterior(None)
+                    no_anterior.setProximo(None)
+                    self.__fim = no_anterior
+                else:
+                    no_atual.setProximo(None)
+                    no_atual.setAnterior(None)
+                    no_proximo.setAnterior(no_anterior)
+                    no_anterior.setProximo(no_proximo)
     
     def __getitem__(self, chave):
         '''
@@ -181,10 +184,10 @@ class ListaDupla:
             return saida
 
     def __repr__(self):
-        return ('ListaDuplaLigada(%s)' % self.__str__())
+        return ('Lista(%s)' % self.__str__())
 
 if __name__ == "__main__":
     lista = ListaDupla()
     lista.Inserir(4)
-    lista.Remover(8)
+    lista.Remover(4)
     print(lista)
