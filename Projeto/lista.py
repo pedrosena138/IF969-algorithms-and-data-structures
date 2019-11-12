@@ -78,7 +78,7 @@ class ListaDupla:
         self.__comeco = None
         self.__fim = None
     
-    def Vazia(self):
+    def __vazia(self):
         '''
         Retorna True se a lista estiver vazia
         '''
@@ -89,7 +89,7 @@ class ListaDupla:
         Verifica se existe um no com o valor passado como parametro na lista.
         Retorna o retorna True se o no estiver na lista.
         '''
-        if self.Vazia():
+        if self.__vazia():
             return False
         else:
             no = self.__comeco
@@ -106,15 +106,33 @@ class ListaDupla:
         Insere um item na lista
         '''
         novo_no = No(valor)
-        if self.Vazia():
+        if self.__vazia():
             self.__comeco = self.__fim = novo_no
         else:
-           self.__fim.setProximo(novo_no)
-           novo_no.setAnterior(self.__fim)
-           self.__fim = novo_no
-    
+            if novo_no >= self.__fim:
+                self.__fim.setProximo(novo_no)
+                novo_no.setAnterior(self.__fim)
+                novo_no.setProximo(None)
+                self.__fim = novo_no
+            elif novo_no <= self.__comeco:
+                self.__comeco.setAnterior(novo_no)
+                novo_no.setProximo(self.__comeco)
+                self.__comeco = novo_no
+            else:
+                no_atual = self.__comeco
+                no_proximo = self.__comeco.getProximo()
+                while not(no_proximo is None) and novo_no >= no_proximo:
+                    no_atual = no_proximo
+                    no_proximo = no_atual.getProximo()
+                no_atual.setProximo(novo_no)
+                novo_no.setAnterior(no_atual)
+                novo_no.setProximo(no_proximo)
+
     def Remover(self,valor):
-        if self.Vazia() or not(self.Pesquisar(valor)):
+        '''
+        Remove um item da lista
+        '''
+        if self.__vazia() or not(self.Pesquisar(valor)):
             raise ValueError('Lista.Remover(x): x nao esta na lista')
         else:
             no_atual = self.__comeco
@@ -145,12 +163,23 @@ class ListaDupla:
                     no_proximo.setAnterior(no_anterior)
                     no_anterior.setProximo(no_proximo)
     
+    def Comparar(self, valor1, valor2):
+        if self.__vazia() or not(self.Pesquisar(valor1) or self.Pesquisar(valor2)):
+            raise IndexError('indice(s) fora da lista')
+        else:
+            if valor1 < valor2:
+                return -1
+            elif valor1 == valor2:
+                return 0
+            elif valor1 > valor2:
+                return 1
+
     def __getitem__(self, chave):
         '''
         Retorna o valor do no que contem a chave passada como parametro
         '''
         indice = self.__len__()-1
-        if (chave > indice) or (self.Vazia()):
+        if (chave > indice) or (self.__vazia()):
             raise IndexError('indice fora do alcance')
         else:
             no = self.__comeco
@@ -182,7 +211,7 @@ class ListaDupla:
         '''
         Retorna a quantidade de itens na lista
         '''
-        if self.Vazia():
+        if self.__vazia():
             return 0
         else:
             cont = int()
@@ -198,20 +227,21 @@ class ListaDupla:
         Atualiza o valor de um no
         '''
         no = self.__getitem__(indice)
-        no.setValor(valor)
+        self.Remover(no.getValor())
+        self.Inserir(valor)
 
     def __str__(self):
         '''
         Retorna uma representacao em forma de string do objeto
         '''
-        if self.Vazia():
+        if self.__vazia():
             return '[]'
         else:
             saida = str()
             saida += '['
 
             for no in self:
-                if no == self.__fim:
+                if no.getProximo() is None:
                     saida += str(no) + ']'
                 else:
                     saida += str(no) + ', '
@@ -222,6 +252,6 @@ class ListaDupla:
 
 if __name__ == "__main__":
     lista = ListaDupla()
-    lista.Inserir(4)
-    lista.Remover(4)
-    print(lista)
+    lista.Inserir(5)
+    lista.Inserir(2)
+    print(lista.Comparar(2,2))
