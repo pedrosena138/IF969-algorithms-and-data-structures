@@ -9,34 +9,34 @@ referentes a listas encadeadas e orientação à objetos.
 > Os atributos da classe devem ser obrigatoriamente privados. Dessa forma, deverão ser implementados métodos para acessar (alterar e obter)
 os valores desses atributos.
 
-- [ ] Ano da eleição
-- [ ] Sigla da UF
-- [ ] Código do Cargo
-- [ ] Descrição do cargo
-- [ ] Nome do candidato
-- [ ] ID do candidato (número sequencial do candidato gerado pelos sistemas eleitorais)
-- [ ] Número na urna
-- [ ] CPF
-- [ ] Nome na urna
-- [ ] Número do partido
-- [ ] Nome do partido
-- [ ]  Sigla do partido
-- [ ] Código de ocupação do candidato
-- [ ] Descrição da ocupação
-- [ ] Data de nascimento (armazenada como dia, mês e ano)
-- [ ] Sexo do candidato
-- [ ] Grau de instrução
-- [ ] Estado civil
-- [ ] UF nascimento
-- [ ] Nome do município de nascimento
-- [ ] Situação do candidato pós pleito (eleito, não eleito, suplente)
-- [ ] Situação da candidatura (deferida ou indeferida)
-- [ ] Lista de bens
+- [x] Ano da eleição
+- [x] Sigla da UF
+- [x] Código do Cargo
+- [x] Descrição do cargo
+- [x] Nome do candidato
+- [x] ID do candidato (número sequencial do candidato gerado pelos sistemas eleitorais)
+- [x] Número na urna
+- [x] CPF
+- [x] Nome na urna
+- [x] Número do partido
+- [x] Nome do partido
+- [x]  Sigla do partido
+- [x] Código de ocupação do candidato
+- [x] Descrição da ocupação
+- [x] Data de nascimento (armazenada como dia, mês e ano)
+- [x] Sexo do candidato
+- [x] Grau de instrução
+- [x] Estado civil
+- [x] UF nascimento
+- [x] Nome do município de nascimento
+- [x] Situação do candidato pós pleito (eleito, não eleito, suplente)
+- [x] Situação da candidatura (deferida ou indeferida)
+- [x] Lista de bens
 
 ### Métodos
-- [ ] **incluirBens**: Recebe como parâmetro um objeto do tipo ```Bem``` e deve inseri-lo na *lista de bens do candidato*.
-- [ ] ```__str__```
-- [ ] ```__repr__```
+- [x] **incluirBens**: Recebe como parâmetro um objeto do tipo ```Bem``` e deve inseri-lo na *lista de bens do candidato*.
+- [x] ```__str__```
+- [x] ```__repr__```
 
 ### Output
 ```
