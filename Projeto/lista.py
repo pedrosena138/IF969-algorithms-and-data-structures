@@ -70,7 +70,7 @@ class No:
         if self.__getTipo(no):
             return self.__valor != no.getValor()
 
-class ListaDupla:
+class Lista:
     '''
     Implementacao da lista duplamente ligada
     '''
@@ -251,7 +251,7 @@ class ListaDupla:
         return ('Lista(%s)' % self.__str__())
 
 if __name__ == "__main__":
-    lista = ListaDupla()
+    lista = Lista()
     lista.Inserir(5)
     lista.Inserir(2)
     print(lista.Comparar(2,2))
