@@ -76,8 +76,8 @@ TextWrap)
 > Uma [lista duplamente encadeada](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Estruturas-de-Dados#listas) que armazena objetos.
 
 ### Métodos
-- [ ] **Inserir**: insere um elemento de forma ordenada
-- [ ] **Comparação**: Essa função de comparação deve possuir dois parâmetros (os objetos a serem comparados) e deve retornar -1, 0 ou 1 caso o primeiro objeto seja menor, igual, ou maior que o segundo objeto, respectivamente.
+- [x] **Inserir**: insere um elemento de forma ordenada
+- [x] **Comparação**: Essa função de comparação deve possuir dois parâmetros (os objetos a serem comparados) e deve retornar -1, 0 ou 1 caso o primeiro objeto seja menor, igual, ou maior que o segundo objeto, respectivamente.
 - [ ] Métodos para exibição do conteúdo na tela.
 
 ### Comparação fora da classe
