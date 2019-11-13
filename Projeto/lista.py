@@ -249,9 +249,3 @@ class Lista:
 
     def __repr__(self):
         return ('Lista(%s)' % self.__str__())
-
-if __name__ == "__main__":
-    lista = Lista()
-    lista.Inserir(5)
-    lista.Inserir(2)
-    print(lista.Comparar(2,2))
