@@ -146,6 +146,14 @@ class Candidato:
     def incluirBens(self, bem):
         self.__bens.Inserir(bem)
     
+    '''
+    def valor_bens(self):
+        valor = float()
+        for i in range(len(self.__bens)):
+            valor += self.__bens[i].getValor()
+        return valor
+    '''
+
     def __str__(self):
         saida = str()
         saida += 'Candidato: {}\n' .format(self.__nome_cand) 
