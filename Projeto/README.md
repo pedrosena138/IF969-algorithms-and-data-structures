@@ -53,15 +53,15 @@ Resumo dos bens:
 ### Atributos
 > Os atributos deverão ser todos privados. Dessa forma, você deverá implementar métodos de acesso aos valores armazenados.
 
-- [ ] Código do tipo de bem
-- [ ] Descrição do tipo de bem
-- [ ] Descrição detalhada do bem
-- [ ] Valor do bem
+- [x] Código do tipo de bem
+- [x] Descrição do tipo de bem
+- [x] Descrição detalhada do bem
+- [x] Valor do bem
 
 ### Métodos
-- [ ] ```__str__```
-- [ ] ```__repr__```
-- [ ] **Métodos de comparação**: A comparação é baseada no valor do bem. Os critérios de desempate são: primeiro o código do bem;
+- [x] ```__str__```
+- [x] ```__repr__```
+- [x] **Métodos de comparação**: A comparação é baseada no valor do bem. Os critérios de desempate são: primeiro o código do bem;
 segundo a descrição detalhada do bem. Dois bens são iguais se possuírem o mesmo valor e a mesma descrição detalhada.
 
 ### Output
@@ -78,7 +78,7 @@ TextWrap)
 ### Métodos
 - [x] **Inserir**: insere um elemento de forma ordenada
 - [x] **Comparação**: Essa função de comparação deve possuir dois parâmetros (os objetos a serem comparados) e deve retornar -1, 0 ou 1 caso o primeiro objeto seja menor, igual, ou maior que o segundo objeto, respectivamente.
-- [ ] Métodos para exibição do conteúdo na tela.
+- [x] Métodos para exibição do conteúdo na tela.
 
 ### Comparação fora da classe
 Funções de comparação para os candidatos baseadas nos seguintes critérios:
@@ -94,16 +94,16 @@ Funções de comparação para os candidatos baseadas nos seguintes critérios:
 
 Deve conter as seguintes funcionalidades:
 
-- [ ] **1. Carregar candidatos:** Carregamento dos candidatos a partir do arquivo (o caminho do arquivo deve ser um parâmetro do método).
+- [x] **1. Carregar candidatos:** Carregamento dos candidatos a partir do arquivo (o caminho do arquivo deve ser um parâmetro do método).
 Os candidatos lidos do arquivo deverão ser armazenados em objetos do tipo ```Candidato``` e inseridos numa lista de candidatos;
-- [ ] **2. Carregar bens:** Carregamento dos bens dos candidatos. Os bens deverão ser lidos do arquivo cujo caminho é passado como
+- [x] **2. Carregar bens:** Carregamento dos bens dos candidatos. Os bens deverão ser lidos do arquivo cujo caminho é passado como
 parâmetro para o método. Cada bem lido deverá ser armazenado em um objeto do tipo ```Bem``` e inserido na lista de bens de seu respectivo
 candidato. A correspondência deve ser feita pelo ID do candidato;
-- [ ] **3. Recuperar lista de candidatos:** Deve-se implementar funções/métodos que recuperem a lista de candidatos de um determinado
+- [x] **3. Recuperar lista de candidatos:** Deve-se implementar funções/métodos que recuperem a lista de candidatos de um determinado
 partido, UF, nascidos em um dado município, candidatos a um determinado cargo, cujo total de bens declarados esteja acima de um valor
 especificado pelo usuário, ou que tenham ou não sido eleitos no pleito;
-- [ ] **4. Exibir lista:** Deve-se implementar uma função/método que permita exibir a lista obtida no item 3;
-- [ ] **5. Média dos bens:** Funções que mostram a média do total de bens dos candidatos por cargo, UF, partido, ocupação, ou ano de
+- [x] **4. Exibir lista:** Deve-se implementar uma função/método que permita exibir a lista obtida no item 3;
+- [x] **5. Média dos bens:** Funções que mostram a média do total de bens dos candidatos por cargo, UF, partido, ocupação, ou ano de
 nascimento;
-- [ ] **6. Remover da Lista:** Função que remove da lista todos os candidatos que satisfaçam um critério.
+- [x] **6. Remover da Lista:** Função que remove da lista todos os candidatos que satisfaçam um critério.
    > Exemplo: remover todos os candidatos com a candidatura indeferida, ou que não tenham sido eleitos.
