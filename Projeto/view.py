@@ -2,7 +2,6 @@
 '''
 Arquivo com a classe Lista() que armazena objetos e os organiza
 '''
-
 class No:
     '''
     Implementacao do no da lista
@@ -109,24 +108,9 @@ class Lista:
         if self.__vazia():
             self.__comeco = self.__fim = novo_no
         else:
-            if novo_no >= self.__fim:
-                self.__fim.setProximo(novo_no)
-                novo_no.setAnterior(self.__fim)
-                novo_no.setProximo(None)
-                self.__fim = novo_no
-            elif novo_no <= self.__comeco:
-                self.__comeco.setAnterior(novo_no)
-                novo_no.setProximo(self.__comeco)
-                self.__comeco = novo_no
-            else:
-                no_atual = self.__comeco
-                no_proximo = self.__comeco.getProximo()
-                while not(no_proximo is None) and novo_no >= no_proximo:
-                    no_atual = no_proximo
-                    no_proximo = no_atual.getProximo()
-                no_atual.setProximo(novo_no)
-                novo_no.setAnterior(no_atual)
-                novo_no.setProximo(no_proximo)
+            self.__fim.setProximo(novo_no)
+            novo_no.setAnterior(self.__fim)
+            self.__fim = novo_no
 
     def Remover(self,valor):
         '''
@@ -187,7 +171,7 @@ class Lista:
             while cont < chave:
                 no = no.getProximo()
                 cont += 1
-            return no
+            return no.getValor()
     
     def __iter__(self):
         '''
@@ -227,8 +211,7 @@ class Lista:
         Atualiza o valor de um no
         '''
         no = self.__getitem__(indice)
-        self.Remover(no.getValor())
-        self.Inserir(valor)
+        no.setValor(valor)
 
     def __str__(self):
         '''
