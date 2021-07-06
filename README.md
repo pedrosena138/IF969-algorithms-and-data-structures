@@ -5,10 +5,9 @@
 
 [Federal University of Pernambuco - UFPE](ufpe.br)  
 [Informatics Center - CIn](portal.cin.ufpe.br/)  
-Bachelor of Information Systems
-IF969 - Algorithms and Data Structeres
+Bachelor of Information Systems IF969 - Algorithms and Data Structeres  
 Professor: Hansenclever Bassani  
-Author: Pedro Manoel Farias Sena de Lima
+Author: Pedro Manoel Farias Sena de Lima  
 Email: pmfsl@cin.ufpe.br
 
 *__Copyright © 2021 all rights reserved__*
@@ -38,7 +37,7 @@ Email: pmfsl@cin.ufpe.br
   - Stack
  
 ## Classroom Exercises
-1. [Programação Orientada à Objetos](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/exercises/01)
+1. [Object Oriented Program](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/exercises/01)
 
 ## Exercises List
 1. [Object Oriented Program](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/exercises-list/01)
