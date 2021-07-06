@@ -10,7 +10,7 @@
 - Damos o nome de **dicionário** ao conjunto dinâmico que suporta essas operações.
 
 ## Estruturas de Dados Elementares 
-### [Filas (Queues)](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/Estruturas-Elementares/fila.py)
+### [Filas (Queues)](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Estruturas-de-Dados/basic-structeres/fila.py)
 > Conjuntos dinâmicos nos quais os elemento são inseridos sempre no fim removidos sempre do início da estrutura (FIFO - First-In, First-Out).
 
 - Inserção (enfileirar): ```fila.enqueue(x)```

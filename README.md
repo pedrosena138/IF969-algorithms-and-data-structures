@@ -14,7 +14,7 @@ Email: pmfsl@cin.ufpe.br
 *__Copyright © 2019 todos os direitos reservados__*
 
 
-## [Algoritmos de Ordenação](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Algoritmos-de-Ordenacao) 
+## [Algoritmos de Ordenação](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/sorting-algorithms) 
 >Algoritmos que ordenam, completa ou parcialmente, uma sequêcia da dados.
 - **Ordenação Básica**
   - Bubblesort
@@ -25,7 +25,7 @@ Email: pmfsl@cin.ufpe.br
   - Mergesort
   - Quicksort
 
-## [Estruturas de Dados](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Estruturas-de-Dados)
+## [Estruturas de Dados](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/data-structure)
 >Objetos que armazenam dados de forma eficiente
 - **Árvores Binárias**
   - Árvore AVL
@@ -39,7 +39,7 @@ Email: pmfsl@cin.ufpe.br
  
 ## Exercícios
 >Exercicios de sala
-1. [Programação Orientada à Objetos](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/Exercicios/01)
+1. [Programação Orientada à Objetos](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/exercises/01)
 
 ## Listas
 >Listas de monitoria
