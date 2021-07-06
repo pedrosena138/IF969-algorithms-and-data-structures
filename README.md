@@ -1,52 +1,50 @@
-# IF969 - Algoritmos e Estruturas de Dados
->GitHub com listas, exercícios, estruturas de dados e algoritmos de ordenação da cadeira IF969- Algoritmos e Estruturas de Dados da UFPE
+# IF969 - Algorithms and Data Structeres
+>GitHub with exercises list, classroom exercises, data structures and sorting algorithms of the course IF969 - Algorithms and Data Structeres
 
 ![](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/img/logo.png)
 
-[Universidade Federal de Pernambuco-UFPE](www.ufpe.b)  
-[Centro de Informática - CIn](www2.cin.ufpe.br)  
-Bacharelado em Sistemas de Informação  
-IF969 - Algoritmos e Estrutura de Dados  
+[Federal University of Pernambuco - UFPE](ufpe.br)  
+[Informatics Center - CIn](portal.cin.ufpe.br/)  
+Bachelor of Information Systems
+IF969 - Algorithms and Data Structeres
 Professor: Hansenclever Bassani  
-Autor: Pedro Manoel Farias Sena de Lima (pmfsl)  
+Author: Pedro Manoel Farias Sena de Lima
 Email: pmfsl@cin.ufpe.br
 
-*__Copyright © 2019 todos os direitos reservados__*
+*__Copyright © 2021 all rights reserved__*
 
 
-## [Algoritmos de Ordenação](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/sorting-algorithms) 
->Algoritmos que ordenam, completa ou parcialmente, uma sequêcia da dados.
-- **Ordenação Básica**
+## [Sorting Algorithms](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/sorting-algorithms) 
+>Algorithms that order, completely or partially, a sequence of data.
+- **Basic Sorting**
   - Bubblesort
   - Insertionsort
   - Selectionsort
   - Shellsort
-- **Ordenação Avançada**
+- **Advanced Sorting**
   - Mergesort
   - Quicksort
 
-## [Estruturas de Dados](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/data-structure)
->Objetos que armazenam dados de forma eficiente
-- **Árvores Binárias**
-  - Árvore AVL
-  - Árvore Binária de Busca
-- **Estruturas Elementares**
-  - Fila
-  - Lista
-    - Lista Duplamente Ligada
-    - Lista Ligada
-  - Pilha
+## [Data Structures](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/data-structure)
+>Objects that store data efficiently.
+- **Binary Tree**
+  - AVL Tree
+  - Search Binary Tree
+- **Basic Structures**
+  - Queue
+  - List
+    - Doubly Linked List
+    - Linked List
+  - Stack
  
-## Exercícios
->Exercicios de sala
+## Classroom Exercises
 1. [Programação Orientada à Objetos](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/exercises/01)
 
-## Listas
->Listas de monitoria
-1. [Programação Orientada à Objetos](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/01)
-2. [Fila, Lista e Pilha](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/02)
-3. [Árvores](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/03)
-4. [Grafos](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/Listas/04)
+## Exercises List
+1. [Object Oriented Program](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/exercises-list/01)
+2. [Queue, List, Stack](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/exercises-list/02)
+3. [Trees](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/exercises-list/03)
+4. [Graphs](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/tree/master/exercises-list/04)
     
 
 
