@@ -9,27 +9,26 @@ Email: pmfsl@cin.ufpe.br
 
 Copyright © 2021 all rights reserved
 
-Description: Implementation of Queue data structure.
+Description: Implementation of Stack data structure.
 """
 from node import Node
 
-class Queue:
+class Stack:
     '''
-    Queue implementation
+    Stack implementation
     '''
     def __init__(self):
         self.__start = None
-        self.__end = None
     
     def is_empty(self):
         '''
-        Return True if queue is empty
+        Return True if stack is empty
         '''
         return self.__start is None
     
     def search(self, value):
         '''
-        Return True if a node it is in the queue.
+        Return True if a node it is in the stack.
         '''
         if self.is_empty():
             return False
@@ -38,36 +37,33 @@ class Queue:
             node_found = False
             while node and not(node_found):
                 if node.get_value() == value:
-                    node_found = True
+                    no_achado = True
                 else:
                     node = node.get_next()
             return node_found
         
-    def enqueue(self, value):
+    def push(self, value):
         '''
-        Insert a value in the queue
+        Insert a node in the stack
         '''
         node = Node(value)
-        if self.is_empty():
-            self.__start = self.__end = node
-        else:
-           self.__end.set_next(node)
-           self.__end = node
-
-    def dequeue(self):
+        node.set_next(self.__start)
+        self.__start = node
+    
+    def pop(self):
         '''
-        Remove the first value from the queue.
+        Remove the last node from the stack
         '''
         if self.is_empty():
-            raise ValueError('Queue.dequeue(): empty queue')
+            raise ValueError('Stack.pop(): empty stack')
         else:
-            next_node = self.__start.get_next()
+            node = self.__start.get_next()
             self.__start.set_next(None)
-            self.__start = next_node
+            self.__start = node
     
     def __len__(self):
         '''
-        Return queue length
+        Retourn the stack length
         '''
         if self.is_empty():
             return 0
@@ -82,14 +78,14 @@ class Queue:
     
     def __iter__(self):
         '''
-        Queue iterator
+        Stack iterator
         '''
         self.__index = int()
         return self
     
     def __next__(self):
         '''
-        Return node iterator
+        Return the iterator node
         '''
         if self.__index < self.__len__():
             node = self.__getitem__(self.__index)
@@ -100,9 +96,9 @@ class Queue:
         
     def __getitem__(self, key):
         '''
-        Retorna o valor do no que contem a chave passada como parametro
+        Return the value os a key.
         '''
-        index = self.__len__() - 1
+        index = self.__len__()-1
         if (key > index) or (self.is_empty()):
             raise IndexError('index out of range')
         else:
@@ -115,14 +111,14 @@ class Queue:
     
     def __setitem__(self, index, value):
         '''
-        Update node value
+        Update the node value
         '''
         node = self.__getitem__(index)
         node.set_value(value)
 
     def __str__(self):
         '''
-        Return string representation
+        Return the string representation.
         '''
         if self.is_empty():
             return '[]'
@@ -130,11 +126,11 @@ class Queue:
             output = '['
 
             for node in self:
-                if node == self.__end:
+                if node.get_next() is None:
                     output += str(node) + ']'
                 else:
                     output += str(node) + ', '
             return output
     
     def __repr__(self):
-        return ('Queue(%s)' % self.__str__())
+        return ('Stack(%s)' % self.__str__())

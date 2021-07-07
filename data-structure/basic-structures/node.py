@@ -36,3 +36,13 @@ class Node:
     
     def __repr__(self):
         return self.__value
+        
+class DoubleLinkedNode(Node):
+    def __init__(self):
+        self.__previous = None
+    
+    #Previous Get and Set
+    def get_previous(self):
+        return self.__previous
+    def set_previous(self, node):
+        self.__previous = node
