@@ -38,7 +38,8 @@ class Node:
         return self.__value
         
 class DoubleLinkedNode(Node):
-    def __init__(self):
+    def __init__(self, value):
+        super().__init__(value)
         self.__previous = None
     
     #Previous Get and Set
