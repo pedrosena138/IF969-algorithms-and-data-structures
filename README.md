@@ -1,4 +1,4 @@
-# IF969 - Algorithms and Data Structeres
+# IF969 - Algorithms and Data Structeres (Work in Progress)
 >GitHub with exercises list, classroom exercises, data structures and sorting algorithms of the course IF969 - Algorithms and Data Structeres
 
 ![](https://github.com/pedrosena138/IF969-Algoritmos-e-Estrutura-de-Dados/blob/master/img/logo.png)
